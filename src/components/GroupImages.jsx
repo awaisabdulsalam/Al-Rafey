@@ -1,4 +1,7 @@
 import group1 from "../assets/group1.png";
+import group2 from "../assets/group2.png";
+import group3 from "../assets/group3.png";
+
 
 const GroupImages = () => {
   return (
@@ -19,7 +22,7 @@ const GroupImages = () => {
       </div>
       <div
         className="h-40 w-1/3 flex flex-col justify-center px-10"
-        style={{ backgroundImage: "url('/src/assets/group2.png')" }}
+        style={{ backgroundImage: `url(${group2})` }}
       >
         <h1 className="text-2xl">
           Boomrang <br />
@@ -33,7 +36,7 @@ const GroupImages = () => {
       </div>
       <div
         className="h-40 w-1/3 flex flex-col justify-center px-10"
-        style={{ backgroundImage: "url('/src/assets/group3.png')" }}
+        style={{ backgroundImage: `url(${group3})` }}
       >
         <h1 className="text-2xl">
           Modern <br />
