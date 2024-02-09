@@ -1,6 +1,6 @@
 import heroImage from "../assets/heroimage.png"
-import rectangleImage from "../assets/rectangle.png"
-import ellipseImage from "../assets/ellipse.png"
+// import rectangleImage from "../assets/rectangle.png"
+// import ellipseImage from "../assets/ellipse.png"
 
 
 const Hero = () => {
@@ -19,12 +19,10 @@ const Hero = () => {
                 <img src={heroImage} className="bg-contain bg-no-repeat bg-center h-[600px]" style={{ backgroundImage: "url('/src/assets/vector1.png'), url('/src/assets/vector2.png')" }} alt="" srcset="" />
             </div>
         </div>
-        <div className="flex mt-[-10] justify-center">
-            {/* <div className="border-2 border-red-900"> */}
+        {/* <div className="flex mt-[-10] justify-center">
                 <img src={rectangleImage} alt="" srcset="" className="h-5" />
                 <img src={ellipseImage} alt="" srcset="" />
-            {/* </div> */}
-        </div>
+        </div> */}
     </section>
     </>
   )

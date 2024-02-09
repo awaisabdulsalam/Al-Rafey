@@ -1,4 +1,3 @@
-import React from "react";
 import { BiHeart, BiBell } from "react-icons/bi";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
