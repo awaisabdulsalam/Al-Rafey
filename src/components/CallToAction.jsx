@@ -1,7 +1,7 @@
 const CallToAction = () => {
   return (
     <section className="flex justify-center">
-      <div className="flex justify-between py-5 px-10 my-10 text-white bg-[#262261] w-[80%] rounded-2xl">
+      <div className="flex justify-between relative bottom-[-40px] py-5 px-10 my-10 text-white bg-[#262261] w-[80%] rounded-2xl">
         <div>
           <h1 className="font-semibold text-2xl">SUBSCRIBE TO GET UPDATED</h1>
           <p>
