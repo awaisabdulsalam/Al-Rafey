@@ -1,4 +1,4 @@
-import { FaStar, FaShoppingCart } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { TbHeart } from "react-icons/tb";
 import { LuShoppingCart } from "react-icons/lu";
 import men from "../assets/men.jpg";
