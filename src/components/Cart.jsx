@@ -5,6 +5,8 @@ import { LiaCommentDots } from "react-icons/lia";
 import { LuShoppingCart } from "react-icons/lu";
 import { HiOutlineTruck } from "react-icons/hi2";
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 import shirt1 from "../assets/shirt1.png";
 import shirt2 from "../assets/shirt2.png";
@@ -18,11 +20,17 @@ const Cart = () => {
         <div>
           <img src={shirt1} alt="" />
         </div>
-        <div className="flex gap-2 my-5">
-          <img src={shirt2} alt="" />
-          <img src={shirt2} alt="" />
-          <img src={shirt2} alt="" />
-          <img src={shirt2} alt="" />
+        <div className="flex justify-center items-center gap-2 my-5">
+          <div>
+            <MdArrowBackIosNew className="text-2xl cursor-pointer" />
+          </div>
+          <img src={shirt2} alt="" className="border-2 border-[#262261] rounded-lg" />
+          <img src={shirt2} alt="" className="cursor-pointer" />
+          <img src={shirt2} alt="" className="cursor-pointer" />
+          <img src={shirt2} alt="" className="cursor-pointer" />
+          <div>
+            <MdArrowForwardIos className="text-2xl cursor-pointer" />
+          </div>
         </div>
       </section>
       <section className="w-1/2">
