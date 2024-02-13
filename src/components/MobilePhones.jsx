@@ -15,7 +15,6 @@ const MobilePhones = () => {
       </button>
     </div>
 
-    {/************    Product Cart   **************/}
     <div className="flex gap-4 py-10">
       <div className="flex-1 py-3 px-4 shadow-lg shadow-[#cccece] mx-auto rounded-md overflow-hidden">
         <div className="relative">

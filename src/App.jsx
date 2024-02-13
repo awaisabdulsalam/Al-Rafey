@@ -1,5 +1,6 @@
 import CallToAction from "./components/CallToAction"
 import Cart from "./components/Cart"
+import Categories from "./components/Categories"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import HomePage from "./components/HomePage"
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
     <Header />
+    <Categories />
     <Cart />
     <HomePage />
     <MobilePhones />
