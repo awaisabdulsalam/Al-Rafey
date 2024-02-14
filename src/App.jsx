@@ -8,6 +8,7 @@ import Header from "./components/Header"
 import HomePage from "./components/HomePage"
 import MobilePhones from "./components/MobilePhones"
 import Purchase from "./components/Purchase"
+import Order from "./components/Order"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
     <Header />
+    <Order />
     <Purchase />
     <Favourites />
     <Checkout />
