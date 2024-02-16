@@ -13,6 +13,8 @@ import Profile from "./components/Profile"
 import NewAddress from "./components/NewAddress"
 import CreditCard from "./components/CreditCard"
 import OrderHistory from "./components/OrderHistory"
+import Addresses from "./components/Addresses"
+import PaymentMethods from "./components/PaymentMethods"
 
 
 function App() {
@@ -20,9 +22,12 @@ function App() {
   return (
     <>
     <Header />
-    <OrderHistory />
-    <CreditCard />
-    <NewAddress />
+    {/* <Profile /> */}
+    {/* <PaymentMethods /> */}
+    {/* <Addresses /> */}
+    {/* <OrderHistory /> */}
+    {/* <CreditCard /> */}
+    {/* <NewAddress /> */}
     <Profile />
     <Order />
     <Purchase />
