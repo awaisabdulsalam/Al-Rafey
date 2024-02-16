@@ -3,13 +3,10 @@ import ProfileButtons from "./ProfileButtons";
 const ProfileSettings = () => {
   return (
     <>
-      <section className="flex gap-5 py-10 px-20 border-2 border-red-700">
+      <section className="flex gap-5 py-10 px-20">
         <div className="w-[30%] p-2">
           <ProfileButtons />
         </div>
-
-        {/* <div className="w-full"> */}
-        {/* <div className="h-auto my-5 mx-32 px-10 py-8 rounded-lg"> */}
       <div
         className="h-auto w-full mt-2  px-8 py-2 rounded-lg"
         style={{

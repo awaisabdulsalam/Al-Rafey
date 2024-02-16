@@ -11,6 +11,8 @@ import Purchase from "./components/Purchase"
 import Order from "./components/Order"
 import Profile from "./components/Profile"
 import NewAddress from "./components/NewAddress"
+import CreditCard from "./components/CreditCard"
+import OrderHistory from "./components/OrderHistory"
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
   return (
     <>
     <Header />
+    <OrderHistory />
+    <CreditCard />
     <NewAddress />
     <Profile />
     <Order />
