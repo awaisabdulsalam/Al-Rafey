@@ -1,5 +1,4 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import CallToAction from "./components/CallToAction";
 import Cart from "./components/Cart";
@@ -12,20 +11,14 @@ import HomePage from "./components/HomePage";
 import MobilePhones from "./components/MobilePhones";
 import Purchase from "./components/Purchase";
 import Order from "./components/Order";
-import Profile from "./components/Profile";
-import NewAddress from "./components/NewAddress";
-import CreditCard from "./components/CreditCard";
-import OrderHistory from "./components/OrderHistory";
-import Addresses from "./components/Addresses";
-import PaymentMethods from "./components/PaymentMethods";
-import ProfileSettings from "./components/UserNav";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <Addresses />
+        <UserProfile />
         <Order />
         <Purchase />
         <Favourites />

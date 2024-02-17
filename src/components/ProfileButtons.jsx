@@ -24,9 +24,9 @@ const ProfileButtons = () => {
             <CgProfile />
           </button>
         </Link>
-        <Link to="/payment-methods">
+        <Link to="/payment-method">
           <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
-            <span>Orders History</span>
+            <span>Payment Methods</span>
             <CgProfile />
           </button>
         </Link>
@@ -39,7 +39,7 @@ const ProfileButtons = () => {
       </div>
       <div className="p-1 mt-4 border-2 border-[#faaf40] rounded-lg">
         <button className="w-full flex items-center justify-between gap-2 p-2 text-[#fff] bg-[#faaf40] rounded-lg border-2 border-[#faaf40]">
-          <span>Order Tracking</span>
+          <span>Log Out</span>
           <IoPowerSharp />
         </button>
       </div>

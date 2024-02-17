@@ -2,6 +2,7 @@ import { LuPlus } from "react-icons/lu";
 import creditCard from "../assets/creditcard.png";
 
 const PaymentMethods = () => {
+  console.log("Payment Addddd..........");
   return (
     <>
         <div
@@ -24,7 +25,6 @@ const PaymentMethods = () => {
             </div>
             <div>
               <img src={creditCard} alt="" />
-
             </div>
           </div>
         </div>
