@@ -18,25 +18,14 @@ import CreditCard from "./components/CreditCard";
 import OrderHistory from "./components/OrderHistory";
 import Addresses from "./components/Addresses";
 import PaymentMethods from "./components/PaymentMethods";
-import ProfileSettings from "./components/ProfileSettings";
+import ProfileSettings from "./components/UserNav";
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <Routes>
-          <Route path="/setting" element={<ProfileSettings />} />
-          <Route path="/order-history" element={<OrderHistory />} />
-          <Route path="/addresses" element={<Addresses />} />
-        </Routes>
-        <Profile />
-        {/* <PaymentMethods /> */}
-        {/* <Addresses /> */}
-        {/* <OrderHistory /> */}
-        {/* <CreditCard /> */}
-        {/* <NewAddress /> */}
-        {/* <Profile /> */}
+        <Addresses />
         <Order />
         <Purchase />
         <Favourites />

@@ -1,14 +1,18 @@
 import { CgProfile } from "react-icons/cg";
 import { IoPowerSharp } from "react-icons/io5";
-import { LuPlus } from "react-icons/lu";
 import bgImage from "../assets/bgImage.png";
 import profileImage from "../assets/profile.png";
-import Profile from "./Profile";
+import OrderHistory from "./OrderHistory";
+import { Link, Route, Routes } from "react-router-dom";
+import AddressSection from "./AddressSection";
+import UserNav from "./UserNav";
+import PaymentMethods from "./PaymentMethods";
+
 
 const Addresses = () => {
   return (
     <>
-      {/* <section
+      <section
         className="flex justify-between py-5 px-20"
         style={{ backgroundImage: `url("${bgImage}")` }}
       >
@@ -40,33 +44,36 @@ const Addresses = () => {
             <p className="text-[#303030] font-normal">Points</p>
           </div>
         </div>
-      </section> */}
-      <Profile />
+      </section>
+
       <div className="flex flex-col md:flex-row justify-between gap-5    rounded px-10 py-10">
-        {/*  */}
-        <div className="w-[30%]">
-          <div className="p-1 border-2 border-[#f0f2f6] rounded-lg">
+        <div className="w-[30%] p-1 border-2 border-[#f0f2f6] rounded-lg">
+          <Link to="/setting">
             <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#fff] bg-[#262261] rounded-lg border-2 border-[#262261]">
               <span>User Profile Settings</span>
               <CgProfile />
             </button>
+          </Link>
+          <Link to="/order-history">
             <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
               <span>Orders History</span>
               <CgProfile />
             </button>
+          </Link>
+          <Link to="/addresses">
             <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
               <span>Addresses</span>
               <CgProfile />
             </button>
-            <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
-              <span>Payment Methods</span>
-              <CgProfile />
-            </button>
-            <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
-              <span>Order Tracking</span>
-              <CgProfile />
-            </button>
-          </div>
+          </Link>
+          <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
+            <span>Payment Methods</span>
+            <CgProfile />
+          </button>
+          <button className="w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
+            <span>Order Tracking</span>
+            <CgProfile />
+          </button>
           <div className="p-1 mt-4 border-2 border-[#faaf40] rounded-lg">
             <button className="w-full flex items-center justify-between gap-2 p-2 text-[#fff] bg-[#faaf40] rounded-lg border-2 border-[#faaf40]">
               <span>Order Tracking</span>
@@ -75,38 +82,13 @@ const Addresses = () => {
           </div>
         </div>
 
-        {/*  */}
-
-        <div
-          className="h-auto w-full mt-2  px-6 py-0 rounded-lg border-2 "
-        >
-          <div className="flex justify-between items-center">
-            <h1 className="text-xl  font-semibold my-4 text-[#303030]">
-              Address Book
-            </h1>
-            <div>
-              <button className="flex items-center gap-1 px-3 py-2 text-[14px] rounded-md text-white bg-[#262261]">
-                <LuPlus /> New Address
-              </button>
-            </div>
-          </div>
-          <hr />
-          <div className="flex justify-between mt-2">
-            <div className="my-2">
-              <h1 className="text-[#303030] text-2xl font-semibold my-2">
-                Shah Zaman
-              </h1>
-              <p className="text-[#939393]">(+92) 0309 1354 207</p>
-              <p className="text-[#939393]">
-                Punjab,Lahore - Model Town,Block D,Sher Shah Block , Barket
-                Market , Near Skans School of accountancy , Lahore
-              </p>
-            </div>
-            <div>
-              <button className="px-3 py-2 rounded-md text-[14px] text-[#262261] bg-[#f6f6f6] border-[1px] border-[#262261]">Edit Address</button>
-            </div>
-          </div>
-        </div>
+        <Routes>
+          <Route path="/setting" element={<UserNav />} />
+          <Route path="/order-history" element={<OrderHistory />} />
+          <Route path="/addresses" element={<AddressSection />} />
+          <Route path="/payment-methods" element={<PaymentMethods />} />
+          <Route path="/order-tracking" element={<OrderHistory />} />
+        </Routes>
       </div>
     </>
   );

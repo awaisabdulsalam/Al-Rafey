@@ -1,19 +1,15 @@
 import bgImage from "../assets/bgImage.png";
 import profileImage from "../assets/profile.png";
-import ProfileSettings from "./ProfileSettings.jsx";
-
-// import {
-//     Switch,
-//     Route,
-//   } from "react-router-dom";
+import UserNav from "./UserNav.jsx";
 
 const Profile = () => {
+
   return (
     <>
-      <section
+      {/* <section
         className="flex justify-between py-5 px-20"
         style={{ backgroundImage: `url("${bgImage}")` }}
-      >
+      > */}
         <div className="flex items-center">
           <div className="mb-[-70px]">
             <img src={profileImage} className="h-[207px]" alt="" />
@@ -42,8 +38,8 @@ const Profile = () => {
             <p className="text-[#303030] font-normal">Points</p>
           </div>
         </div>
-      </section>
-      <ProfileSettings />
+      {/* </section> */}
+      <UserNav />
     </>
   );
 };

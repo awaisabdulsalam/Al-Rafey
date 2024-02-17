@@ -1,21 +1,9 @@
 
-import ProfileButtons from "./ProfileButtons";
-import { CgProfile } from "react-icons/cg";
-import { IoPowerSharp } from "react-icons/io5";
-
 const ProfileSettings = () => {
   return (
     <>
-      <section className="flex gap-5 py-10 px-20">
-        <div className="w-[30%] p-2">
-          <ProfileButtons />
-        </div>
         <div
-          className="h-auto w-full mt-2  px-8 py-2 rounded-lg"
-          style={{
-            boxShadow:
-              "5px 5px 10px rgba(0, 0, 0, 0.01), 5px 5px 10px rgba(0, 0, 0, 0.01), 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(0, 0, 0, 0.1)",
-          }}
+          className="h-auto w-full mt-2  px-8 py-2 rounded-lg border-2"
         >
           <div className="w-full mt-5 bg-white rounded-lg overflow-hidden">
             <div className="">
@@ -116,7 +104,6 @@ const ProfileSettings = () => {
             </div>
           </div>
         </div>
-      </section>
     </>
   );
 };
