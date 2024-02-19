@@ -2,21 +2,22 @@ import { BiHeart, BiBell } from "react-icons/bi";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
-
+import { Link, } from "react-router-dom";
 import logoImage from "../assets/logo.png";
 
 const Navbar2 = () => {
   return (
+    <>
     <nav className="bg-[#262261] text-white flex justify-between items-center px-8 py-4">
-      <div className="flex items-center">
+      <div className="flex flex-1 items-center">
         <img
           src={logoImage}
           alt="Logo"
-          className="h-15 w-[16rem] mr-2 cursor-pointer"
+          className="h-[40px] w-[202px] mr-2 cursor-pointer"
         />
       </div>
-      <div className="w-full flex mx-10">
-        <select className="bg-[#FAAF40] p-2 px-4 rounded-tl-lg rounded-bl-lg flex-1">
+      <div className="flex flex-[3] mx-10">
+        <select className="bg-[#FAAF40]  px-4 rounded-tl-lg rounded-bl-lg flex-1">
           <option value="category" default hidden>
             Category
           </option>
@@ -24,17 +25,20 @@ const Navbar2 = () => {
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
         </select>
-        <div className="flex rounded-tr-lg rounded-br-lg w-full border bottom-1 bg-white">
+        <div className="flex rounded-tr-lg rounded-br-lg w-full  relative border bg-white">
           <input
             type="text"
             placeholder="Search Product Here"
-            className="bg-white text-gray-500 py-2.5 px-5  flex-2 rounded-tr-lg rounded-br-lg w-full"
-          />
-          <IoSearch className="h-6 w-6 text-black mt-2 mr-5 cursor-pointer" />
+            className="bg-white text-gray-500 py-2.5 px-5 flex-2 rounded-tr-lg rounded-br-lg w-full"
+          >
+          </input>
+          <IoSearch className="h-6 w-6 text-gray-700 mt-2 mr-5 absolute right-0 top-1 cursor-pointer" />
         </div>
       </div>
-      <div className="flex items-center gap-4 relative">
+      <div className="flex flex-1 justify-end items-center gap-4 relative">
+        <Link to="/profile">
         <FaRegUser className="h-6 w-6 mr-4 cursor-pointer" />
+        </Link>
 
         <div className="relative">
         <BiHeart className="h-6 w-6 mr-4 cursor-pointer" />
@@ -57,6 +61,7 @@ const Navbar2 = () => {
         <span className="ml-2">$00.0</span>
       </div>
     </nav>
+    </>
   );
 };
 

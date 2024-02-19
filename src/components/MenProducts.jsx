@@ -8,12 +8,12 @@ const products = [
     { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
     { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
   ]
-const MensProduct = () => {
+const MenProducts = () => {
   return (
     <>
-    <Products products={products} heading="Men's Products" bgColor="#fff" color="" id="men" />
+    <Products products={products} heading="Men's Products" bgColor="#fff" color="#000" id="men" />
     </>
-  );
-};
+  )
+}
 
-export default MensProduct;
+export default MenProducts

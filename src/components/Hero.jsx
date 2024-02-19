@@ -1,8 +1,5 @@
 import heroImage from "../assets/heroimage.png";
-// import rectangleImage from "../assets/rectangle.png"
-// import ellipseImage from "../assets/ellipse.png"
 import vector1 from "../assets/vector1.png"
-import vector2 from "../assets/vector2.png"
 
 
 const Hero = () => {
@@ -18,7 +15,7 @@ const Hero = () => {
               All Executive in Rafey Traders
             </p>
             <div>
-              <button className="bg-[#E5F43E] border-2 border-white px-8 py-3 my-1 rounded-lg text-lg">
+              <button className="bg-[#E5F43E] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl">
                 Shop Now
               </button>
             </div>
@@ -35,10 +32,6 @@ const Hero = () => {
             />
           </div>
         </div>
-        {/* <div className="flex mt-[-10] justify-center">
-                <img src={rectangleImage} alt="" srcset="" className="h-5" />
-                <img src={ellipseImage} alt="" srcset="" />
-        </div> */}
       </section>
     </>
   );

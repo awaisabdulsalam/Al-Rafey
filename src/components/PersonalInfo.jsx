@@ -1,5 +1,6 @@
 
 const ProfileSettings = () => {
+  console.log("Helooooo");
   return (
     <>
         <div

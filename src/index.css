@@ -30,3 +30,24 @@
     visibility: visible;
     transform: scaleX(1);
 }
+
+.profile_button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2px;
+    padding: 12px;
+    margin: 10px 0;
+    color: #262261;
+    background-color: #f0f2f6;
+    border: 2px solid #262261;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.profile_button:hover , .profile_button:active {
+    color: #fff;
+    background-color: #1f1b6e;
+    border-color: #1f1b6e;
+}
+

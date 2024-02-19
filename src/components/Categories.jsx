@@ -1,14 +1,24 @@
-import { FaStar } from "react-icons/fa";
-import { TbHeart } from "react-icons/tb";
-import { LuShoppingCart } from "react-icons/lu";
-import phone from "../assets/phone.png";
+import Products from "./Products"
+import men from "../assets/men.jpg";
+
+const products = [
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    { image: men, name: "T-Shirt", price: "$222", reviews: 234 },
+    
+  ]
 import Pagination from "./Pagination";
 
 const Categories = () => {
   return (
     <>
     <section className="flex px-10">
-      <section className="flex-2  my-10">
+      <section className="flex-1  my-10">
         <h1 className="text-2xl">Categories</h1>
         <div className="mt-5">
             <div className="flex items-center gap-1 my-2 cursor-pointer">
@@ -107,7 +117,7 @@ const Categories = () => {
 
         </div>
       </section>
-      <section className="flex-2 px-20 my-10 flex-grow">
+      {/* <section className="flex-2 px-20 my-10 flex-grow border-2 border-green-600">
         <div className="flex justify-between border-b-[1px] border-[#d5e1e1]">
           <h1 className="py-2 text-xl">
             Showing 1-12 of 56
@@ -464,7 +474,13 @@ const Categories = () => {
 
         <div></div>
 
-      </section>
+      </section> */}
+{/* <section className="flex-[2] px-0 my-10 border-2 border-green-600"> */}
+<section className="flex flex-[3]">
+    <Products products={products} heading="All Products" bgColor="#fff" color="" id="men" />
+</section>
+{/* </section> */}
+
     </section>
     <section>
         <Pagination />

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import CallToAction from "./components/CallToAction";
 import Cart from "./components/Cart";
@@ -12,20 +12,32 @@ import MobilePhones from "./components/MobilePhones";
 import Purchase from "./components/Purchase";
 import Order from "./components/Order";
 import UserProfile from "./components/UserProfile";
+import Products from "./components/Products";
+import MenChProducts from "./components/MenProduct";
+import Context from "./components/Context";
+import WomenProduct from "./components/WomenProduct";
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <UserProfile />
-        <Order />
-        <Purchase />
-        <Favourites />
-        <Checkout />
-        <Categories />
-        <Cart />
-        <HomePage />
+        {/* <HomePage /> */}
+        {/* <Context /> */}
+        {/* <Products /> */}
+        {/* <MensProduct /> */}
+        {/* <WomenProduct /> */}
+        {/* <UserProfile /> */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Routes>
+        {/* <Order /> */}
+        {/* <Purchase /> */}
+        {/* <Favourites /> */}
+        {/* <Checkout /> */}
+        {/* <Categories /> */}
+        {/* <Cart /> */}
         <MobilePhones />
         <CallToAction />
         <Footer />
