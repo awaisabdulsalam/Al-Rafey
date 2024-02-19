@@ -2,10 +2,20 @@ import { BiHeart, BiBell } from "react-icons/bi";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
-import { Link, } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import { useContext, useState } from "react"
+import { userContext } from "../App.jsx"
+
+
 import logoImage from "../assets/logo.png";
 
+
 const Navbar2 = () => {
+  const [addCartNum, favourite] = useContext(userContext);
+  console.log(addCartNum);
+  console.log(favourite);
+
   return (
     <>
     <nav className="bg-[#262261] text-white flex justify-between items-center px-8 py-4">
@@ -43,7 +53,7 @@ const Navbar2 = () => {
         <div className="relative">
         <BiHeart className="h-6 w-6 mr-4 cursor-pointer" />
           <span className="absolute -top-1 right-2 bg-[#FAAF40] text-white text-xs rounded-full px-1">
-            2
+            {favourite}
           </span>
         </div>
         <div className="relative">
@@ -55,7 +65,7 @@ const Navbar2 = () => {
         <div className="relative">
         <LuShoppingCart className="h-6 w-6 cursor-pointer relative"></LuShoppingCart>
         <span className="absolute -top-1 left-4 bg-[#FAAF40] text-white text-xs rounded-full px-1">
-            2
+            {addCartNum}
           </span>
         </div>
         <span className="ml-2">$00.0</span>

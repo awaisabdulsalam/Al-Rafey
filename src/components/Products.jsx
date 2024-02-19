@@ -2,7 +2,14 @@ import { FaStar } from "react-icons/fa";
 import { TbHeart } from "react-icons/tb";
 import { LuShoppingCart } from "react-icons/lu";
 
+import { useContext, useState } from "react"
+import { userContext } from "../App.jsx"
+
+
 const Products = ({ products, heading, bgColor, color, id }) => {
+  const [ addCartNum, favourite, setAddCartNum, setFavourite ] = useContext(userContext);
+
+
   return (
     <>
     <section className="py-5 px-10 my-5" id={`${id}`}  style={{ backgroundColor: bgColor }}>
@@ -22,7 +29,9 @@ const Products = ({ products, heading, bgColor, color, id }) => {
         <div key={index} style={{ backgroundColor: color }} className="border-2 border-gray-200 h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-4 mx-auto rounded-md overflow-hidden">
           <div className={`text-[${color}] relative`}>
             <div className="cursor-pointer">
-            <TbHeart className="absolute top-0 right-0 m-2 p-1 rounded-full text-3xl text-gray-400 bg-white border-2" />
+            <TbHeart onClick={() => {
+              setFavourite(favourite => favourite + 1)
+            }} className={`hover:text-red-600 hover:border-red-600 absolute top-0 right-0 m-2 p-1 rounded-full text-3xl text-gray-400 bg-white border-2`} />
             </div>
             <img src={product.image} alt="Product" className="rounded-md h-[200px] w-full" />
           </div>
@@ -39,7 +48,7 @@ const Products = ({ products, heading, bgColor, color, id }) => {
                 <p className="text-gray-400 text-sm">({product.reviews} Reviews)</p>
 
           </div>
-            <button className="flex justify-center items-center bg-[#262261] text-white w-full px-2 py-1 rounded-md">
+            <button onClick={() => setAddCartNum(addCartNum => addCartNum + 1)} className="flex justify-center items-center bg-[#262261] text-white w-full px-2 py-1 rounded-md">
               <LuShoppingCart className="" />
               <span className="mx-2">|</span> Add to Cart
             </button>

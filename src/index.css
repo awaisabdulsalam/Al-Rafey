@@ -51,3 +51,9 @@
     border-color: #1f1b6e;
 }
 
+.heart {
+    /* color: #fff; */
+    border: 2px solid rgb(212, 27, 27);
+    color: rgb(212, 27, 27);
+
+}

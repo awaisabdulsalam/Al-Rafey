@@ -17,9 +17,19 @@ import MenChProducts from "./components/MenProduct";
 import Context from "./components/Context";
 import WomenProduct from "./components/WomenProduct";
 
+
+
+
+import { createContext, useState } from "react"
+export const userContext = createContext()
+
 function App() {
+  const [addCartNum, setAddCartNum] = useState(0);
+  const [favourite, setFavourite] = useState(0);
+
   return (
     <>
+        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite]}>
       <Router>
         <Header />
         {/* <HomePage /> */}
@@ -42,6 +52,7 @@ function App() {
         <CallToAction />
         <Footer />
       </Router>
+        </userContext.Provider>
     </>
   );
 }
