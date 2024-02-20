@@ -52,11 +52,13 @@ const Navbar2 = () => {
     <>
       <nav className="bg-[#262261] text-white flex justify-between items-center px-8 py-4">
         <div className="flex flex-1 items-center">
+          <Link to="/al-rafey">
           <img
             src={logoImage}
             alt="Logo"
             className="h-[40px] w-[202px] mr-2 cursor-pointer"
           />
+          </Link>
         </div>
         <div className="flex flex-[3] mx-10">
           <select value={selectCategory} onChange={(e) => setSelectCategory(e.target.value)} className="bg-[#FAAF40]  px-4 rounded-tl-lg rounded-bl-lg flex-1">
