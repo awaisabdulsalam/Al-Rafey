@@ -11,11 +11,11 @@ const Navbar3 = () => {
         </div>
         <div className='pt-5'>
             <ul className='flex gap-0'>
-                <li className='border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#tech" className='text-[#757575]'>Tech</a></li>
-                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#men" className='text-[#757575]'>Men</a></li>
-                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#women" className='text-[#757575]'>Women</a></li>
-                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#children" className='text-[#757575]'>Childs</a></li>
-                <li className='border-l-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#grocery" className='text-[#757575]'>Grocery</a></li>
+                <li className='border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#tech" className='text-[#757575] hover:text-[#a6a6a6]'>Tech</a></li>
+                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#men" className='text-[#757575] hover:text-[#a6a6a6]'>Men</a></li>
+                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#women" className='text-[#757575] hover:text-[#a6a6a6]'>Women</a></li>
+                <li className='border-l-[1px] border-r-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#children" className='text-[#757575] hover:text-[#a6a6a6]'>Childs</a></li>
+                <li className='border-l-[1px] border-[#a2a2a2] px-5 text-[18px]'><a href="#grocery" className='text-[#757575] hover:text-[#a6a6a6]'>Grocery</a></li>
             </ul>
         </div>
         </div>

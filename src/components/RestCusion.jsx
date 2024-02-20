@@ -10,7 +10,7 @@ const RestCusion = () => {
           <span className="font-bold">Rest Cusion</span>
         </h1>
         <p className="my-2 font-light">The design of the Rest fabric <br /> began from the use of leftover materials from the Sand upholstery fabric.</p>
-        <button className="text-xl my-2 py-2 px-4 rounded-lg border-[2px] border-[#000]">
+        <button className="text-xl my-2 py-2 px-4 rounded-lg border-[2px] border-[#000] hover:bg-[#262261] hover:text-[#fff] hover:border-[#262261]">
           Show More
         </button>
         </div>

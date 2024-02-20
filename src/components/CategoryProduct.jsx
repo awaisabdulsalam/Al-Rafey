@@ -1,5 +1,4 @@
-import { useContext } from "react"
-import { userContext } from "./Context.jsx"
+
 import MensProduct from "./MenProduct.jsx"
 import WomenProduct from "./WomenProduct.jsx"
 import MobileProduct from "./MobileProduct.jsx"

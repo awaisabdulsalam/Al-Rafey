@@ -15,7 +15,7 @@ const Hero = () => {
               All Executive in Rafey Traders
             </p>
             <div>
-              <button className="bg-[#E5F43E] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl">
+              <button className="bg-[#E5F43E] hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl">
                 Shop Now
               </button>
             </div>

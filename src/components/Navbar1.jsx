@@ -10,11 +10,11 @@ const Navbar1 = () => {
     <nav className="bg-[#1e1e1e] text-white flex justify-between items-center px-10 py-2">
       <div className="flex items-center gap-10 px-10">
         <div className="flex items-center gap-3 mr-4">
-          <BiMap className='text-2xl' />
+          <BiMap className='text-2xl hover:text-[#807bd1]' />
           <span>ABC</span>
         </div>
         <div className="flex items-center gap-3 ml-5">
-          <MdOutlineLocalPhone className='text-2xl'  />
+          <MdOutlineLocalPhone className='text-2xl hover:text-[#807bd1]'  />
           <span>+923091354207</span>
         </div>
       </div>
@@ -22,13 +22,13 @@ const Navbar1 = () => {
       <div className="flex items-center px-10">
         <div className="flex space-x-4">
           <a href="#" className="text-white">
-          <AiOutlineYoutube className='text-2xl' />
+          <AiOutlineYoutube className='text-2xl hover:text-[#807bd1]' />
           </a>
           <a href="#" className="text-white">
-          <LuInstagram className='text-2xl' />
+          <LuInstagram className='text-2xl hover:text-[#807bd1]' />
           </a>
           <a href="#" className="text-white">
-          <RiFacebookCircleLine className='text-2xl' />
+          <RiFacebookCircleLine className='text-2xl hover:text-[#807bd1]' />
           </a>
         </div>
       </div>

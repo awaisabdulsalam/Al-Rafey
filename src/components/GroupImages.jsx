@@ -15,7 +15,7 @@ const GroupImages = () => {
           <span className="font-bold">Lights</span>
         </h1>
         <div>
-          <button className="border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
+          <button className="hover:bg-[#262261] hover:text-[#fff] hover:border-[#262261] border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
             View Collections
           </button>
         </div>
@@ -29,7 +29,7 @@ const GroupImages = () => {
           <span className="font-bold">Chair</span>
         </h1>
         <div>
-          <button className="border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
+          <button className="hover:bg-[#262261] hover:text-[#fff] hover:border-[#262261] border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
             View Collections
           </button>
         </div>
@@ -43,7 +43,7 @@ const GroupImages = () => {
           <span className="font-bold">Chair</span>
         </h1>
         <div>
-          <button className="border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
+          <button className="hover:bg-[#262261] hover:text-[#fff] hover:border-[#262261] border-2 border-grey-800 p-2 my-2 rounded-md text-gray-500">
             View Collections
           </button>
         </div>

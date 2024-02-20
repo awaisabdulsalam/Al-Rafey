@@ -82,24 +82,24 @@ const Navbar2 = () => {
         </div>
         <div className="flex flex-1 justify-end items-center gap-4 relative">
           <Link to="/profile">
-            <FaRegUser className="h-6 w-6 mr-4 cursor-pointer" />
+            <FaRegUser className="h-6 w-6 mr-4 cursor-pointer hover:text-[#807bd1]" />
           </Link>
 
           <div className="relative">
-            <BiHeart className="h-6 w-6 mr-4 cursor-pointer" />
+            <BiHeart className="h-6 w-6 mr-4 cursor-pointer hover:text-[#807bd1]" />
             <span className="absolute -top-1 right-2 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {favourite}
             </span>
           </div>
           <div className="relative">
-            <BiBell className="h-6 w-6 mr-4 cursor-pointer relative"></BiBell>
+            <BiBell className="h-6 w-6 mr-4 cursor-pointer relative hover:text-[#807bd1]"></BiBell>
             <span className="absolute -top-1 right-3 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               9+
             </span>
           </div>
         <div ref={menuRef} className="cart_navbar">
           <div className="navbar-toggle" onClick={toggleMenu}>
-            <LuShoppingCart className="h-6 w-6 cursor-pointer relative" />
+            <LuShoppingCart className="h-6 w-6 cursor-pointer relative hover:text-[#807bd1]" />
             <span className="absolute top-1 left-6 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {addCartNum}
             </span>

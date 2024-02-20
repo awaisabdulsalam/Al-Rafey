@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 import { TbHeart } from "react-icons/tb";
 import { LuShoppingCart } from "react-icons/lu";
 
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { userContext } from "../App.jsx"
 
 
@@ -26,7 +26,7 @@ const Products = ({ products, heading, bgColor, color, id }) => {
       <div className={`text-[${color}] flex flex-wrap max-w-[100%] gap-4 py-10 px-2`}>
       {
       products.map((product, index) => (
-        <div key={index} style={{ backgroundColor: color }} className="border-2 border-gray-200 h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-4 mx-auto rounded-md overflow-hidden">
+        <div key={index} style={{ backgroundColor: color }} className="cursor-pointer border-2 border-gray-200 h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-4 mx-auto rounded-md overflow-hidden">
           <div className={`text-[${color}] relative`}>
             <div className="cursor-pointer">
             <TbHeart onClick={() => {
@@ -48,7 +48,7 @@ const Products = ({ products, heading, bgColor, color, id }) => {
                 <p className="text-gray-400 text-sm">({product.reviews} Reviews)</p>
 
           </div>
-            <button onClick={() => setAddCartNum(addCartNum => addCartNum + 1)} className="flex justify-center items-center bg-[#262261] text-white w-full px-2 py-1 rounded-md">
+            <button onClick={() => setAddCartNum(addCartNum => addCartNum + 1)} className="flex justify-center items-center bg-[#262261] hover:bg-[#342e84] text-white w-full px-2 py-1 rounded-md">
               <LuShoppingCart className="" />
               <span className="mx-2">|</span> Add to Cart
             </button>
