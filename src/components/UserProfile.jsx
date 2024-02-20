@@ -8,7 +8,6 @@
   import PersonalInfo from "./PersonalInfo";
   import PaymentMethods from "./PaymentMethods";
 import { useState } from "react";
-import WomenProduct from "./WomenProduct";
 
   const Addresses = () => {
 
@@ -52,25 +51,25 @@ import WomenProduct from "./WomenProduct";
 
         <div className="flex flex-col md:flex-row justify-between gap-5    rounded px-10 py-10">
           <div className="w-[30%] p-1 border-2 border-[#f0f2f6] rounded-lg">
-            <Link to="/setting" onClick={() => setDefaultRoute(false)}>
+            <Link to="setting" onClick={() => setDefaultRoute(false)}>
               <button className="profile_button w-full flex items-center justify-between gap-2 p-2 my-2 text-[#fff] bg-[#262261] rounded-lg border-2 border-[#262261]">
                 <span>User Profile Settings</span>
                 <CgProfile />
               </button>
             </Link>
-            <Link to="/order-history" onClick={() => setDefaultRoute(false)}>
+            <Link to="order-history" onClick={() => setDefaultRoute(false)}>
               <button className="profile_button w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
                 <span>Orders History</span>
                 <CgProfile />
               </button>
             </Link>
-            <Link to="/addresses" onClick={() => setDefaultRoute(false)}>
+            <Link to="addresses" onClick={() => setDefaultRoute(false)}>
               <button className="profile_button w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
                 <span>Addresses</span>
                 <CgProfile />
               </button>
             </Link>
-            <Link to="/payment-methods" onClick={() => setDefaultRoute(false)}>
+            <Link to="payment-methods" onClick={() => setDefaultRoute(false)}>
             <button className="profile_button w-full flex items-center justify-between gap-2 p-2 my-2 text-[#939393] bg-[#f0f2f6] rounded-lg border-2 border-[#f0f2f6]">
               <span>Payment Methods</span>
               <CgProfile />
@@ -91,11 +90,11 @@ import WomenProduct from "./WomenProduct";
           </div>
             {defaultRoute && <PersonalInfo />}
           <Routes>
-            <Route path="/setting" element={<PersonalInfo />} />
-            <Route path="/order-history" element={<OrderHistory />} />
-            <Route path="/addresses" element={<AddressSection />} />
-            <Route path="/payment-methods" element={<PaymentMethods />} />
-            <Route path="/order-tracking" element={<OrderHistory />} />
+            <Route path="setting" element={<PersonalInfo />} />
+            <Route path="order-history" element={<OrderHistory />} />
+            <Route path="addresses" element={<AddressSection />} />
+            <Route path="payment-methods" element={<PaymentMethods />} />
+            <Route path="order-tracking" element={<OrderHistory />} />
           </Routes>
         </div>
 

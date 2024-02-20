@@ -6,10 +6,6 @@ const Profile = () => {
 
   return (
     <>
-      {/* <section
-        className="flex justify-between py-5 px-20"
-        style={{ backgroundImage: `url("${bgImage}")` }}
-      > */}
         <div className="flex items-center">
           <div className="mb-[-70px]">
             <img src={profileImage} className="h-[207px]" alt="" />
@@ -38,7 +34,6 @@ const Profile = () => {
             <p className="text-[#303030] font-normal">Points</p>
           </div>
         </div>
-      {/* </section> */}
       <UserNav />
     </>
   );

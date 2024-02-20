@@ -39,8 +39,8 @@ function App() {
         {/* <WomenProduct /> */}
         {/* <UserProfile /> */}
         <Routes>
-          {/* <Route path="/" element={<HomePage />} /> */}
-          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/al-rafey/" element={<HomePage />} />
+          <Route path="/profile/*" element={<UserProfile />} />
         </Routes>
         {/* <Order /> */}
         {/* <Purchase /> */}
