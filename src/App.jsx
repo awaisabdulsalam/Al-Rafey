@@ -19,16 +19,20 @@ import WomenProduct from "./components/WomenProduct";
 
 
 
-
 import { createContext, useState } from "react"
-export const userContext = createContext()
+export const userContext = createContext();
+
 
 function App() {
   const [addCartNum, setAddCartNum] = useState(0);
   const [favourite, setFavourite] = useState(0);
+  const [category, setCategory] = useState(false);
 
   return (
     <>
+    {/* <selectContextValue.Provider value={{ category, setCategory }}>
+
+    </selectContextValue.Provider> */}
         <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite]}>
       <Router>
         <Header />

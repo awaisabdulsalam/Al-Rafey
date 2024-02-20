@@ -56,19 +56,27 @@
   color: rgb(212, 27, 27);
 }
 
+/******************       Cart Navbar       *****************/
+
 .cart_navbar {
+  height: auto;
   position: relative;
   right: 0px;
   padding: 10px;
 }
 
 .navbar-toggle {
+  /* display: none; */
+  /* border: 2px soild red;
+  width: 200px; */
    /* position: absolute; */
    right: 10px;
    cursor: pointer;
 }
 
-.menu {
+.show_menu {
+  /* display: none; */
+  width: 400px;
   position: absolute;
   top: 0;
   right: 0;
@@ -82,6 +90,7 @@
 .product-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 

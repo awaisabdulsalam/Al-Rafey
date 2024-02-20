@@ -3,22 +3,32 @@ import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
-import { FaBars, FaPlus, FaMinus } from "react-icons/fa";
-import { useContext, useState, useRef, useEffect } from "react";
+import { FaPlus, FaMinus } from "react-icons/fa";
+import { useContext, useState, useRef, useEffect, createContext } from "react";
 import { userContext } from "../App.jsx";
-
+import men from "../assets/men.jpg";
 import logoImage from "../assets/logo.png";
+import CategoryProduct from "./CategoryProduct.jsx";
+import InputSearchProduct from "./InputSearchProduct.jsx";
 
 const Navbar2 = () => {
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectCategory, setSelectCategory] = useState("categories");
+  const [categoryText, setCategoryText] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+  const [inputValue, setInputValue] = useState("") 
+
   const menuRef = useRef(null);
   const products = [
-    { id: 1, name: "Product 1", quantity: 2 },
-    { id: 2, name: "Product 2", quantity: 3 },
-    { id: 3, name: "Product 3", quantity: 1 },
+    { id: 1, image: men, name: "Product 1", quantity: quantity },
+    { id: 2, image: men, name: "Product 2", quantity: quantity },
+    { id: 3, image: men, name: "Product 3", quantity: quantity },
   ];
 
+  useEffect(() => {
+    setCategoryText(true)
+  }, [selectCategory])
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -37,6 +47,7 @@ const Navbar2 = () => {
     setIsOpen(!isOpen);
   };
 
+  console.log(inputValue);
   return (
     <>
       <nav className="bg-[#262261] text-white flex justify-between items-center px-8 py-4">
@@ -48,16 +59,18 @@ const Navbar2 = () => {
           />
         </div>
         <div className="flex flex-[3] mx-10">
-          <select className="bg-[#FAAF40]  px-4 rounded-tl-lg rounded-bl-lg flex-1">
+          <select value={selectCategory} onChange={(e) => setSelectCategory(e.target.value)} className="bg-[#FAAF40]  px-4 rounded-tl-lg rounded-bl-lg flex-1">
             <option value="category" default hidden>
               Category
             </option>
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+            <option value="men">Men</option>  
+            <option value="women">Women</option>
+            <option value="mobile">Mobile</option>
           </select>
           <div className="flex rounded-tr-lg rounded-br-lg w-full  relative border bg-white">
             <input
+              value={inputValue}
+              onChange={(e) => {setInputValue(e.target.value)}}
               type="text"
               placeholder="Search Product Here"
               className="bg-white text-gray-500 py-2.5 px-5 flex-2 rounded-tr-lg rounded-br-lg w-full"
@@ -82,16 +95,6 @@ const Navbar2 = () => {
               9+
             </span>
           </div>
-          {/* <div className="relative">
-            <LuShoppingCart
-              className="h-6 w-6 cursor-pointer relative"
-            ></LuShoppingCart>
-            <span className="absolute -top-1 left-4 bg-[#FAAF40] text-white text-xs rounded-full px-1">
-              {addCartNum}
-            </span>
-          </div> */}
-
-          {/*  */}
         <div ref={menuRef} className="cart_navbar">
           <div className="navbar-toggle" onClick={toggleMenu}>
             <LuShoppingCart className="h-6 w-6 cursor-pointer relative" />
@@ -100,23 +103,23 @@ const Navbar2 = () => {
             </span>
           </div>
           {isOpen && (
-            <div className="menu">
+            <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
               {products.map((product) => (
                 <div key={product.id} className="product-item">
                   {console.log(product)}
                   <div className="product-info">
-                    {/* <img src={`product_${product.id}.jpg`} alt={product.name} /> */}
+                    <img className="h-20 w-1" src={men} alt={product.name} />
                     <div>
                       <h4>{product.name}</h4>
-                      <p>Quantity: {product.quantity}</p>
                     </div>
                   </div>
-                  <div className="quantity-controls">
+                  <div className="quantity-controls flex gap-2">
                     <button>
-                      <FaMinus />
+                      <FaMinus className="text-sm" onClick={() => setQuantity(product.quantity - 1)} />
                     </button>
+                      <p>{product.quantity}</p>
                     <button>
-                      <FaPlus />
+                      <FaPlus  className="text-sm" onClick={() => setQuantity(product.quantity + 1)}  />
                     </button>
                   </div>
                 </div>
@@ -128,6 +131,9 @@ const Navbar2 = () => {
         </div>
 
       </nav>
+      {categoryText && <CategoryProduct selectCategory={selectCategory} setCategoryText={setCategoryText} />}
+      {inputValue.length > 0 && <InputSearchProduct inputValue={inputValue} />}
+
     </>
   );
 };
