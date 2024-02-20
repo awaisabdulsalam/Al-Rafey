@@ -4,27 +4,27 @@ import { FaRegUser } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { useContext, useState, useRef, useEffect, createContext } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import { userContext } from "../App.jsx";
 import men from "../assets/men.jpg";
 import logoImage from "../assets/logo.png";
 import CategoryProduct from "./CategoryProduct.jsx";
 import InputSearchProduct from "./InputSearchProduct.jsx";
 
+const products = [
+  { id: 1, image: men, name: "T-shirt", price: "$99", quantity: 1 },
+  { id: 2, image: men, name: "T-shirt", price: "$99", quantity: 1 },
+  { id: 3, image: men, name: "T-shirt", price: "$99", quantity: 1 },
+];
 const Navbar2 = () => {
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectCategory, setSelectCategory] = useState("categories");
   const [categoryText, setCategoryText] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(products.map(product => product.quantity));
   const [inputValue, setInputValue] = useState("") 
 
   const menuRef = useRef(null);
-  const products = [
-    { id: 1, image: men, name: "Product 1", quantity: quantity },
-    { id: 2, image: men, name: "Product 2", quantity: quantity },
-    { id: 3, image: men, name: "Product 3", quantity: quantity },
-  ];
 
   useEffect(() => {
     setCategoryText(true)
@@ -47,6 +47,11 @@ const Navbar2 = () => {
     setIsOpen(!isOpen);
   };
 
+  const updateQuantity = (index, newQuantity) => {
+    const newQuantities =  [...quantity];
+    newQuantities[index] = newQuantity;
+    setQuantity(newQuantities);
+  }
   console.log(inputValue);
   return (
     <>
@@ -106,9 +111,8 @@ const Navbar2 = () => {
           </div>
           {isOpen && (
             <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
-              {products.map((product) => (
+              {products.map((product, index) => (
                 <div key={product.id} className="product-item">
-                  {console.log(product)}
                   <div className="product-info">
                     <img className="h-20 w-1" src={men} alt={product.name} />
                     <div>
@@ -117,12 +121,15 @@ const Navbar2 = () => {
                   </div>
                   <div className="quantity-controls flex gap-2">
                     <button>
-                      <FaMinus className="text-sm" onClick={() => setQuantity(product.quantity - 1)} />
+                      <FaMinus className="text-sm" onClick={() => updateQuantity(index, Math.max(0, quantity[index] - 1))} />
                     </button>
-                      <p>{product.quantity}</p>
+                      <p>{quantity[index]}</p>
                     <button>
-                      <FaPlus  className="text-sm" onClick={() => setQuantity(product.quantity + 1)}  />
+                      <FaPlus  className="text-sm" onClick={() => updateQuantity(index, quantity[index] + 1)}  />
                     </button>
+                  </div>
+                  <div>
+                    <p>{product.price}</p>
                   </div>
                 </div>
               ))}

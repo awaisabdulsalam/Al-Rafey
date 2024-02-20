@@ -11,7 +11,7 @@ const products = [
 const MensProduct = () => {
   return (
     <>
-    <Products products={products} heading="Men's Products" bgColor="#fff" color="" id="men" />
+    <Products products={products} heading="Men's Products" bgColor="#fff" id="men" color="#333" btnColor="#262261" />
     </>
   );
 };

@@ -12,7 +12,7 @@ const products = [
 const HomeAppliances = () => {
   return (
     <>
-    <Products products={products} heading="Home Appliances" bgColor="#fff" color="" />
+    <Products products={products} heading="Home Appliances" color="#333" btnColor="#262261" />
     </>
   )
 }

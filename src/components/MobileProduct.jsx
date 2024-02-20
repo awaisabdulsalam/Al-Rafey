@@ -12,7 +12,7 @@ const products = [
 const MobileProduct = () => {
   return (
     <>
-    <Products products={products} heading="Mobile Products" bgColor="#262261" color="#fff" />
+    <Products products={products} heading="Mobile Products" bgColor="#262261" color="#fff" btnColor="#fff"  />
     </>
   );
 };
