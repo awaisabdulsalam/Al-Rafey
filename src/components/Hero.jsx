@@ -4,15 +4,12 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import heroImage1 from "../assets/heroImage1.png";
 import heroImage2 from "../assets/heroImage2.png";
-// import heroImage3 from "../assets/heroImage3.png";
 
 import vector1 from "../assets/vector1.png";
 import vectorGray1 from "../assets/vectorGray1.png"
-// import vectorGray2 from "../assets/vectorGray2.png"
 import groupImage from "../assets/groupImage.png"
 
 import vectorYellow1 from "../assets/vectorYellow1.png"
-// import vectorYellow2 from "../assets/vectorYellow2.png"
 
 
 
