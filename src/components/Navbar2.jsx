@@ -12,9 +12,9 @@ import CategoryProduct from "./CategoryProduct.jsx";
 import InputSearchProduct from "./InputSearchProduct.jsx";
 
 const products = [
-  { id: 1, image: men, name: "T-shirt", price: "$99", quantity: 1 },
-  { id: 2, image: men, name: "T-shirt", price: "$99", quantity: 1 },
-  { id: 3, image: men, name: "T-shirt", price: "$99", quantity: 1 },
+  { id: 1, image: men, name: "T-shirt", price: 99, quantity: 1 },
+  { id: 2, image: men, name: "T-shirt", price: 99, quantity: 1 },
+  { id: 3, image: men, name: "T-shirt", price: 99, quantity: 1 },
 ];
 const Navbar2 = () => {
   const [addCartNum, favourite] = useContext(userContext);
@@ -129,7 +129,7 @@ const Navbar2 = () => {
                     </button>
                   </div>
                   <div>
-                    <p>{product.price}</p>
+                    <p>$ {`${product.price * quantity[index]}`}</p>
                   </div>
                 </div>
               ))}
