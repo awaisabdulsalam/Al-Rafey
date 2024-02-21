@@ -26,7 +26,7 @@ const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
       <div className={`text-[${bgColor}] flex flex-wrap max-w-[100%] gap-4 py-10 px-2`}>
       {
       products.map((product, index) => (
-        <div key={index} className={`bg-[#fff] cursor-pointer border-2 border-gray-200 h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-4 mx-auto rounded-md overflow-hidden`}>
+        <div key={index} className={`relative bg-[#fff] cursor-pointer border-2 border-gray-200 h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-4 mx-auto rounded-md overflow-hidden`}>
           <div className={`text-[${color}]relative`}>
             <div className="cursor-pointer">
             <TbHeart onClick={() => {
