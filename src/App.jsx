@@ -17,7 +17,7 @@ import { createContext, useState } from "react"
 import Favourites from "./components/Favourites.jsx";
 import Order from "./components/Order.jsx";
 import Checkout from "./components/Checkout.jsx";
-export const userContext = createContext();
+// export const userContext = createContext();
 
 
 function App() {
@@ -38,7 +38,6 @@ function App() {
           <Route path="/al-rafey/purchase" element={<Purchase />} />
           <Route path="/al-rafey/order-confirm" element={<Order />} />
           <Route path="/al-rafey/checkout" element={<Checkout />} />
-
         </Routes>
         <MobilePhones />
         <CallToAction />
