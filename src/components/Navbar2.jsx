@@ -86,7 +86,7 @@ const Navbar2 = () => {
           </div>
         </div>
         <div className="flex flex-1 justify-end items-center gap-4 relative">
-          <Link to="/profile">
+          <Link to="/al-rafey/profile">
             <FaRegUser className="h-6 w-6 mr-4 cursor-pointer hover:text-[#807bd1]" />
           </Link>
 

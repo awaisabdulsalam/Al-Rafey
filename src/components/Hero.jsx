@@ -4,6 +4,8 @@ import { FaArrowLeft } from "react-icons/fa";
 
 import heroImage1 from "../assets/heroImage1.png";
 import heroImage2 from "../assets/heroImage2.png";
+import heroImage3 from "../assets/heroImage3.png";
+
 
 import vector1 from "../assets/vector1.png";
 import vectorGray1 from "../assets/vectorGray1.png"
@@ -16,32 +18,35 @@ import vectorYellow1 from "../assets/vectorYellow1.png"
 const heros = [
   {
     id: 1,
-    image: heroImage2,
-    bgImage: vectorYellow1,
-    heading: "Flat Sale 50% off",
-    text: "All Executive in Rafey Traders",
-    color: "#333",
-    bgColor: "#e2ded3"
-  },
-  {
-    id: 2,
     image: heroImage1,
     vector: vector1,
     heading: "Flat Sale 50% off",
     text: "All Executive in Rafey Traders",
     color: "#fff",
-    bgColor: "#00D1BF",
+    bgColor: "#00d1bf",
     btnColor: "#E5F43E"
+  },
+  {
+    id: 2,
+    bgImage: vectorYellow1,
+    image: heroImage2,
+    heading: "Flat Sale 50% off",
+    text: "All Executive in Rafey Traders",
+    color: "#333",
+    bgColor: "#8e880f",
+    btnColor: "#fff500"
   },
   
   {
     id: 3,
-    image: groupImage,
+    image: heroImage3,
     vector: vectorGray1,
     heading: "Flat Sale 50% off",
     text: "All Executive in Rafey Traders",
     color: "#333",
-    bgColor: "#ddd6ce"
+    bgColor: "#ddd6ce",
+    btnColor: "#ddd6ce",
+    right: "right",
   },
 ];
 
@@ -60,9 +65,10 @@ const Hero = () => {
       <section className="flex">
         <div style={{
           background: "contain",
-                backgroundImage: `url(${heros[indexHero].bgImage})`
+                backgroundImage: `url(${heros[indexHero].bgImage})`,
+                backgroundColor: heros[indexHero].bgColor
               }}
-               className={`w-full flex justify-between h-[80vh] bg-[${heros[indexHero].bgColor}] m-5 px-20 rounded-lg overflow-hidden`}>
+               className={`w-full flex justify-between h-[80vh] m-5 px-20 rounded-lg overflow-hidden`}>
 
           <div className="flex flex-col justify-center">
             <h1 className={`text-6xl text-[${heros[indexHero].color}] my-5 font-bold`}>
@@ -72,7 +78,7 @@ const Hero = () => {
               {heros[indexHero].text}
             </p>
             <div>
-              <button className={`bg-[${heros[indexHero].btnColor}] hover:bg-[#eff886] hover:border-[#eff886] border-2 border-gray-500 px-8 py-3 my-1 rounded-lg text-xl`}>
+              <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl`}>
                 Shop Now
               </button>
             </div>
@@ -80,7 +86,7 @@ const Hero = () => {
           <div>
             <img
               src={heros[indexHero].image}
-              className="bg-contain bg-no-repeat bg-center h-[600px]"
+              className="bg-contain bg-no-repeat bg-right h-[600px]"
               style={{
                 backgroundImage: `url(${heros[indexHero].vector})`,
               }}
