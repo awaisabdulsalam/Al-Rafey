@@ -17,7 +17,7 @@ import { createContext, useState } from "react"
 import Favourites from "./components/Favourites.jsx";
 import Order from "./components/Order.jsx";
 import Checkout from "./components/Checkout.jsx";
-// export const userContext = createContext();
+export const userContext = createContext();
 
 
 function App() {
