@@ -1,4 +1,3 @@
-import React from 'react'
 import { BiMap } from "react-icons/bi";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { AiOutlineYoutube } from "react-icons/ai";
@@ -7,28 +6,26 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 
 const Navbar1 = () => {
   return (
-    <nav className="bg-[#1e1e1e] text-white flex justify-between items-center px-10 py-2">
-      <div className="flex items-center gap-10 px-10">
-        <div className="flex items-center gap-3 mr-4">
-          <BiMap className='text-2xl hover:text-[#807bd1]' />
-          <span>ABC</span>
-        </div>
-        <div className="flex items-center gap-3 ml-5">
-          <MdOutlineLocalPhone className='text-2xl hover:text-[#807bd1]'  />
-          <span>+923091354207</span>
-        </div>
-      </div>
 
-      <div className="flex items-center px-10">
-        <div className="flex space-x-4">
+    <nav className="bg-[#1e1e1e] text-white py-2">
+      <div className="container mx-auto flex justify-between items-center px-4">
+        <div className="flex items-center gap-3">
+          <BiMap className='text-base md:text-xl hover:text-[#807bd1]' />
+          <span className="text-base">ABC</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <MdOutlineLocalPhone className='text-base md:text-xl hover:text-[#807bd1]' />
+          <span className="text-base">+923091354207</span>
+        </div>
+        <div className="flex items-center space-x-4">
           <a href="#" className="text-white">
-          <AiOutlineYoutube className='text-2xl hover:text-[#807bd1]' />
+            <AiOutlineYoutube className='text-base md:text-xl hover:text-[#807bd1]' />
           </a>
           <a href="#" className="text-white">
-          <LuInstagram className='text-2xl hover:text-[#807bd1]' />
+            <LuInstagram className='text-base md:text-lg hover:text-[#807bd1]' />
           </a>
           <a href="#" className="text-white">
-          <RiFacebookCircleLine className='text-2xl hover:text-[#807bd1]' />
+            <RiFacebookCircleLine className='text-base md:text-xl hover:text-[#807bd1]' />
           </a>
         </div>
       </div>
