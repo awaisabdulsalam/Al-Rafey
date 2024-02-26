@@ -60,6 +60,7 @@ const Hero = () => {
   const handlePrevHero = () => {
     setIndexHero((prevIndex) => (prevIndex - 1 + heros.length) % heros.length);
   }
+
   return (
     <>
       <section className="flex">
@@ -68,17 +69,17 @@ const Hero = () => {
                 backgroundImage: `url(${heros[indexHero].bgImage})`,
                 backgroundColor: heros[indexHero].bgColor
               }}
-               className={`w-full flex justify-between h-[80vh] m-5 px-20 rounded-lg overflow-hidden`}>
+               className={`hero_section w-full flex justify-between h-[80vh] m-5 px-20 rounded-lg overflow-hidden`}>
 
           <div className="flex flex-col justify-center">
-            <h1 className={`text-6xl text-[${heros[indexHero].color}] my-5 font-bold`}>
+            <h1 className={`hero_heading md:text-6xl text-[${heros[indexHero].color}] my-5 font-bold`}>
               {heros[indexHero].heading}
             </h1>
-            <p className={`text-2xl text-[${heros[indexHero].color}] my-2 font-semibold`}>
+            <p className={`hero_text md:text-2xl text-[${heros[indexHero].color}] my-2 font-semibold`}>
               {heros[indexHero].text}
             </p>
             <div>
-              <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl`}>
+              <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`hero_btn hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl`}>
                 Shop Now
               </button>
             </div>

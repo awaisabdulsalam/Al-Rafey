@@ -87,7 +87,7 @@ const Navbar2 = () => {
               value={inputValue}
               onChange={(e) => {setInputValue(e.target.value)}}
               type="text"
-              placeholder="Search Product"
+              placeholder="Search"
               className="input_category bg-white text-gray-500 py-2.5 px-5 flex-2 rounded-tr-lg rounded-br-lg w-full"
             ></input>
             <IoSearch className="icon_search h-6 w-6 text-gray-700 mt-2 mr-5 absolute right-0 top-1 cursor-pointer" />
