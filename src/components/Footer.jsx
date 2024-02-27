@@ -6,7 +6,7 @@ import footerLogo from '../assets/footerlogo.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f6f6f6] mt-[-30px] pt-20 pb-10 px-20">
+    <footer className="footer_section bg-[#f6f6f6] mt-[-30px] pt-20 pb-10 px-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-5 gap-8">
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center">

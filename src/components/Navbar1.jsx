@@ -11,11 +11,11 @@ const Navbar1 = () => {
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center gap-3">
           <BiMap className='text-base md:text-xl hover:text-[#807bd1]' />
-          <span className="text-base">ABC</span>
+          <span className="nav_one_text text-base">ABC</span>
         </div>
         <div className="flex items-center gap-3">
           <MdOutlineLocalPhone className='text-base md:text-xl hover:text-[#807bd1]' />
-          <span className="text-base">+923091354207</span>
+          <span className="nav_one_text text-base">+923091354207</span>
         </div>
         <div className="flex items-center space-x-4">
           <a href="#" className="text-white">

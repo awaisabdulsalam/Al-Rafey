@@ -1,22 +1,21 @@
 const CallToAction = () => {
   return (
     <section className="flex justify-center">
-      <div className="flex justify-between relative bottom-[-40px] py-5 px-10 my-10 text-white bg-[#262261] w-[80%] rounded-2xl">
+      <div className="call_to_action flex justify-between relative bottom-[-40px] py-5 px-10 my-10 text-white bg-[#262261] w-[80%] rounded-2xl">
         <div>
-          <h1 className="font-semibold text-2xl">SUBSCRIBE TO GET UPDATED</h1>
-          <p>
+          <h1 className="call_heading font-semibold text-2xl">SUBSCRIBE TO GET UPDATED</h1>
+          <p className="call_text">
             Lorem ipsum dolor sit adipisicing adipisicing elit. Quis, similique?
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="call_enter_email flex items-center gap-2">
           <input
             type="email"
             placeholder="Enter you email"
-            className="p-3 rounded-lg bg-[#262261] border-2 border-white text-white placeholder-white"
-            
+            className="call_input p-3 rounded-lg bg-[#262261] border-2 border-white text-white placeholder-white"
           />
-          <button className="p-3 font-medium rounded-lg bg-white text-[#262261]">
-            Subscribe Now
+          <button className="call_btn p-3 font-medium rounded-lg bg-white text-[#262261]">
+            Subscribe
           </button>
         </div>
       </div>

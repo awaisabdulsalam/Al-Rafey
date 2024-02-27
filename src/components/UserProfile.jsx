@@ -16,41 +16,41 @@ import { useState } from "react";
     return (
       <>
         <section
-          className="flex justify-between py-5 px-20"
-          style={{ backgroundImage: `url("${bgImage}")` }}
+          className="profile_section flex justify-between py-5 px-20"
+          style={{ backgroundImage: `url("${bgImage}")`, backgroundSize: "contain" }}
         >
-          <div className="flex items-center">
-            <div className="mb-[-70px]">
-              <img src={profileImage} className="h-[207px]" alt="" />
+          <div className="profile_content flex items-center">
+            <div className="profile_img_div mb-[-70px]">
+              <img src={profileImage} className="profile_img h-[207px]" alt="" />
             </div>
             <div>
-              <h1 className="text-[#303030] text-4xl my-2 font-semibold">
+              <h1 className="profile_name text-[#303030] text-4xl my-2 font-semibold">
                 Shah Zaman
               </h1>
-              <p>shahzaman@gmail.com</p>
-              <button className="px-3 py-1 text-[14px] rounded-md text-white bg-[#262261]">
+              <p className="profile_email">shahzaman@gmail.com</p>
+              <button className="profile_btn px-3 py-1 text-[14px] rounded-md text-white bg-[#262261]">
                 Edit Profile
               </button>
             </div>
           </div>
-          <div className="flex items-end">
+          <div className="profile_stats flex items-end">
             <div className="border-r-[1px] border-[#cccccc] px-6">
-              <h1 className="text-2xl font-semibold text-[#303030]">47</h1>
-              <p className="text-[#303030] font-normal">Orders</p>
+              <h1 className="profile_stats_num text-2xl font-semibold text-[#303030]">47</h1>
+              <p className="profile_stats_text text-[#303030] font-normal">Orders</p>
             </div>
             <div className="border-r-[1px] border-l-[1px] border-[#cccccc] px-6">
-              <h1 className="text-2xl font-semibold text-[#303030]">$7747</h1>
-              <p className="text-[#303030] font-normal">Spent</p>
+              <h1 className="profile_stats_num text-2xl font-semibold text-[#303030]">$7747</h1>
+              <p className="profile_stats_text text-[#303030] font-normal">Spent</p>
             </div>
             <div className="border-l-[1px] border-[#cccccc] px-6">
-              <h1 className="text-2xl font-semibold text-[#303030]">47</h1>
-              <p className="text-[#303030] font-normal">Points</p>
+              <h1 className="profile_stats_num text-2xl font-semibold text-[#303030]">47</h1>
+              <p className="profile_stats_text text-[#303030] font-normal">Points</p>
             </div>
           </div>
         </section>
 
-        <div className="flex flex-col md:flex-row justify-between gap-5    rounded px-10 py-10">
-          <div className="w-[30%] p-1 border-2 border-[#f0f2f6] rounded-lg">
+        <div className="profile_details flex flex-col md:flex-row justify-between gap-5    rounded px-10 py-10">
+          <div className="profile_btns w-[30%] p-1 border-2 border-[#f0f2f6] rounded-lg">
             <Link to="setting" onClick={() => setDefaultRoute(false)}>
               <button className="profile_button w-full flex items-center justify-between gap-2 p-2 my-2 text-[#fff] bg-[#262261] rounded-lg border-2 border-[#262261]">
                 <span>User Profile Settings</span>
@@ -81,8 +81,8 @@ import { useState } from "react";
               <CgProfile />
             </button>
             </Link>
-            <div className="p-1 mt-4 border-2 border-[#faaf40] rounded-lg">
-              <button className="w-full flex items-center justify-between gap-2 p-2 text-[#fff] bg-[#faaf40] rounded-lg border-2 border-[#faaf40]">
+            <div className="order_tracking_btn p-1 mt-4 border-2 border-[#faaf40] rounded-lg">
+              <button className="order_tracking_btn w-full flex items-center justify-between gap-2 p-2 text-[#fff] bg-[#faaf40] rounded-lg border-2 border-[#faaf40]">
                 <span>Order Tracking</span>
                 <IoPowerSharp />
               </button>

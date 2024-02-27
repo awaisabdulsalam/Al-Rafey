@@ -3,7 +3,7 @@ const ProfileSettings = () => {
   return (
     <>
         <div
-          className="h-auto w-full mt-2  px-8 py-2 rounded-lg border-2"
+          className="info h-auto w-full mt-2  px-8 py-2 rounded-lg border-2"
         >
           <div className="w-full mt-5 bg-white rounded-lg overflow-hidden">
             <div className="">
@@ -12,7 +12,7 @@ const ProfileSettings = () => {
               </h3>
 
               <form>
-                <div className="flex justify-between gap-5 mb-4 my-5">
+                <div className="info_input_tags flex justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
                     <label
                       htmlFor="phone"
@@ -44,7 +44,7 @@ const ProfileSettings = () => {
                     />
                   </div>
                 </div>
-                <div className="flex justify-between gap-5 mb-4 my-5">
+                <div className="info_input_tags flex justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
                     <label
                       htmlFor="phone"
@@ -98,7 +98,7 @@ const ProfileSettings = () => {
           </div>
           <div className="flex justify-end my-2">
             <div>
-              <button className="w-full p-2 text-white text-lg rounded-lg bg-[#fb4141]">
+              <button className="info_delete_btn w-full p-2 text-white text-lg rounded-lg bg-[#fb4141]">
                 Delete Account
               </button>
             </div>
