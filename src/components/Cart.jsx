@@ -136,14 +136,14 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="flex gap-5">
-          <div className="flex justify-center align-middle gap-5 bg-slate-100 px-4 py-2 rounded-lg">
-            <button className="text-xl">-</button>
-            <span className="text-xl font-semibold">5</span>
-            <button className="text-xl">+</button>
+        <div className="flex items-center gap-5">
+          <div className="flex justify-between items-center sm:gap-2 md:gap-5 bg-slate-100 sm:px-4 md:px-4 sm:py-1 md:py-3 rounded-md">
+            <button className="text-lg">-</button>
+            <span className="sm:text-lg md:text-xl sm:font-normal md:font-semibold">5</span>
+            <button className="text-lg">+</button>
           </div>
-          <div>
-            <button className="flex justify-center items-center bg-[#262261] text-white w-full px-4 py-3 rounded-md">
+          <div className="">
+            <button className="flex justify-center items-center bg-[#262261] text-white w-full sm:px-2 md:px-4 sm:py-1 md:py-3 rounded-md">
               <LuShoppingCart className="" />
               <span className="mx-2">|</span> Add to Cart
             </button>
@@ -152,18 +152,18 @@ const Cart = () => {
 
         <div className="border border-gray-300 my-10 p-4 rounded">
           <div className="flex items-start gap-2 mb-4">
-            <HiOutlineTruck className="text-[#e1827c] text-3xl" />
+            <HiOutlineTruck className="text-[#e1827c] sm:text-2xl md:text-3xl" />
             <div>
-              <h2 className="text-lg font-semibold">Free Delivery</h2>
-              <p className="text-gray-500 underline mt-1">Enter your Postal code for Delivery Availability</p>
+              <h2 className="sm:text-[14px] md:text-lg font-semibold">Free Delivery</h2>
+              <p className="text-gray-500 sm:text-[12px] underline mt-1">Enter your Postal code for Delivery Availability</p>
             </div>
           </div>
           <hr className="my-4 border-gray-300" />
           <div className="flex items-start gap-2 mb-4">
-            <LiaShoppingBagSolid className="text-[#e1827c] text-3xl" />
+            <LiaShoppingBagSolid className="text-[#e1827c] sm:text-2xl md:text-3xl" />
             <div>
-              <h2 className="text-lg font-semibold">Return Delivery</h2>
-              <p className="text-gray-500 underline mt-1">Free 30 days Delivery Return. Details</p>
+              <h2 className="sm:text-[14px] md:text-lg font-semibold">Return Delivery</h2>
+              <p className="text-gray-500 sm:text-[12px] underline mt-1">Free 30 days Delivery Return. Details</p>
             </div>
           </div>
         </div>
