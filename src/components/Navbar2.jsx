@@ -62,19 +62,19 @@ const Navbar2 = () => {
           boxShadow:
             "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
         }}
-      className="main_nav sticky top-0 z-10 relative bg-[#262261] text-white flex justify-between items-center px-4 py-4">
+      className="sticky top-0 z-10 relative bg-[#262261] text-white flex justify-between items-center px-4 py-4">
         <div className="flex flex-1 items-center">
           <Link to="/al-rafey">
           <img
             src={logoImage}
             alt="Logo"
-            className="logo md:h-[40px] sm:h-[40px] md:w-[202px] sm:w-[200px] mr-2 cursor-pointer"
+            className="logo md:h-[40px] sm:h-[20px] md:w-[202px] sm:w-[200px] mr-2 cursor-pointer"
           />
           </Link>
         </div>
 
-        <div className="categories flex flex-[3] mx-10">
-          <select value={selectCategory} onChange={(e) => setSelectCategory(e.target.value)} className="select_category bg-[#FAAF40]  px-4 rounded-tl-lg rounded-bl-lg flex-1">
+        <div className="sm:flex sm:flex-[3] md:mx-10 sm:mx-5">
+          <select value={selectCategory} onChange={(e) => setSelectCategory(e.target.value)} className="sm:py-0 sm:px-5 sm:text-[10px] md:text-[16px] bg-[#FAAF40]  px-4 sm:rounded-tl-[4px] sm:rounded-bl-[4px] sm:flex-1">
             <option value="category" default>
               Category
             </option>
@@ -82,20 +82,20 @@ const Navbar2 = () => {
             <option value="women">Women</option>
             <option value="mobile">Mobile</option>
           </select>
-          <div className="flex rounded-tr-lg rounded-br-lg w-full  relative border bg-white">
+          <div className="flex sm:rounded-tr-[4px]  sm:rounded-br-[4px] sm:w-full  relative border bg-white">
             <input
               value={inputValue}
               onChange={(e) => {setInputValue(e.target.value)}}
               type="text"
               placeholder="Search"
-              className="input_category bg-white text-gray-500 py-2.5 px-5 flex-2 rounded-tr-lg rounded-br-lg w-full"
+              className="sm:py-[5px] sm:px-[4px] sm:text-[10px] md:text-[16px] bg-white text-gray-500 py-2.5 px-5 sm:flex-2 sm:w-full"
             ></input>
-            <IoSearch className="icon_search h-6 w-6 text-gray-700 mt-2 mr-5 absolute right-0 top-1 cursor-pointer" />
+            <IoSearch className="sm:h-[10px] md:h-[20px] sm:w-[10px] md:w-[15px] sm:-right-4 sm:-top-0 text-gray-700 mt-2 mr-5 absolute md:right-0 md:-top-[0px]  cursor-pointer" />
           </div>
         </div>
 
           <div>
-          {showNav ? <RxCross1 className="md:hidden h-4 w-4 mr-4 cursor-pointer" onClick={() => setShowNav(!showNav)} /> : <GiHamburgerMenu onClick={() => setShowNav(!showNav)} className="md:hidden h- w-4 mr-4 cursor-pointer" />}
+          {showNav ? <RxCross1 className="hamburger_icon md:hidden h-4 w-4 mr-4 cursor-pointer" onClick={() => setShowNav(!showNav)} /> : <GiHamburgerMenu onClick={() => setShowNav(!showNav)} className="md:hidden h- w-4 mr-4 cursor-pointer" />}
         </div>
 
         <div className="nav_show flex flex-1 justify-end items-center gap-4 relative">
@@ -209,8 +209,6 @@ const Navbar2 = () => {
           <span className="ml-2 text-[#333]">$00.0</span>
         </div>}
       </nav>
-      {categoryText && <CategoryProduct selectCategory={selectCategory} setCategoryText={setCategoryText} />}
-      {inputValue.length > 0 && <InputSearchProduct inputValue={inputValue} />}
 
     </>
   );

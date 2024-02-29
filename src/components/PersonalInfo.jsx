@@ -7,7 +7,7 @@ const ProfileSettings = () => {
         >
           <div className="w-full mt-5 bg-white rounded-lg overflow-hidden">
             <div className="">
-              <h3 className="text-[#161616] text-2xl font-semibold my-5">
+              <h3 className="address_heading text-[#161616] text-2xl font-semibold my-5">
                 Personal Info
               </h3>
 
@@ -16,7 +16,7 @@ const ProfileSettings = () => {
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="block text-md font-medium text-[#939393]"
+                      className="info_label block text-md font-medium text-[#939393]"
                     >
                       Name
                     </label>
@@ -24,14 +24,14 @@ const ProfileSettings = () => {
                       type="text"
                       id="phone"
                       name="phone"
-                      className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="w-full">
                     <label
                       htmlFor="email"
-                      className="block text-md font-medium text-[#939393]"
+                      className="info_label block text-md font-medium text-[#939393]"
                     >
                       Email
                     </label>
@@ -39,7 +39,7 @@ const ProfileSettings = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -48,7 +48,7 @@ const ProfileSettings = () => {
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="block text-md font-medium text-[#939393]"
+                      className="info_label block text-md font-medium text-[#939393]"
                     >
                       Name
                     </label>
@@ -56,14 +56,14 @@ const ProfileSettings = () => {
                       type="text"
                       id="phone"
                       name="phone"
-                      className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="w-full">
                     <label
                       htmlFor="email"
-                      className="block text-md font-medium text-[#939393]"
+                      className="info_label block text-md font-medium text-[#939393]"
                     >
                       Email
                     </label>
@@ -71,7 +71,7 @@ const ProfileSettings = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -80,7 +80,7 @@ const ProfileSettings = () => {
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="block text-md font-medium text-[#939393]"
+                      className="info_label block text-md font-medium text-[#939393]"
                     >
                       Detailed Address
                     </label>

@@ -69,17 +69,17 @@ const Hero = () => {
                 backgroundImage: `url(${heros[indexHero].bgImage})`,
                 backgroundColor: heros[indexHero].bgColor
               }}
-               className={`hero_section w-full flex justify-between h-[80vh] m-5 px-20 rounded-lg overflow-hidden`}>
+               className={`sm:h-auto md:h-auto md:flex md:flex-row sm:flex sm:flex-col-reverse sm:py-[10px] sm:px-[20px] w-full flex justify-between h-[80vh] m-5 px-20 rounded-lg overflow-hidden`}>
 
-          <div className="flex flex-col justify-center">
-            <h1 className={`hero_heading md:text-6xl text-[${heros[indexHero].color}] my-5 font-bold`}>
+          <div className="flex flex-col justify-center md:pl-[20px]">
+            <h1 className={`sm:text-[2rem] md:text-6xl text-[${heros[indexHero].color}] sm:my-2 md:my-5  font-bold`}>
               {heros[indexHero].heading}
             </h1>
-            <p className={`hero_text md:text-2xl text-[${heros[indexHero].color}] my-2 font-semibold`}>
+            <p className={`sm:text-[0.9rem] sm:font-medium md:text-2xl text-[${heros[indexHero].color}] my-2 font-semibold`}>
               {heros[indexHero].text}
             </p>
             <div>
-              <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`hero_btn hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white px-8 py-3 my-1 rounded-lg text-xl`}>
+              <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`sm:text-[12px] md:text-[18px] sm:py-1 sm:px-3 hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white md:px-8 md:py-3 my-1 rounded-lg text-xl`}>
                 Shop Now
               </button>
             </div>
@@ -87,7 +87,7 @@ const Hero = () => {
           <div>
             <img
               src={heros[indexHero].image}
-              className="bg-contain bg-no-repeat bg-right h-[600px]"
+              className="bg-contain bg-no-repeat bg-right md:h-[600px]"
               style={{
                 backgroundImage: `url(${heros[indexHero].vector})`,
               }}

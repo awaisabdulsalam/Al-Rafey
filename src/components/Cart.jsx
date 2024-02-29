@@ -15,8 +15,8 @@ import Reviews from "./Reviews";
 const Cart = () => {
   return (
     <>
-    <section className="flex gap-10 my-10 px-10">
-      <section className="w-1/2">
+    <section className="sm:flex sm:flex-col md:flex md:flex-row gap-10 my-10 sm:px-4 md:px-10">
+      <section className="md:w-1/2">
         <div>
           <img src={shirt1} alt="" />
         </div>
@@ -24,56 +24,56 @@ const Cart = () => {
           <div>
             <MdArrowBackIosNew className="text-2xl cursor-pointer" />
           </div>
-          <img src={shirt2} alt="" className="border-2 border-[#262261] rounded-lg" />
-          <img src={shirt2} alt="" className="cursor-pointer" />
-          <img src={shirt2} alt="" className="cursor-pointer" />
-          <img src={shirt2} alt="" className="cursor-pointer" />
+          <img src={shirt2} alt="" className="sm:h-[60px] sm:w-[60px] md:h-auto md:w-auto border-2 border-[#262261] rounded-lg" />
+          <img src={shirt2} alt="" className="sm:h-[60px] sm:w-[60px] md:h-auto md:w-auto cursor-pointer" />
+          <img src={shirt2} alt="" className="sm:h-[60px] sm:w-[60px] md:h-auto md:w-auto cursor-pointer" />
+          <img src={shirt2} alt="" className="sm:h-[60px] sm:w-[60px] md:h-auto md:w-auto cursor-pointer" />
           <div>
             <MdArrowForwardIos className="text-2xl cursor-pointer" />
           </div>
         </div>
       </section>
-      <section className="w-1/2">
-        <p className="text-gray-500">{`Home > Fun > Sideboard`}</p>
+      <section className="md:w-1/2">
+        <p className="sm:text-sm md:text-lg text-gray-500">{`Home > Fun > Sideboard`}</p>
         <div className="flex align-middle justify-between py-5">
           <div className="w-full">
-            <h1 className="text-3xl">Embrace Sideboard</h1>
-            <p className="text-lg text-gray-400">Teixeira Design Studio</p>
+            <h1 className="sm:text-[16px] md:text-3xl">Embrace Sideboard</h1>
+            <p className="sm:text-sm md:text-lg text-gray-400">Teixeira Design Studio</p>
           </div>
           <div>
             <div className="w-full flex gap-5 justify-center">
-              <div className="flex px-2 py-2 bg-[#ffe3ba3a] rounded-lg">
-                <TbHeart className="text-2xl text-[#faaf40]" />
-                <span className="text-[#faaf40] font-semibold">109</span>
+              <div className="sm:flex sm:items-center sm:px-1 md:px-2 sm:py-1 md:py-2 bg-[#ffe3ba3a] rounded-lg">
+                <TbHeart className="sm:xl md:text-2xl text-[#faaf40]" />
+                <span className="text-[#faaf40] sm:font-normal sm:text-sm md:font-semibold">109</span>
               </div>
-              <div className="bg-[#c5c3ff64] rounded-lg px-2 py-2">
-                <MdOutlineShare className="text-2xl" />
+              <div className="bg-[#c5c3ff64] sm:font-normal md:font-semibold rounded-lg sm:px-2 md:px-2 sm:py-1 md:py-2">
+                <MdOutlineShare className="sm:text-xl md:text-2xl" />
               </div>
             </div>
           </div>
         </div>
         <hr />
-        <div className="flex px-5 gap-10 my-10">
+        <div className="flex sm:px-0 md:px-5 gap-10 my-10">
           <div>
-            <h1 className="text-4xl font-semibold text-[#262261]">$71.56</h1>
-            <span className="text-2xl text-gray-400">
+            <h1 className="sm:text-xl md:text-4xl font-semibold text-[#262261]">$71.56</h1>
+            <span className="sm:text-md md:text-2xl text-gray-400">
               <strike> $71.56</strike>
             </span>
           </div>
           <div className="flex-col">
-            <div className="flex gap-5 justify-center">
-              <div className="flex gap-1 px-4 py-2 bg-[#ffe3ba3a] rounded-full">
-                <IoIosStarOutline className="text-xl text-[#faaf40]" />
-                <span className="text-[#faaf40] font-semibold">4.8</span>
+            <div className="flex justify-start gap-2">
+              <div className="flex items-center gap-1 sm:px-2 md:px-4 sm:py-1 md:py-2 bg-[#ffe3ba3a] rounded-full">
+                <IoIosStarOutline className="sm:text-sm md:text-2xl text-[#faaf40]" />
+                <span className="text-[#faaf40] sm:font-normal sm:text-[12px] md:text-lg">4.8</span>
               </div>
-              <div className="flex gap-1 px-4 py-2 bg-[#c5c3ff64] rounded-full">
-                <LiaCommentDots className="text-xl text-[#585587]" />
-                <span className="text-[#585587]">67 Reviews</span>
+              <div className="flex items-center gap-1 sm:px-2 md:px-4 sm:py-1 md:py-2 bg-[#c5c3ff64] rounded-full">
+                <LiaCommentDots className="sm:text-sm md:text-xl text-[#1b1b1c]" />
+                <span className="text-[#585587] sm:font-normal sm:text-[10px] md:text-lg">67 Reviews</span>
               </div>
             </div>
             <div className="mt-2">
-              <p className="text-gray-400">
-                <span className="text-green-800 font-semibold">93%</span> of
+              <p className="text-gray-400 sm:text-[12px] md:text-[16px]">
+                <span className="text-green-800 md:font-semibold">93%</span> of
                 buyers recommeded this.
               </p>
             </div>
@@ -81,62 +81,62 @@ const Cart = () => {
         </div>
         <hr />
         <div className="my-10">
-          <h1 className="text-lg text-gray-400">Choose a color</h1>
+          <h1 className="sm:text-sm md:text-lg text-gray-400">Choose a color</h1>
           <div className="flex justify-start gap-5 my-4">
-            <div className="w-14 h-14 rounded-full bg-blue-500"></div>
-            <div className="w-14 h-14 rounded-full bg-red-500"></div>
-            <div className="w-14 h-14 rounded-full bg-green-500"></div>
-            <div className="w-14 h-14 rounded-full bg-yellow-500"></div>
-            <div className="w-14 h-14 rounded-full bg-purple-500"></div>
+            <div className="sm:w-10 md:w-14 sm:h-10 md:h-14 cursor-pointer rounded-full bg-blue-500"></div>
+            <div className="sm:w-10 md:w-14 sm:h-10 md:h-14 cursor-pointer rounded-full bg-red-500"></div>
+            <div className="sm:w-10 md:w-14 sm:h-10 md:h-14 cursor-pointer rounded-full bg-green-500"></div>
+            <div className="sm:w-10 md:w-14 sm:h-10 md:h-14 cursor-pointer rounded-full bg-yellow-500"></div>
+            <div className="sm:w-10 md:w-14 sm:h-10 md:h-14 cursor-pointer rounded-full bg-purple-500"></div>
           </div>
         </div>
         <hr />
         <div className="my-10">
-          <h1 className="text-lg text-gray-400">Choose a Size</h1>
-          <div className="flex justify-start gap-5 my-4">
-            <div className="flex gap-2 bg-slate-100 p-2 rounded-lg">
+          <h1 className="sm:text-sm md:text-lg text-gray-400">Choose a Size</h1>
+          <div className="flex justify-start flex-wrap gap-5 my-4">
+            <div className="flex items-center sm:gap-0 md:gap-2 bg-slate-100 sm:px-2 p-2 rounded-lg">
               <input
                 type="radio"
                 value="Small"
-                className="h-5 w-6 bg-slate-300"
+                className="sm:h-3 md:h-5 w-6 bg-slate-300 cursor-pointer"
               />
-              <span>Small</span>
+              <span className="sm:text-[12px] md:text-[16px]">Extra Small</span>
             </div>
-            <div className="flex gap-2 bg-slate-100 p-2 rounded-lg">
+            <div className="flex items-center sm:gap-0 md:gap-2 bg-slate-100 sm:px-2 p-2 rounded-lg">
               <input
                 type="radio"
                 value="Small"
-                className="h-5 w-6 bg-slate-300"
+                className="sm:h-3 md:h-5 w-6 bg-slate-300 cursor-pointer"
               />
-              <span>Medium</span>
+              <span className="sm:text-[12px] md:text-[16px]">Small</span>
             </div>
-            <div className="flex gap-2 bg-slate-100 p-2 rounded-lg">
+            <div className="flex items-center sm:gap-0 md:gap-2 bg-slate-100 sm:px-2 p-2 rounded-lg">
               <input
                 type="radio"
                 value="Small"
-                className="h-5 w-6 bg-slate-300"
+                className="sm:h-3 md:h-5 w-6 bg-slate-300 cursor-pointer"
               />
-              <span>Large</span>
+              <span className="sm:text-[12px] md:text-[16px]">Medium</span>
             </div>
-            <div className="flex gap-2 bg-slate-100 p-2 rounded-lg">
+            <div className="flex items-center sm:gap-0 md:gap-2 bg-slate-100 sm:px-2 p-2 rounded-lg">
               <input
                 type="radio"
                 value="Small"
-                className="h-5 w-6 bg-slate-300"
+                className="sm:h-3 md:h-5 w-6 bg-slate-300 cursor-pointer"
               />
-              <span>Extra Large</span>
+              <span className="sm:text-[12px] md:text-[16px]">Large</span>
             </div>
-            <div className="flex gap-2 bg-slate-100 p-2 rounded-lg">
+            <div className="flex items-center sm:gap-0 md:gap-2 bg-slate-100 sm:px-2 p-2 rounded-lg">
               <input
                 type="radio"
                 value="Small"
-                className="h-5 w-6 bg-slate-300"
+                className="sm:h-3 md:h-5 w-6 bg-slate-300 cursor-pointer"
               />
-              <span>XXL</span>
+              <span className="sm:text-[12px] md:text-[16px]">X Large</span>
             </div>
           </div>
         </div>
-        <div className="flex gap-5 ">
+        <div className="flex gap-5">
           <div className="flex justify-center align-middle gap-5 bg-slate-100 px-4 py-2 rounded-lg">
             <button className="text-xl">-</button>
             <span className="text-xl font-semibold">5</span>
