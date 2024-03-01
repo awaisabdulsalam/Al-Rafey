@@ -29,7 +29,7 @@ const Purchase = () => {
               "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
           }}
         >
-          <div className="rounded-lg flex justify-between items-center sm:px-1 md:px-4 py-3 bg-[#f6f9f8]">
+          <div className="rounded-lg flex justify-between items-center sm:px-1  md:px-4 py-3 bg-[#f6f9f8]">
             <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">
               Product
             </h1>

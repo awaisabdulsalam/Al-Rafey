@@ -3,20 +3,20 @@ const ProfileSettings = () => {
   return (
     <>
         <div
-          className="info h-auto w-full mt-2  px-8 py-2 rounded-lg border-2"
+          className="h-auto w-full mt-2  sm:px-4 md:px-8 sm:py-1 md:py-2 rounded-lg border-2"
         >
-          <div className="w-full mt-5 bg-white rounded-lg overflow-hidden">
+          <div className="w-full sm:-2 md:mt-5 bg-white rounded-lg overflow-hidden">
             <div className="">
-              <h3 className="address_heading text-[#161616] text-2xl font-semibold my-5">
+              <h3 className="sm:text-[16px] text-[#161616] md:text-2xl font-semibold my-5">
                 Personal Info
               </h3>
 
               <form>
-                <div className="info_input_tags flex justify-between gap-5 mb-4 my-5">
+                <div className="sm:flex sm:flex-col md:flex md:flex-row md:justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="info_label block text-md font-medium text-[#939393]"
+                      className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                     >
                       Name
                     </label>
@@ -24,14 +24,14 @@ const ProfileSettings = () => {
                       type="text"
                       id="phone"
                       name="phone"
-                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="w-full">
                     <label
                       htmlFor="email"
-                      className="info_label block text-md font-medium text-[#939393]"
+                      className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                     >
                       Email
                     </label>
@@ -39,16 +39,16 @@ const ProfileSettings = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your email"
                     />
                   </div>
                 </div>
-                <div className="info_input_tags flex justify-between gap-5 mb-4 my-5">
+                <div className="sm:flex sm:flex-col md:flex md:flex-row md:justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="info_label block text-md font-medium text-[#939393]"
+                      className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                     >
                       Name
                     </label>
@@ -56,14 +56,14 @@ const ProfileSettings = () => {
                       type="text"
                       id="phone"
                       name="phone"
-                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="w-full">
                     <label
                       htmlFor="email"
-                      className="info_label block text-md font-medium text-[#939393]"
+                      className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                     >
                       Email
                     </label>
@@ -71,7 +71,7 @@ const ProfileSettings = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="info_input mt-1 p-2 w-full border border-gray-300 rounded-md"
+                      className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -80,7 +80,7 @@ const ProfileSettings = () => {
                   <div className="w-full">
                     <label
                       htmlFor="phone"
-                      className="info_label block text-md font-medium text-[#939393]"
+                      className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                     >
                       Detailed Address
                     </label>
@@ -98,7 +98,7 @@ const ProfileSettings = () => {
           </div>
           <div className="flex justify-end my-2">
             <div>
-              <button className="info_delete_btn w-full p-2 text-white text-lg rounded-lg bg-[#fb4141]">
+              <button className="sm:text-[12px] md:text-[16px] w-full sm:px-[6px] md:px-[10px] sm:py-[3px] md:py-[6px] text-white text-lg rounded-[4px] bg-[#fb4141]">
                 Delete Account
               </button>
             </div>

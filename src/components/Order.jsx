@@ -103,44 +103,44 @@ const Order = () => {
         <div className="flex justify-between my-10">
           <div className="w-[50%] ">
             <h1 className="font-medium sm:text-[14px] md:text-2xl">Payment</h1>
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">
               Visa**56 <span><RiVisaLine className="text-[#262261] text-3xl" /></span>
             </p>
           </div>
           <div className="w-[50%] ">
             <h1 className="font-medium sm:text-[14px] md:text-2xl">Delivery</h1>
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Address</p>
-            <p className="sm:text-[12px] md:text-[15px] text-[#667085]">ABC XYZ 123</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Address</p>
+            <p className="sm:text-[12px] md:text-[16px] text-[#667085]">ABC XYZ 123</p>
           </div>
         </div>
         <hr />
         <div className="flex justify-between my-10">
           <div className="w-[50%] ">
             <h1 className="sm:text-[14px] md:text-2xl font-medium">Need Help</h1>
-            <p className="flex items-center sm:gap-1 md:gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">
+            <p className="flex items-center sm:gap-1 md:gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">
               <AiOutlineInfoCircle /> Support <BsArrowUpRight className="text-md" />
             </p>
           </div>
           <div className="w-[50%] ">
             <h1 className="sm:text-[14px] md:text-2xl font-medium">Order Sumary</h1>
             <div className="flex justify-between my-2">
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Discount</p>
-            <p className="sm:text-[12px] md:text-[15px] text-[#667085]">$5544</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Discount</p>
+            <p className="sm:text-[12px] md:text-[16px] text-[#667085]">$5544</p>
             </div>
             <div className="flex justify-between my-2">
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Discount</p>
-            <p className="sm:text-[12px] md:text-[15px] text-[#667085]">(20%) - $1190.40</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Discount</p>
+            <p className="sm:text-[12px] md:text-[16px] text-[#667085]">(20%) - $1190.40</p>
             </div>
             <div className="flex justify-between my-2">
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Dilvery</p>
-            <p className="sm:text-[12px] md:text-[15px] text-[#667085]">$00.0</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Dilvery</p>
+            <p className="sm:text-[12px] md:text-[16px] text-[#667085]">$00.0</p>
             </div>
             <div className="flex justify-between my-2">
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Tax</p>
-            <p className="sm:text-[12px] md:text-[15px] text-[#667085]">+$221.88</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Tax</p>
+            <p className="sm:text-[12px] md:text-[16px] text-[#667085]">+$221.88</p>
             </div>
             <div className="flex justify-between my-2">
-            <p className="flex items-center gap-2 sm:text-[12px] md:text-[15px] text-[#667085]">Total</p>
+            <p className="flex items-center gap-2 sm:text-[12px] md:text-[16px] text-[#667085]">Total</p>
             <p className="sm:text-[16px] md:text-[18px] text-[#141414] font-semibold">$221.88</p>
             </div>
           </div>

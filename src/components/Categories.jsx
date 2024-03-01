@@ -16,7 +16,7 @@ import Pagination from "./Pagination";
 const Categories = () => {
   return (
     <>
-      <section className="sm:flex sm:flex-col md:flex md:flex-row sm:px-2 md:px-10    border-2 border-red-600">
+      <section className="sm:flex sm:flex-col md:flex md:flex-row sm:px-2 md:px-10">
         <section className="flex-1  sm:my-4 md:my-10">
           <h1 className="sm:text-[16px] md:text-2xl">Categories</h1>
           <div className="sm:flex md:flex md:flex-col overflow-scroll sm:gap-2 sm:mt-2 md:mt-5">

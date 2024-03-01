@@ -2,20 +2,19 @@ import { LuPlus } from "react-icons/lu";
 import creditCard from "../assets/creditcard.png";
 
 const PaymentMethods = () => {
-  console.log("Payment Addddd..........");
   return (
     <>
         <div
           className="h-auto w-full mt-2  px-6 py-10 rounded-lg border-2"
         >
           <div className="flex justify-between items-center">
-            <h1 className="address_heading text-xl  font-semibold my-4 text-[#303030]">
+            <h1 className="sm:text-[16px] md:text-xl  font-semibold my-4 text-[#303030]">
               Payment Methods
             </h1>
             <div>
-              <button className="address_btn flex items-center gap-1 px-3 py-2 text-[14px] rounded-md text-white bg-[#262261]">
-                <LuPlus /> New Address
-              </button>
+            <button className="flex items-center gap-1 sm:px-[4px] md:px-3 sm:py-[4px] md:py-2 sm:text-[10px] md:text-[14px] rounded-[4px] text-white bg-[#262261]">
+              <LuPlus /> New Address
+            </button>
             </div>
           </div>
           <hr />
