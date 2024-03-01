@@ -12,8 +12,8 @@ const Reviews = () => {
               Customers Feedback
             </h1>
           </div>
-          <section className="sm:flex sm:flex-col md:flex md:flex-row  border-2 border-red-600 gap-10 sm:px-4 md:px-10 py-8">
-            <div className="flex justify-between items-center   border-2 border-green-600  px-10 py-10 bg-[#f9fafb] mb-4 rounded-md">
+          <section className="sm:flex sm:flex-col md:flex md:flex-row  gap-10 sm:px-4 md:px-10 py-8">
+            <div className="flex justify-between items-center  px-10 py-10 bg-[#f9fafb] mb-4 rounded-md">
               <div className="px-10 py-10">
                 <h1 className="text-6xl font-bold text-[#262261]">4.8</h1>
                 <div className="flex gap-1 my-4">
@@ -26,8 +26,8 @@ const Reviews = () => {
                 <p className="text-gray-600">Product Rating</p>
               </div>
             </div>
-            <div className="flex-col items-center self-center h-[100%] sm:w-[100%] md:w-auto     border-2 border-purple-600 gap-4 py-10  sm:px-4 md:px-10 bg-[#f9fafb] rounded-md">
-              <div className="flex items-center gap-5  border-2 border-green-600">
+            <div className="flex-col items-center self-center h-[100%] sm:w-[100%] md:w-auto gap-4 py-10  sm:px-4 md:px-10 bg-[#f9fafb] rounded-md">
+              <div className="flex items-center gap-5">
                 <div className="w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ maxWidth: "70%" }}
@@ -117,7 +117,7 @@ const Reviews = () => {
             </h1>
           </div>
 
-          <div className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 py-10 mb-4">
+          <div className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4">
             <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
               <span className="sm:text-[12px] md:text-lg">A.T</span>
             </div>
@@ -157,7 +157,7 @@ const Reviews = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 py-10 mb-4">
+          <div className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 mb-4">
             <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
               <span className="sm:text-[12px] md:text-lg">A.T</span>
             </div>
