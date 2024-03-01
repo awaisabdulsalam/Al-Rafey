@@ -116,11 +116,13 @@ const Navbar2 = () => {
             </span>
           </div>
         <div ref={menuRef} className="cart_navbar">
-          <div className="navbar-toggle" onClick={toggleMenu}>
+          <div className="navbar-toggle">
+            <Link to="/al-rafey/cart">
             <LuShoppingCart className="h-6 w-6 cursor-pointer relative hover:text-[#807bd1]" />
             <span className="absolute top-1 left-6 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {addCartNum}
             </span>
+          </Link>
           </div>
           {isOpen && (
             <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
@@ -173,11 +175,13 @@ const Navbar2 = () => {
             </span>
           </div>
         <div ref={menuRef} className="cart_navbar my-2">
-          <div className="flex justify-center navbar-toggle" onClick={toggleMenu}>
+          <div className="flex justify-center navbar-toggle">
+          <Link to="/al-rafey/cart">
             <LuShoppingCart className="h-6 w-6 cursor-pointer text-[#333] relative hover:text-[#807bd1]" />
             <span className="absolute top-1 right-10 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {addCartNum}
             </span>
+          </Link>
           </div>
           {isOpen && (
             <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
