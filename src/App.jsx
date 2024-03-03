@@ -35,7 +35,7 @@ function App() {
           <Route path="/al-rafey/cart" element={<Cart />} />
           <Route path="/al-rafey/categories" element={<Categories />} />
           <Route path="/al-rafey/favourites" element={<Favourites />} />
-          <Route path="/al-rafey/purchase" element={<Purchase />} />
+          <Route path="/al-rafey/" element={<Purchase />} />
           <Route path="/al-rafey/order-confirm" element={<Order />} />
           <Route path="/al-rafey/checkout" element={<Checkout />} />
         </Routes>
