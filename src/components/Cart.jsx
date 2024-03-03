@@ -105,7 +105,7 @@ const Cart = () => {
           <p className="sm:text-sm md:text-lg text-gray-500">{`Home > Fun > Sideboard`}</p>
           <div className="flex align-middle justify-between py-5">
             <div className="w-full">
-              <h1 className="sm:text-[16px] md:text-3xl">Embrace Sideboard</h1>
+              <h1 className="sm:text-[16px] md:text-3xl">Embrace </h1>
               <p className="sm:text-sm md:text-lg text-gray-400">
                 Teixeira Design Studio
               </p>
