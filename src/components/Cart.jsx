@@ -116,7 +116,7 @@ const Cart = () => {
                   onClick={() => {
                     setHeart((prev) => !prev);
                     setLike((prev) => !prev);
-                    setLikes((prev) => prev + 1);
+                    // setLikes((prev) => prev + 1);
                   }}
                   className="sm:flex sm:items-center sm:px-1 md:px-2 sm:py-1 md:py-2 bg-[#ffe3ba3a] cursor-pointer rounded-lg"
                 >
@@ -126,7 +126,7 @@ const Cart = () => {
                     <TbHeart className="sm:xl md:text-2xl text-[#faaf40] cursor-pointer" />
                   )}
                   <span className="text-[#faaf40] sm:font-normal sm:text-sm md:font-semibold">
-                    {like ? `${likes}` : `109`}
+                    {`${likes}`}
                   </span>
                 </div>
                 <div className="bg-[#c5c3ff64] sm:font-normal md:font-semibold rounded-lg sm:px-2 md:px-2 sm:py-1 md:py-2">
