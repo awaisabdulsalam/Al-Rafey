@@ -33,6 +33,8 @@ function App() {
           <Route path="/al-rafey/" element={<HomePage />} />
           <Route path="/al-rafey/profile/*" element={<UserProfile />} />
           <Route path="/al-rafey/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart />} />
+
           <Route path="/al-rafey/categories" element={<Categories />} />
           <Route path="/al-rafey/favourites" element={<Favourites />} />
           <Route path="/al-rafey/purchase" element={<Purchase />} />
