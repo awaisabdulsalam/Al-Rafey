@@ -9,7 +9,6 @@ import { HiOutlineTruck } from "react-icons/hi2";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
-// import { Link, Route } from "react-router-dom";
 
 import shirt1 from "../assets/shirt1.png";
 import shirt2 from "../assets/shirt2.png";
