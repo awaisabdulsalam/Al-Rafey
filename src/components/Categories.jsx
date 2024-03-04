@@ -8,63 +8,63 @@ const products = [
     image: men,
     name: "T-Shirt",
     category: "All",
-    price: "$12",
+    price: 100,
     reviews: 234,
   },
   {
     image: men,
-    name: "Groceries & Pets",
+    name: "Groceries",
     category: "Groceries & Pets",
-    price: "$200",
+    price: 20,
     reviews: 234,
   },
   {
     image: men,
     name: "Pharmacy",
     category: "Online Pharmacy",
-    price: "$100",
+    price: 80,
     reviews: 234,
   },
   {
     image: men,
     name: "Books",
     category: "Books",
-    price: "$145",
+    price: 45,
     reviews: 234,
   },
   {
     image: men,
-    name: "Office Improvement",
+    name: "Home & Office",
     category: "Home & Office Improvement",
-    price: "$899",
+    price: 99,
     reviews: 234,
   },
   {
     image: men,
     name: "Toys And Games",
     category: "Toys And Games",
-    price: "$123",
+    price: 23,
     reviews: 234,
   },
   {
     image: men,
     name: "Stationary",
     category: "Uniform & Stationary",
-    price: "$456",
+    price: 46,
     reviews: 234,
   },
   {
     image: men,
     name: "Kids Fashion",
     category: "Kids Fashion",
-    price: "$789",
+    price: 89,
     reviews: 234,
   },
   {
     image: men,
     name: "Baby Products",
     category: "Baby Products",
-    price: "$777",
+    price: 77,
     reviews: 234,
   },
 ];
@@ -72,8 +72,13 @@ const products = [
 const Categories = () => {
 
   const [allProducts, setAllProducts] = useState([...products]);
+  
   const [selectedCategory, setSelectedCatogory] = useState([]);
   const [selected, setSelected] = useState(false);
+  const [price, setPrice] = useState(1000);
+
+// const fil = allProducts.filter((prod) => prod.price > 700);
+// console.log(fil);
 
   const handleCategory = (e) => {
     const targetValue = e.target.value.toLowerCase();
@@ -84,6 +89,20 @@ const Categories = () => {
     setSelectedCatogory(matched)
     setSelected(true);
   } 
+
+  const handlePrice = () => {
+    // const matched = allProducts.filter((prod) => {
+    //   const numericPriceProduct = parseInt(prod.price);
+    //   // const numericPrice = parseInt(price);
+    //   console.log(typeof numericPriceProduct === typeof price);
+    //   return prod.price <= 100;
+    // })
+    console.log(price);
+    const matched = products.filter((prod) => prod.price >=  price);
+    console.log(matched);
+    setSelectedCatogory(matched);
+    setSelected(true);
+  }
 
   return (
     <>
@@ -108,111 +127,6 @@ const Categories = () => {
                 </p>
               </div>
             ))}
-            {/* <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Groceries & Pets
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Online Pharmacy
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Books
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Home & Office Improvement
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Toys And Games
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Uniform & Stationary
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Women Fashion
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Men Fashion
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Kids Fashion
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Baby Products
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Crockery & Cutlery
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Beauty & Cosmetics
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Furniture & Accessories
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                TV & Home Appliances
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div>
-            <div className="flex items-center gap-1 my-2 cursor-pointer">
-              <input type="radio" className="sm:h-3 md:h-4 sm:w-4 md:w-4" />
-              <label htmlFor="" className="text-[#808080] sm:text-[14px] md:text-lg">
-                Electronic Accessories
-              </label>
-              <p className="text-[#dbdbdb] sm:text-[10px] md:text-[16px]">(12)</p>
-            </div> */}
           </div>
 
           <div className="py-5">
@@ -221,22 +135,24 @@ const Categories = () => {
               <input
                 type="range"
                 min="0%"
-                max="70%"
-                className="w-full sm:h-[4px]"
-              />
+                max="1000%"
+                value={price}
+                onChange={(e) => setPrice(parseInt(e.target.value))}
+                className="w-full sm:h-[4px] cursor-pointer"
+              /> 
               <div className="w-full flex justify-between">
                 <p className="text-[#808080] sm:text-[12px] md:text-[16px]">
                   $10
                 </p>
                 <p className="text-[#808080] sm:text-[12px] md:text-[16px]">
-                  $100
+                  $50
                 </p>
                 <p className="text-[#808080] sm:text-[12px] md:text-[16px]">
-                  $1000
+                  $100
                 </p>
               </div>
-              <button className="sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-2 md:py-3 sm:font-medium md:font-semibold rounded-md text-[#262261] bg-[#f6f6f6] border-2 border-[#262261]">
-                $ 50 - $ 500
+              <button onClick={handlePrice} className="sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-2 md:py-3 sm:font-medium md:font-semibold rounded-md text-[#262261] bg-[#f6f6f6] border-2 border-[#262261]">
+                Set
               </button>
             </div>
           </div>
