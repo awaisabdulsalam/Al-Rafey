@@ -57,8 +57,13 @@ const Reviews = () => {
       });
     });
   };
+
   const handleAllReviews = () => {
-    setShowAllReviews([...reviewsData]);
+    if (reviewsData.length > 2) {
+      setShowAllReviews([...reviewsData].splice(0, 2));
+    } else {
+      setShowAllReviews([...reviewsData]);
+    }
     setShowAll(prev => !prev)
     // setLessReviews((prevReview) => {
     //   return prevReview.map((review, ind) => {
