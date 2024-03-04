@@ -42,11 +42,10 @@ const Reviews = () => {
   const [showAll, setShowAll] = useState(false);
   const [replyText, setReplyText] = useState("");
   const [showReply, setShowReply] = useState(false);
-  
+
   const copyReviewsData = [...reviewsData];
   const [lessReviews, setLessReviews] = useState(copyReviewsData.splice(0, 2));
-  const [reviewReply, setReviewReply] = useState(lessReviews.map((rev, ind) => rev.showReply));
-  console.log(reviewReply);
+  const [showAllReviews, setShowAllReviews] = useState([...reviewsData].splice(0, 2));
 
   const handleLike = (index) => {
     setReviews((prevReview) => {
@@ -58,15 +57,17 @@ const Reviews = () => {
       });
     });
   };
-  const handleLessLike = (index) => {
-    setLessReviews((prevReview) => {
-      return prevReview.map((review, ind) => {
-        if (ind === index) {
-          return { ...review, like: !review.like };
-        }
-        return review;
-      });
-    });
+  const handleAllReviews = () => {
+    setShowAllReviews([...reviewsData]);
+    setShowAll(prev => !prev)
+    // setLessReviews((prevReview) => {
+    //   return prevReview.map((review, ind) => {
+    //     if (ind === index) {
+    //       return { ...review, like: !review.like };
+    //     }
+    //     return review;
+    //   });
+    // });
   };
 
   const handleReply = (index) => {
@@ -80,35 +81,44 @@ const Reviews = () => {
     });
   };
   const handleLessReply = (index) => {
-    setLessReviews((prevReview) => {
-      return prevReview.map((review, ind) => {
-        if (ind === index) {
-          return { ...review, showReply: !review.showReply };
-        }
-        return review;
-      });
+    // setLessReviews((prevReview) => {
+    //   return prevReview.map((review, ind) => {
+    //     if (ind === index) {
+    //       return { ...review, showReply: !review.showReply, reply: replyText[index] };
+    //     }
+    //     return review;
+    //   });
+    // });
+
+    setReviews((prevReviews) => {
+      const updatedReviews = [...prevReviews];
+      updatedReviews[index].showReply = !updatedReviews[index].showReply;
+      updatedReviews[index].reply = replyText;
+
+      return updatedReviews;
     });
   };
 
-  const handleLessReplyText = (index) => {
-    lessReviews[index].reply = replyText;
-    setShowReply(prev => !prev)
-    // setReviewReply((prev) => {
-    //   return prev.map((check, ind) => {
+  const handleReplySubmit = (index) => {
+    // lessReviews[index].reply = replyText;
+    // setShowReply(prev => !prev)
+    // setLessReviews((prevReview) => {
+    //   return prevReview.map((review, ind) => {
     //     if (ind === index) {
-    //       return !check;
+    //       return { ...review, showReply: !review.showReply };
     //     }
-    //   })
-    // })
-    setLessReviews((prevReview) => {
-      return prevReview.map((review, ind) => {
-        if (ind === index) {
-          return { ...review, showReply: !review.showReply };
-        }
-        return review;
-      });
+    //     return review;
+    //   });
+    // });
+    console.log(replyText);
+    setReviews((prevReview) => {
+      const updatedReviews = [...prevReview];
+      updatedReviews[index].reply = replyText;
+      updatedReviews[index].showReply = false;
+      setReplyText("");
+      setShowReply((prev) => !prev);
+      return updatedReviews;
     });
-    console.log(reviewsData[index].showReply);
   };
 
   return (
@@ -225,90 +235,8 @@ const Reviews = () => {
             </h1>
           </div>
 
-          {!showAll &&
-            // ? reviews.map((review, index) => (
-            //     <div
-            //       key={index}
-            //       className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
-            //     >
-            //       <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
-            //         <span className="sm:text-[12px] md:text-lg">
-            //           {review.profile}
-            //         </span>
-            //       </div>
-            //       <div className="flex-grow px-5 py-5">
-            //         <div className="flex  gap-5 mb-2">
-            //           <p className="sm:font-medium sm:text-[14px] md:text-[16px] md:font-bold text-[#262261]">
-            //             {review.name}
-            //           </p>
-            //           <p className="sm:text-[12px] md:text-[16px] text-gray-500">
-            //             {review.days}
-            //           </p>
-            //         </div>
-            //         <div className="flex gap-1 sm:my-2 md:my-4">
-            //           <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            //           <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            //           <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            //           <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            //           <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            //         </div>
-            //         <p className="mb-2 sm:text-[14px] md:text-[16px] text-[#262261]">
-            //           {review.review}
-            //         </p>
-            //         <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
-            //           {review.text}
-            //         </p>
-            //         <div className="flex items-center">
-            //           {!review.like ? (
-            //             <GoThumbsup
-            //               onClick={() => handleLike(index)}
-            //               className="likeIcon text-gray-500  sm:text-[14px] md:text-xl mr-1 cursor-pointer"
-            //             />
-            //           ) : (
-            //             <FaThumbsUp
-            //               className="likeIcon text-[#4e45c7] sm:text-[14px] md:text-xl mr-1 cursor-pointer"
-            //               onClick={() => handleLike(index)}
-            //             />
-            //           )}
-            //           <p
-            //             onClick={() => handleLike(index)}
-            //             className="text-gray-500 sm:text-[12px] md:text-[14px] cursor-pointer"
-            //           >
-            //             Like
-            //           </p>
-            //           <div className="flex" onClick={() => handleReply(index)}>
-            //             <FaReply className="text-[#e06d50] sm:text-[14px] md:text-xl sm:ml-2 md:ml-4 cursor-pointer" />
-            //             <p className="text-[#e06d50] ml-2 sm:text-[12px] md:text-[14px] cursor-pointer">
-            //               Reply
-            //             </p>
-            //           </div>
-            //           <div></div>
-            //         </div>
-            //         {review.showReply && (
-            //           <div className="flex-col items-center mt-4">
-            //             <div className="pl-10 my-2">
-            //               <textarea
-            //                 value={replyText}
-            //                 onChange={(e) => setReplyText(e.target.value)}
-            //                 placeholder="Write your reply..."
-            //                 className="w-full h-20 sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 md:mx-1 rounded-[4px] border border-gray-300"
-            //               />
-            //             </div>
-            //             <div className="flex justify-end">
-            //               <button
-            //                 onClick={handleLessReplyText(index)}
-            //                 className=" ml-4 sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white py-2 px-4 rounded-[4px]"
-            //               >
-            //                 Submit
-            //               </button>
-            //             </div>
-            //           </div>
-            //         )}
-            //       </div>
-            //     </div>
-            //   ))
-            // : 
-            lessReviews.map((review, index) => (
+          {!reviews.length > 2
+            ? showAllReviews.map((review, index) => (
                 <div
                   key={index}
                   className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
@@ -343,38 +271,37 @@ const Reviews = () => {
                     <div className="flex items-center">
                       {!review.like ? (
                         <GoThumbsup
-                          onClick={() => handleLessLike(index)}
+                          onClick={() => handleLike(index)}
                           className="likeIcon text-gray-500  sm:text-[14px] md:text-xl mr-2 cursor-pointer"
                         />
                       ) : (
                         <FaThumbsUp
                           className="likeIcon text-[#4e45c7] sm:text-[14px] md:text-xl mr-2 cursor-pointer"
-                          onClick={() => handleLessLike(index)}
+                          onClick={() => handleLike(index)}
                         />
                       )}
                       <p
-                        onClick={() => handleLessLike(index)}
+                        onClick={() => handleLike(index)}
                         className="text-gray-500 sm:text-[12px] md:text-[14px] cursor-pointer"
                       >
                         Like
                       </p>
-                      <div
-                        className="flex"
-                        onClick={() => handleLessReply(index)}
-                      >
+                      <div className="flex" onClick={() => handleReply(index)}>
                         <FaReply className="text-[#e06d50] sm:text-[14px] md:text-xl sm:ml-2 md:ml-4 cursor-pointer" />
                         <p className="text-[#e06d50] ml-2 sm:text-[12px] md:text-[14px] cursor-pointer">
                           Reply
                         </p>
                       </div>
                     </div>
-                      {showReply && <div className="flex-col items-center mt-4">
+                    {!review.showReply && (
+                      <div className="flex-col items-center mt-4">
                         <div className="pl-10 my-2">
                           <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
                             {review.reply}
                           </p>
                         </div>
-                      </div>}
+                      </div>
+                    )}
                     {review.showReply && (
                       <div className="flex-col items-center mt-4">
                         <div className="pl-10 my-2">
@@ -387,7 +314,7 @@ const Reviews = () => {
                         </div>
                         <div className="flex justify-end">
                           <button
-                            onClick={() => handleLessReplyText(index)}
+                            onClick={() => handleReplySubmit(index)}
                             className=" ml-4 sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white py-2 px-4 rounded-[4px]"
                           >
                             Submit
@@ -397,25 +324,114 @@ const Reviews = () => {
                     )}
                   </div>
                 </div>
+              ))
+            : reviews.map((review, index) => (
+              <div
+              key={index}
+              className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
+            >
+              <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
+                <span className="sm:text-[12px] md:text-lg">
+                  {review.profile}
+                </span>
+              </div>
+              <div className="flex-grow px-5 py-5">
+                <div className="flex  gap-5 mb-2">
+                  <p className="sm:font-medium sm:text-[14px] md:text-[16px] md:font-bold text-[#262261]">
+                    {review.name}
+                  </p>
+                  <p className="sm:text-[12px] md:text-[16px] text-gray-500">
+                    {review.days}
+                  </p>
+                </div>
+                <div className="flex gap-1 sm:my-2 md:my-4">
+                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                </div>
+                <p className="mb-2 sm:text-[14px] md:text-[16px] text-[#262261]">
+                  {review.review}
+                </p>
+                <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
+                  {review.text}
+                </p>
+                <div className="flex items-center">
+                  {!review.like ? (
+                    <GoThumbsup
+                      onClick={() => handleLike(index)}
+                      className="likeIcon text-gray-500  sm:text-[14px] md:text-xl mr-2 cursor-pointer"
+                    />
+                  ) : (
+                    <FaThumbsUp
+                      className="likeIcon text-[#4e45c7] sm:text-[14px] md:text-xl mr-2 cursor-pointer"
+                      onClick={() => handleLike(index)}
+                    />
+                  )}
+                  <p
+                    onClick={() => handleLike(index)}
+                    className="text-gray-500 sm:text-[12px] md:text-[14px] cursor-pointer"
+                  >
+                    Like
+                  </p>
+                  <div className="flex" onClick={() => handleReply(index)}>
+                    <FaReply className="text-[#e06d50] sm:text-[14px] md:text-xl sm:ml-2 md:ml-4 cursor-pointer" />
+                    <p className="text-[#e06d50] ml-2 sm:text-[12px] md:text-[14px] cursor-pointer">
+                      Reply
+                    </p>
+                  </div>
+                </div>
+                {!review.showReply && (
+                  <div className="flex-col items-center mt-4">
+                    <div className="pl-10 my-2">
+                      <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
+                        {review.reply}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {review.showReply && (
+                  <div className="flex-col items-center mt-4">
+                    <div className="pl-10 my-2">
+                      <textarea
+                        value={replyText}
+                        onChange={(e) => setReplyText(e.target.value)}
+                        placeholder="Write your reply..."
+                        className="w-full h-20 sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 md:mx-1 rounded-[4px] border border-gray-300"
+                      />
+                    </div>
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => handleReplySubmit(index)}
+                        className=" ml-4 sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white py-2 px-4 rounded-[4px]"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
               ))}
         </section>
-        {/* <div className="flex justify-center">
-          {showAll ? (
+        <div className="flex justify-center">
+          {showAllReviews.length > 2 ? (
             <button
               className="underline text-[#e06d50]"
-              onClick={() => setShowAll((prev) => !prev)}
+              onClick={() => handleAllReviews()}
             >
               View Less Reviews
             </button>
           ) : (
             <button
               className="underline text-[#e06d50]"
-              onClick={() => setShowAll((prev) => !prev)}
+              onClick={() => handleAllReviews()}
             >
               View All Reviews
             </button>
           )}
-        </div> */}
+        </div>
 
         <section className="gap-5 sm:px-4 md:px-20 py-10  mb-2">
           <div className="flex">
