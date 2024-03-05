@@ -19,6 +19,7 @@ import men from "./assets/men.jpg";
 
 const products = [
   {
+    id: 0,
     image: men,
     name: "T-Shirt",
     category: "All",
@@ -26,6 +27,7 @@ const products = [
     reviews: 234,
   },
   {
+    id: 1,
     image: men,
     name: "Groceries",
     category: "Groceries & Pets",
@@ -33,6 +35,7 @@ const products = [
     reviews: 234,
   },
   {
+    id: 2,
     image: men,
     name: "Pharmacy",
     category: "Online Pharmacy",
@@ -40,6 +43,7 @@ const products = [
     reviews: 234,
   },
   {
+    id: 3,
     image: men,
     name: "Books",
     category: "Books",
@@ -47,6 +51,7 @@ const products = [
     reviews: 234,
   },
   {
+    id: 4,
     image: men,
     name: "Home & Office",
     category: "Home & Office Improvement",
@@ -59,10 +64,13 @@ const products = [
 function App() {
   const [addCartNum, setAddCartNum] = useState(0);
   const [favourite, setFavourite] = useState(0);
+  const [favouriteArray, setFavouriteArray] = useState([]);
+  console.log(favouriteArray);
+
 
   return (
     <>
-        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite]}>
+        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray]}>
       <Router>
         <Header />
         <Routes>
@@ -70,7 +78,7 @@ function App() {
           <Route path="/al-rafey/profile/*" element={<UserProfile />} />
           <Route path="/al-rafey/cart" element={<Cart products={products} />} />
           <Route path="/al-rafey/categories" element={<Categories products={products} />} />
-          <Route path="/al-rafey/favourites" element={<Favourites products={products} />} />
+          <Route path="/al-rafey/favourites" element={<Favourites favouriteArray={favouriteArray} setFavouriteArray={setFavouriteArray} />} />
           <Route path="/al-rafey/purchase" element={<Purchase products={products} />} />
           <Route path="/al-rafey/order-confirm" element={<Order products={products} />} />
           <Route path="/al-rafey/checkout" element={<Checkout products={products} />} />

@@ -1,6 +1,16 @@
 import mobileImage from "../assets/mobile.png";
 
-const Favourites = ({ products }) => {
+const Favourites = ({ favouriteArray, setFavouriteArray }) => {
+
+  const hanldeRemoveFavourite = (index) => {
+    const updatedFavouriteArray = [...favouriteArray];
+    
+    // Remove the item at the specified index
+    updatedFavouriteArray.splice(index, 1);
+
+    // Update the state with the new favouriteArray
+    setFavouriteArray(updatedFavouriteArray);
+  }
 
 
   return (
@@ -18,32 +28,23 @@ const Favourites = ({ products }) => {
         <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">Amount</h1>
         <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">Action</h1>
       </div>
-      <div className="rounded-lg flex justify-between items-center sm:px-0 md:px-4 sm:my-1 md:my-3 py-3">
+      {
+        favouriteArray.map((favourite, index) => (
+
+      <div key={index} className="rounded-lg flex justify-between items-center sm:px-0 md:px-4 sm:my-1 md:my-3 py-3">
         <div className="flex items-center">
           <img src={mobileImage} alt="" className="sm:h-8 md:h-12 sm:w-8 md:w-12 object-cover" />
-          <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">Notebook Elite 321</p>
+          <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">{favourite.name}</p>
         </div>
-        <div className="flex justify-start sm:mr-24 md:mr-32 sm:flex sm:justify-start sm:pl-4">
-          <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">$2499</h1>
-        </div>
-        <div className="">
-          <button className="text-[#bcbcbc] text-base sm:text-[10px] md:text-[15px]">Remove</button>
-        </div>
-      </div>
-
-
-      <div className="rounded-lg flex justify-between items-center sm:px-0 md:px-4 sm:my-1 md:my-3 py-3">
-        <div className="flex items-center">
-          <img src={mobileImage} alt="" className="sm:h-8 md:h-12 sm:w-8 md:w-12 object-cover" />
-          <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">Notebook Elite 321</p>
-        </div>
-        <div className="flex justify-start sm:mr-24 md:mr-32 sm:flex sm:justify-start sm:pl-4">
-          <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">$2499</h1>
+        <div className="flex justify-start sm:mr-24 md:mr-46 sm:flex sm:justify-start sm:pl-4">
+          <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">{`$${favourite.name}`}</h1>
         </div>
         <div className="">
-          <button className="text-[#bcbcbc] text-base sm:text-[10px] md:text-[15px]">Remove</button>
+          <button onClick={() => hanldeRemoveFavourite(index)} className="text-[#bcbcbc] text-base sm:text-[10px] md:text-[15px]">Remove</button>
         </div>
       </div>
+         ) )
+      }
       
       <hr className="border-t" />
     </div>

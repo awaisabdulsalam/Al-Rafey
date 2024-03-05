@@ -7,36 +7,78 @@ import { useContext, useState } from "react";
 import { userContext } from "../App.jsx";
 
 const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
-  const [addCartNum, favourite, setAddCartNum, setFavourite] =
+  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray] =
     useContext(userContext);
 
-  const [addToCart, setAddToCart] = useState([]);
-  // const [heart, setHeart] = useState(false);
-  const [heartStates, setHeartStates] = useState(Array(products.length).fill(false));
+  // const [addToCart, setAddToCart] = useState([]);
+  // const [heartStates, setHeartStates] = useState(Array(products.length).fill(false));
+
+  // const [addToCart, setAddToCart] = useState([]);
+  const [favorite, setFavorite] = useState([]);
 
   const handleAddToCart = (index) => {
     setAddCartNum((addCartNum) => addCartNum + 1);
   };
-  const handelFavourite = (index) => {
-    const updatedCart = [...addToCart, products[index]];
-    setAddToCart(updatedCart);
 
-    // const sorted = products.filter((prod, ind) => ind === index);
-    // console.log(sorted);
-    // if(sorted) {
-    //   console.log("Helllllll");
-      // setHeart((prev) => !prev);
-    // }
-    const updatedHeartStates = [...heartStates];
-    updatedHeartStates[index] = !updatedHeartStates[index];
-    if (updatedHeartStates[index] === false) {
-      updatedCart.slice(updatedHeartStates[index], 1);
-    }
-    setHeartStates(updatedHeartStates)
 
-    setFavourite((favourite) => favourite + 1);
-  };
-  console.log(addToCart);
+  // const handleAddFavourite = (index) => {
+  //   console.log("ADDDDDDDDDDDDDD");
+
+  //   let updatedCart = [...addToCart, products[index]];
+    
+  //   const updatedHeartStates = [...heartStates];
+  //   updatedHeartStates[index] = !updatedHeartStates[index];
+
+  //   // if (updatedHeartStates[index]) {
+  //     // const removedCart = updatedCart.filter((item, ind) => ind === index);
+  //     // const addToFavourite = 
+  //     setAddToCart(updatedCart);
+  //   // } 
+  //   //  else {
+  //   //   const removedCart = updatedCart.filter((_, ind) => updatedCart[ind]);
+  //   //   setAddToCart(removedCart);
+  //   // }
+  //   // setAddToCart(updatedCart);
+
+  //   setHeartStates(updatedHeartStates)
+
+  //   setFavourite((prev) => prev = updatedCart.length);
+  // };
+
+// const handleRemoveFavourite = (index) => {
+//   console.log("Removeeeee");
+//   let updatedCart = [...addToCart];
+//   console.log(updatedCart);
+//     const updatedHeartStates = [...heartStates];
+//     updatedHeartStates[index] = !updatedHeartStates[index];
+
+//     if (!updatedHeartStates[index]) {
+//       const removedCart = updatedCart.filter((item, ind) => ind !== index);
+//       // updatedCart = removedCart
+//       setAddToCart(removedCart);
+//     } 
+
+//     setHeartStates(updatedHeartStates)
+
+//     // setFavourite((prev) => prev = updatedCart.length);
+//   }
+
+const handleAddFavourite = (index) => {
+  const updatedFavorite = [...favorite];
+  const isFavorite = updatedFavorite.includes(index);
+
+  if (!isFavorite) {
+    updatedFavorite.push(index);
+  } else {
+    const indexToRemove = updatedFavorite.indexOf(index);
+    updatedFavorite.splice(indexToRemove, 1);
+  }
+  
+  setFavouriteArray(updatedFavorite.map((i) => products[i]))
+  setFavorite(updatedFavorite);
+  setFavourite((prev) => prev = updatedFavorite.length);
+};
+
 
   return (
     <>
@@ -69,14 +111,15 @@ const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
             >
               <div className={`text-[${color}] relative`}>
                 <div className="cursor-pointer">
-                  {!heartStates[index] ? (
-                    <TbHeart
-                      onClick={() => handelFavourite(index)}
+                  {/* {!heartStates[index] ? ( */}
+                  {!favorite.includes(index) ?
+                   ( <TbHeart
+                      onClick={() => handleAddFavourite(index)}
                       className={`hover:text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl text-[#fff]`}
                     />
                   ) : (
                     <IoMdHeart 
-                    onClick={() => handelFavourite(index)}
+                    onClick={() => handleAddFavourite(index)}
                     className="text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl" />
                   )}
                 </div>
