@@ -10,58 +10,12 @@ const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
   const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray] =
     useContext(userContext);
 
-  // const [addToCart, setAddToCart] = useState([]);
-  // const [heartStates, setHeartStates] = useState(Array(products.length).fill(false));
-
-  // const [addToCart, setAddToCart] = useState([]);
   const [favorite, setFavorite] = useState([]);
 
-  const handleAddToCart = (index) => {
+  const handleAddToCart = () => {
     setAddCartNum((addCartNum) => addCartNum + 1);
   };
 
-
-  // const handleAddFavourite = (index) => {
-  //   console.log("ADDDDDDDDDDDDDD");
-
-  //   let updatedCart = [...addToCart, products[index]];
-    
-  //   const updatedHeartStates = [...heartStates];
-  //   updatedHeartStates[index] = !updatedHeartStates[index];
-
-  //   // if (updatedHeartStates[index]) {
-  //     // const removedCart = updatedCart.filter((item, ind) => ind === index);
-  //     // const addToFavourite = 
-  //     setAddToCart(updatedCart);
-  //   // } 
-  //   //  else {
-  //   //   const removedCart = updatedCart.filter((_, ind) => updatedCart[ind]);
-  //   //   setAddToCart(removedCart);
-  //   // }
-  //   // setAddToCart(updatedCart);
-
-  //   setHeartStates(updatedHeartStates)
-
-  //   setFavourite((prev) => prev = updatedCart.length);
-  // };
-
-// const handleRemoveFavourite = (index) => {
-//   console.log("Removeeeee");
-//   let updatedCart = [...addToCart];
-//   console.log(updatedCart);
-//     const updatedHeartStates = [...heartStates];
-//     updatedHeartStates[index] = !updatedHeartStates[index];
-
-//     if (!updatedHeartStates[index]) {
-//       const removedCart = updatedCart.filter((item, ind) => ind !== index);
-//       // updatedCart = removedCart
-//       setAddToCart(removedCart);
-//     } 
-
-//     setHeartStates(updatedHeartStates)
-
-//     // setFavourite((prev) => prev = updatedCart.length);
-//   }
 
 const handleAddFavourite = (index) => {
   const updatedFavorite = [...favorite];
