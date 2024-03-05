@@ -5,10 +5,8 @@ const Favourites = ({ favouriteArray, setFavouriteArray }) => {
   const hanldeRemoveFavourite = (index) => {
     const updatedFavouriteArray = [...favouriteArray];
     
-    // Remove the item at the specified index
     updatedFavouriteArray.splice(index, 1);
 
-    // Update the state with the new favouriteArray
     setFavouriteArray(updatedFavouriteArray);
   }
 
