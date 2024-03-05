@@ -104,10 +104,12 @@ const Navbar2 = () => {
           </Link>
 
           <div className="relative">
+            <Link to="/al-rafey/favourites">
             <BiHeart className="h-6 w-6 mr-4 cursor-pointer hover:text-[#807bd1]" />
             <span className="absolute -top-1 right-2 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {favourite}
             </span>
+            </Link>
           </div>
           <div className="relative">
             <BiBell className="h-6 w-6 mr-4 cursor-pointer relative hover:text-[#807bd1]"></BiBell>

@@ -1,9 +1,10 @@
 import mobileImage from "../assets/mobile.png";
 
-const Favourites = () => {
+const Favourites = ({ products }) => {
+
+
   return (
     <>
-
 <section className="md:my-10 md:mx-10 md:px-5 sm:px-4">
   <h1 className="font-semibold sm:px-2 my-5 sm:text-[18px] text-[#333] md:text-3xl">Favourites</h1>
     <div className="rounded-lg bg-[#fff]  sm:px-2 md:px-8  overflow-hidden mb-5"
