@@ -24,7 +24,7 @@ const products = [
     name: "T-Shirt",
     category: "All",
     price: 100,
-    reviews: 234,
+    reviews: 84,
   },
   {
     id: 1,
@@ -32,7 +32,7 @@ const products = [
     name: "Groceries",
     category: "Groceries & Pets",
     price: 20,
-    reviews: 234,
+    reviews: 78,
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const products = [
     name: "Pharmacy",
     category: "Online Pharmacy",
     price: 80,
-    reviews: 234,
+    reviews: 4,
   },
   {
     id: 3,
@@ -48,7 +48,7 @@ const products = [
     name: "Books",
     category: "Books",
     price: 45,
-    reviews: 234,
+    reviews: 94,
   },
   {
     id: 4,
@@ -56,27 +56,27 @@ const products = [
     name: "Home & Office",
     category: "Home & Office Improvement",
     price: 99,
-    reviews: 234,
+    reviews: 34,
   }
 ];
 
 
 function App() {
   const [addCartNum, setAddCartNum] = useState(0);
+  const [addToCart, setAddtoCart] = useState([]);
   const [favourite, setFavourite] = useState(0);
   const [favouriteArray, setFavouriteArray] = useState([]);
-  console.log(favouriteArray);
-
+console.log(addToCart);
 
   return (
     <>
-        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray]}>
+        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart]}>
       <Router>
         <Header />
         <Routes>
           <Route path="/al-rafey/" element={<HomePage products={products} />} />
           <Route path="/al-rafey/profile/*" element={<UserProfile />} />
-          <Route path="/al-rafey/cart" element={<Cart products={products} />} />
+          <Route path="/al-rafey/cart" element={<Cart addToCart={addToCart} />} />
           <Route path="/al-rafey/categories" element={<Categories products={products} />} />
           <Route path="/al-rafey/favourites" element={<Favourites favouriteArray={favouriteArray} setFavouriteArray={setFavouriteArray} />} />
           <Route path="/al-rafey/purchase" element={<Purchase products={products} />} />

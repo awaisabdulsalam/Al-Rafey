@@ -1,15 +1,8 @@
 import mobile from "../assets/mobile.jpg";
 import Products from "./Products";
 
-const products = [
-  { image: mobile, name: "T-Shirt", price: "$222", reviews: 234 },
-  { image: mobile, name: "T-Shirt", price: "$222", reviews: 234 },
-  { image: mobile, name: "T-Shirt", price: "$222", reviews: 234 },
-  { image: mobile, name: "T-Shirt", price: "$222", reviews: 234 },
-  { image: mobile, name: "T-Shirt", price: "$222", reviews: 234 }
-]
 
-const MobileProduct = () => {
+const MobileProduct = ({ products }) => {
   return (
     <>
     <Products products={products} heading="Mobile Products" bgColor="#262261" color="#fff" btnColor="#262261"  />

@@ -7,13 +7,21 @@ import { useContext, useState } from "react";
 import { userContext } from "../App.jsx";
 
 const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
-  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray] =
+
+  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart] =
     useContext(userContext);
 
   const [favorite, setFavorite] = useState([]);
 
-  const handleAddToCart = () => {
-    setAddCartNum((addCartNum) => addCartNum + 1);
+  const handleAddToCart = (index) => {
+    const added = [...addToCart];
+    const included = added.includes(products[index])
+    
+    if (!included) {
+      added.push(products[index]);
+    } 
+    setAddtoCart(added)
+    setAddCartNum(() => added.length);
   };
 
 
@@ -65,7 +73,6 @@ const handleAddFavourite = (index) => {
             >
               <div className={`text-[${color}] relative`}>
                 <div className="cursor-pointer">
-                  {/* {!heartStates[index] ? ( */}
                   {!favorite.includes(index) ?
                    ( <TbHeart
                       onClick={() => handleAddFavourite(index)}
@@ -102,7 +109,7 @@ const handleAddFavourite = (index) => {
                 </p>
               </div>
               <button
-                onClick={handleAddToCart}
+                onClick={() => handleAddToCart(index)}
                 className="single_product_btn flex justify-center items-center bg-[#262261] hover:bg-[#342e84] text-white w-full px-2 py-1 rounded-md"
               >
                 <LuShoppingCart className="" />
