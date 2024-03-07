@@ -11,13 +11,7 @@ import { userContext } from "../App.jsx";
 import men from "../assets/men.jpg";
 import logoImage from "../assets/logo.png";
 import CategoryProduct from "./CategoryProduct.jsx";
-import InputSearchProduct from "./InputSearchProduct.jsx";
 
-// const products = [
-//   { id: 1, image: men, name: "T-shirt", price: 99, quantity: 1 },
-//   { id: 2, image: men, name: "T-shirt", price: 99, quantity: 1 },
-//   { id: 3, image: men, name: "T-shirt", price: 99, quantity: 1 },
-// ];
 const Navbar2 = ({ totalPrice, products }) => {
 
   const [addCartNum, favourite] = useContext(userContext);
@@ -45,11 +39,6 @@ const Navbar2 = ({ totalPrice, products }) => {
     }
   }, [])
 
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   const updateQuantity = (index, newQuantity) => {
     const newQuantities =  [...quantity];
     newQuantities[index] = newQuantity;
@@ -69,7 +58,7 @@ const Navbar2 = ({ totalPrice, products }) => {
           <img
             src={logoImage}
             alt="Logo"
-            className="logo md:h-[40px] sm:h-[20px] md:w-[202px] sm:w-[200px] mr-2 cursor-pointer"
+            className="md:h-[40px] sm:h-[20px] md:w-[202px] sm:w-[200px] mr-2 cursor-pointer"
           />
           </Link>
         </div>
@@ -78,9 +67,7 @@ const Navbar2 = ({ totalPrice, products }) => {
           <select value={selectCategory} onChange={(e) => {
             setSelectCategory(e.target.value)
             setCategoryText(true);
-          }
-            
-            } className="sm:py-0 sm:px-5 sm:text-[10px] md:text-[16px] bg-[#FAAF40]  px-4 sm:rounded-tl-[4px] sm:rounded-bl-[4px] sm:flex-1">
+          }} className="sm:py-0 sm:px-5 sm:text-[10px] md:text-[16px] bg-[#FAAF40]  px-4 sm:rounded-tl-[4px] sm:rounded-bl-[4px] sm:flex-1">
             <option value="category" default>
               Category
             </option>
@@ -101,7 +88,7 @@ const Navbar2 = ({ totalPrice, products }) => {
         </div>
 
           <div>
-          {showNav ? <RxCross1 className="hamburger_icon md:hidden h-4 w-4 mr-4 cursor-pointer" onClick={() => setShowNav(!showNav)} /> : <GiHamburgerMenu onClick={() => setShowNav(!showNav)} className="md:hidden h- w-4 mr-4 cursor-pointer" />}
+          {showNav ? <RxCross1 className="md:hidden h-4 w-4 mr-4 cursor-pointer" onClick={() => setShowNav(!showNav)} /> : <GiHamburgerMenu onClick={() => setShowNav(!showNav)} className="md:hidden h-4 w-4 mr-4 cursor-pointer" />}
         </div>
 
         <div className="nav_show flex flex-1 justify-end items-center gap-4 relative">
@@ -123,9 +110,9 @@ const Navbar2 = ({ totalPrice, products }) => {
               9+
             </span>
           </div>
-        <div ref={menuRef} className="cart_navbar">
+        <div ref={menuRef} className="h-auto relative right-[5px] p-[10px]">
           <div className="navbar-toggle">
-            <Link to="/al-rafey/cart">
+            <Link to="/al-rafey/checkout">
             <LuShoppingCart className="h-6 w-6 cursor-pointer relative hover:text-[#807bd1]" />
             <span className="absolute top-1 left-6 bg-[#FAAF40] text-white text-xs rounded-full px-1">
               {addCartNum}
@@ -163,7 +150,7 @@ const Navbar2 = ({ totalPrice, products }) => {
         </div>
 
           {showNav && 
-          <div className="nav_hide w-40 bg-[#fff] border-2 border-[#fff] py-10 px-5 flex-col justify-center items-center absolute right-0 top-[70px]">
+          <div className="nav_hide w-40 bg-[#fff] py-10 px-5 flex-col justify-center items-center absolute right-0 top-[58px]">
             <div className="flex justify-center my-2">
           <Link to="/al-rafey/profile">
             <FaRegUser className="h-6 w-6 mr-4 cursor-pointer text-[#333] hover:text-[#807bd1]" />
@@ -182,8 +169,8 @@ const Navbar2 = ({ totalPrice, products }) => {
               9+
             </span>
           </div>
-        <div ref={menuRef} className="cart_navbar my-2">
-          <div className="flex justify-center navbar-toggle">
+        <div ref={menuRef} className="h-auto relative right-[5px] p-[10px] my-2">
+          <div className="flex justify-center cursor-pointer">
           <Link to="/al-rafey/cart">
             <LuShoppingCart className="h-6 w-6 cursor-pointer text-[#333] relative hover:text-[#807bd1]" />
             <span className="absolute top-1 right-10 bg-[#FAAF40] text-white text-xs rounded-full px-1">
@@ -191,34 +178,11 @@ const Navbar2 = ({ totalPrice, products }) => {
             </span>
           </Link>
           </div>
-          {isOpen && (
-            <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
-              {products.map((product, index) => (
-                <div key={product.id} className="product-item">
-                  <div className="product-info">
-                    <img className="h-20 w-1" src={men} alt={product.name} />
-                    <div>
-                      <h4>{product.name}</h4>
-                    </div>
-                  </div>
-                  <div className="quantity-controls flex gap-2">
-                    <button>
-                      <FaMinus className="text-sm" onClick={() => updateQuantity(index, Math.max(0, quantity[index] - 1))} />
-                    </button>
-                      <p>{quantity[index]}</p>
-                    <button>
-                      <FaPlus  className="text-sm" onClick={() => updateQuantity(index, quantity[index] + 1)}  />
-                    </button>
-                  </div>
-                  <div>
-                    <p>$ {`${product.price * quantity[index]}`}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
+        <div className="flex justify-center">
+
           <span className="ml-2 text-[#333]">{!totalPrice ? "00.0" : `$${totalPrice}`}</span>
+        </div>
         </div>}
       </nav>
 

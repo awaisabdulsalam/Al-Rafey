@@ -44,8 +44,8 @@ const handleAddFavourite = (index) => {
 
 
 const handleAddProduct = (index) => {
-  const added = [...addedProduct, products[index]];
-  setAddedProduct(added)
+  const added = products[index];
+  setAddedProduct([added])
 }
 
 
@@ -62,17 +62,18 @@ const handleAddProduct = (index) => {
           >
             {heading}
           </h1>
+          <Link to="/al-rafey/categories">
           <button
             className={`product_btn text-[${color}] hover:text-[#fff] hover:bg-[${btnColor}] text-xl py-2 px-4 rounded-lg border-[1px] border-[#d5e1e1]`}
           >
             Show More
           </button>
+          </Link>
         </div>
 
         {/************    Product Cart   **************/}
-        <Link to="/al-rafey/cart">
         <div
-          className={`text-[${bgColor} flex justify-start flex-wrap max-w-[100%] gap-4 py-10 px-2`}
+          className={`text-[${bgColor} sm:flex md:flex sm:justify-center md:justify-start flex-wrap max-w-[100%] gap-4 py-10 px-2`}
         >
           {products?.map((product, index) => (
             <div
@@ -93,11 +94,13 @@ const handleAddProduct = (index) => {
                     className="text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl" />
                   )}
                 </div>
+                <Link to="/al-rafey/cart">
                 <img
                   src={product.image}
                   alt="Product"
                   className="sm:h-[150px] rounded-md md:h-[200px] w-full"
                 />
+          </Link>
               </div>
               <div className="py-4">
                 <h2 className="product_name text-[#333] text-xl mb-2">
@@ -127,7 +130,6 @@ const handleAddProduct = (index) => {
             </div>
           ))}
         </div>
-        </Link>
       </section>
     </>
   );

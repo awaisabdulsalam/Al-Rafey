@@ -12,6 +12,7 @@ import vectorGray1 from "../assets/vectorGray1.png"
 import groupImage from "../assets/groupImage.png"
 
 import vectorYellow1 from "../assets/vectorYellow1.png"
+import { Link } from "react-router-dom";
 
 
 
@@ -79,9 +80,11 @@ const Hero = () => {
               {heros[indexHero].text}
             </p>
             <div>
+              <Link to="/al-rafey/categories">
               <button style={{ backgroundColor: heros[indexHero].btnColor }} className={`sm:text-[12px] md:text-[18px] sm:py-1 sm:px-3 hover:bg-[#eff886] hover:border-[#eff886] border-2 border-white md:px-8 md:py-3 my-1 rounded-lg text-xl`}>
                 Shop Now
               </button>
+              </Link>
             </div>
           </div>
           <div>
@@ -97,8 +100,8 @@ const Hero = () => {
         </div>
       </section>
           <div className="flex justify-center gap-5">
-            <FaArrowLeft className="text-3xl cursor-pointer" onClick={handleNextHero} />
-            <FaArrowRight className="text-3xl cursor-pointer"onClick={handlePrevHero} />
+            <FaArrowLeft className="text-xl cursor-pointer" onClick={handleNextHero} />
+            <FaArrowRight className="text-xl cursor-pointer"onClick={handlePrevHero} />
           </div>
     </>
   );

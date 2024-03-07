@@ -18,13 +18,13 @@ const Navbar1 = () => {
           <span className="sm:text-[12px] md:text-[14px] text-base">+923091354207</span>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="#" className="text-white">
+          <a href="https://www.youtube.com" target="_blank" className="text-white">
             <AiOutlineYoutube className='text-base md:text-xl hover:text-[#807bd1]' />
           </a>
-          <a href="#" className="text-white">
+          <a href="https://www.instagram.com" target="_blank" className="text-white">
             <LuInstagram className='sm:text-[13px] text-base md:text-lg hover:text-[#807bd1]' />
           </a>
-          <a href="#" className="text-white">
+          <a href="https://www.facebook.com" target="_blank" className="text-white">
             <RiFacebookCircleLine className='text-base md:text-xl hover:text-[#807bd1]' />
           </a>
         </div>

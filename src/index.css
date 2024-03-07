@@ -106,7 +106,6 @@
   }
   .nav_show {
     display: none;
-    border: 2px solid green;
   }
   .nav_one_text{
     font-size: 12px;
@@ -292,7 +291,7 @@
   }
 
   .footer_section {
-    padding: 40px 10px;
+    /* padding: 40px 10px; */
   }
   .footer_heading {
     font-size: 13px;
