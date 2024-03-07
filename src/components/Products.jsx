@@ -5,10 +5,11 @@ import { IoMdHeart } from "react-icons/io";
 
 import { useContext, useState } from "react";
 import { userContext } from "../App.jsx";
+import { Link } from "react-router-dom";
 
 const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
 
-  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart] =
+  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart, addedProduct, setAddedProduct] =
     useContext(userContext);
 
   const [favorite, setFavorite] = useState([]);
@@ -42,10 +43,16 @@ const handleAddFavourite = (index) => {
 };
 
 
+const handleAddProduct = (index) => {
+  const added = [...addedProduct, products[index]];
+  setAddedProduct(added)
+}
+
+
   return (
     <>
       <section
-        className="w-full sm:py-5 sm:px-5 md:py-5 md:px-10 my-5"
+        className="w-full sm:py-5 sm:px-5 md:py-5 md:px-10 my-0"
         id={`${id}`}
         style={{ backgroundColor: bgColor }}
       >
@@ -63,12 +70,14 @@ const handleAddFavourite = (index) => {
         </div>
 
         {/************    Product Cart   **************/}
+        <Link to="/al-rafey/cart">
         <div
-          className={`text-[${bgColor}] flex justify-start flex-wrap max-w-[100%] gap-4 py-10 px-2`}
+          className={`text-[${bgColor} flex justify-start flex-wrap max-w-[100%] gap-4 py-10 px-2`}
         >
-          {products.map((product, index) => (
+          {products?.map((product, index) => (
             <div
               key={index}
+              onClick={() => handleAddProduct(index)}
               className={`sm:min-h-fit relative bg-[#fff] cursor-pointer border-2 border-gray-200 md:h-[400px] min-w-[200px] max-w-[250px] flex-1 py-3 px-3 rounded-md overflow-hidden`}
             >
               <div className={`text-[${color}] relative`}>
@@ -95,7 +104,7 @@ const handleAddFavourite = (index) => {
                   {product.name}
                 </h2>
                 <div className="product_price text-gray-400 text-xl mb-2">
-                  {product.price}
+                  {`$${product.price}`}
                 </div>
                 <div className="flex gap-1 mb-2">
                   <FaStar className="review_icon text-yellow-500 text-sm" />
@@ -118,6 +127,7 @@ const handleAddFavourite = (index) => {
             </div>
           ))}
         </div>
+        </Link>
       </section>
     </>
   );

@@ -1,8 +1,51 @@
+import { FaMinus, FaPlus } from "react-icons/fa6";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 import purchaseLogo from "../assets/purchaseLogo.png";
 import mobileImage from "../assets/mobile.png";
 
-const Purchase = () => {
+const Purchase = ({ addToCart, totalPrice }) => {
+
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    if (addToCart && addToCart.length > 0) {
+      setCartItems(addToCart);
+    }
+  }, [addToCart]);
+
+  const removeProduct = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    setCartItems(updatedCartItems);
+  }
+
+  const updateQuantity = (index, newQuantity) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity = newQuantity;
+    setCartItems(updatedCartItems);
+  }
+
+  const getTotalPrice = () => {
+    let total = addToCart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    totalPrice(total);
+    return total;
+  }
+
+  const handleColor = (color) => {
+    const allColor = document.querySelectorAll(".color_option");
+    allColor.forEach((option) => {
+      option.style.border = "none";
+      // option.style.padding = "0";
+      option.classList.remove("p-3");
+    });
+    const selected = document.getElementById(color);
+    selected.style.border = `3px solid #262261`;
+    selected.classList.add("p-3");
+  };
+
+
   return (
     <>
       <section className="px-32 py-10 bg-[#f6f9f8]">
@@ -22,54 +65,49 @@ const Purchase = () => {
         </div>
       </section>
       <div className="h-auto sm:w-full sm:my-1 md:my-5 sm:mx-0 md:mx-0 sm:px-2 md:px-10 sm:py-2 md:py-8 rounded-lg">
-        <div
-          className="h-auto w-full sm:my-2 md:my-5  sm:px-2 md:px-8 sm:py-2 md:py-10 rounded-[4px]"
-          style={{
-            boxShadow:
+         <div className="sm:w-full sm:px-0 flex flex-col md:flex-row justify-between  rounded p-6">
+          <div
+            className="sm:w-full h-auto sm:mx-0 md:mx-5 sm:px-2 md:px-5 py-5 rounded-lg"
+            style={{
+              boxShadow:
               "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
-          }}
-        >
-          <div className="rounded-lg flex justify-between items-center sm:px-1  md:px-4 py-3 bg-[#f6f9f8]">
-            <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">
-              Product
-            </h1>
-            <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">
-              Amount
-            </h1>
-            <h1 className="text-[#a8a8a8] text-base sm:text-[12px] md:text-[18px]">
-              Action
-            </h1>
-          </div>
-          <div className="rounded-lg flex justify-between items-center sm:px-0 md:px-4 sm:my-1 md:my-3 py-3">
-            <div className="flex items-center">
-              <img
-                src={mobileImage}
-                alt=""
-                className="sm:h-8 md:h-12 sm:w-8 md:w-12 object-cover"
-              />
-              <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">
-                Notebook Elite 321
-              </p>
+            }}
+          >
+            <div className="rounded-lg flex flex-col sm:flex-row justify-between items-center md:px-10 px-3 sm:px-2 py-3 bg-[#f6f9f8]">
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Product</h1>
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Amount</h1>
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Action</h1>
             </div>
-            <div className="flex justify-start sm:mr-24 md:mr-32 sm:flex sm:justify-start sm:pl-4">
-              <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">
-                $2499
-              </h1>
+
+            {cartItems.length > 0 && cartItems?.map((product, index) => (
+              <div key={index} className="rounded-[4px] flex flex-col sm:flex-row justify-between items-center  px-3 sm:px-0 py-3 sm:my-1 md:my-3">
+                <div className="flex flex-1 items-center">
+                  <img
+                    src={product?.image}
+                    alt=""
+                    className="h-8 w-8"
+                  />
+                  <p className="text-[#a8a8a8] sm:text-[10px] md:text-base ml-2">
+                    {product?.name}
+                  </p>
+                </div>
+                <div className="flex-1 flex justify-center sm:mr-8 sm:pl-4">
+                  <h1 className="text-[#a8a8a8] sm:text-[12px] md:text-base">{`$${product?.price}`}</h1>
+                </div>
+                <div className="flex flex-1 justify-end px-2">
+                  <button onClick={() => removeProduct(index)} className="text-[#bcbcbc] text-xs md:text-base">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+            <div className="flex justify-end my-2">
+              <div>
+                <p className="text-[#bcbcbc] text-sm">Total</p>
+                <h1 className="sm:text-[14px] md:text-3xl">{`$${getTotalPrice()}`}</h1>
+              </div>
             </div>
-            <div className="">
-              <button className="text-[#bcbcbc] text-base sm:text-[10px] md:text-[15px]">
-                Remove
-              </button>
-            </div>
-          </div>
-          <hr />
-          <div className="flex justify-end my-2">
-            <div>
-              <p className="text-[#bcbcbc] text-base sm:text-[12px] md:text-[18px]">
-                Total
-              </p>
-              <h1 className="sm:text-[14px] md:text-3xl">$2499.10</h1>
-            </div>
+            <hr />
           </div>
         </div>
         <div className="flex justify-center my-10">
@@ -83,19 +121,19 @@ const Purchase = () => {
           </h3>
           <br />
           <div className="flex sm:gap-2 md:gap-5">
-            <div className="flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px] border-[#262261] rounded-[4px] cursor-pointer">
-              <div className="sm:h-[16px] md:h-[50px] sm:w-[16px] md:w-[50px] bg-[#d9d9d9] sm:border-[1px] md:border-[1px] border-[#262261] rounded-full"></div>
+            <div onClick={() => handleColor("blue")} id="blue"  className="color_option flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px] border-[#262261] rounded-[4px] cursor-pointer">
+              <div className="color_option sm:h-[16px] md:h-[50px] sm:w-[16px] md:w-[50px] bg-[#d9d9d9] rounded-full"></div>
               <p className="text-[#5c5c5c] sm:text-[10px] md:text-[16px]">
                 Cash on Delivery
               </p>
             </div>
-            <div className="flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px] rounded-[4px] cursor-pointer">
+            <div onClick={() => handleColor("red")} id="red" className="color_option flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px] rounded-[4px] cursor-pointer">
               <div className="sm:h-[16px] md:h-[50px] sm:w-[16px] md:w-[50px] bg-[#d9d9d9] rounded-full"></div>
               <p className="text-[#5c5c5c] sm:text-[10px] md:text-[16px]">
                 Cash on Delivery
               </p>
             </div>
-            <div className="flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px]  rounded-[4px] cursor-pointer">
+            <div onClick={() => handleColor("green")} id="green" className="color_option flex items-center  sm:gap-2 md:gap-5 sm:p-1 md:p-5 sm:border-[2px] md:border-[3px]  rounded-[4px] cursor-pointer">
               <div className="sm:h-[16px] md:h-[50px] sm:w-[16px] md:w-[50px] bg-[#d9d9d9]  rounded-full"></div>
               <p className="text-[#5c5c5c] sm:text-[10px] md:text-[16px]">
                 Cash on Delivery
@@ -104,7 +142,6 @@ const Purchase = () => {
           </div>
         </div>
 
-        {/************       Form     ******************/}
 
         <div className="w-full mt-5 bg-white rounded-lg overflow-hidden">
           <div className="">
@@ -210,6 +247,7 @@ const Purchase = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

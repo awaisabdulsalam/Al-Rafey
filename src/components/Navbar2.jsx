@@ -13,12 +13,13 @@ import logoImage from "../assets/logo.png";
 import CategoryProduct from "./CategoryProduct.jsx";
 import InputSearchProduct from "./InputSearchProduct.jsx";
 
-const products = [
-  { id: 1, image: men, name: "T-shirt", price: 99, quantity: 1 },
-  { id: 2, image: men, name: "T-shirt", price: 99, quantity: 1 },
-  { id: 3, image: men, name: "T-shirt", price: 99, quantity: 1 },
-];
-const Navbar2 = () => {
+// const products = [
+//   { id: 1, image: men, name: "T-shirt", price: 99, quantity: 1 },
+//   { id: 2, image: men, name: "T-shirt", price: 99, quantity: 1 },
+//   { id: 3, image: men, name: "T-shirt", price: 99, quantity: 1 },
+// ];
+const Navbar2 = ({ totalPrice, products }) => {
+
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectCategory, setSelectCategory] = useState("categories");
@@ -27,11 +28,9 @@ const Navbar2 = () => {
   const [inputValue, setInputValue] = useState("") 
   const [showNav, setShowNav] = useState(false);
 
+
   const menuRef = useRef(null);
 
-  useEffect(() => {
-    setCategoryText(true)
-  }, [selectCategory])
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -46,6 +45,7 @@ const Navbar2 = () => {
     }
   }, [])
 
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -55,6 +55,7 @@ const Navbar2 = () => {
     newQuantities[index] = newQuantity;
     setQuantity(newQuantities);
   }
+
   return (
     <>
       <nav 
@@ -74,7 +75,12 @@ const Navbar2 = () => {
         </div>
 
         <div className="sm:flex sm:flex-[3] md:mx-10 sm:mx-5">
-          <select value={selectCategory} onChange={(e) => setSelectCategory(e.target.value)} className="sm:py-0 sm:px-5 sm:text-[10px] md:text-[16px] bg-[#FAAF40]  px-4 sm:rounded-tl-[4px] sm:rounded-bl-[4px] sm:flex-1">
+          <select value={selectCategory} onChange={(e) => {
+            setSelectCategory(e.target.value)
+            setCategoryText(true);
+          }
+            
+            } className="sm:py-0 sm:px-5 sm:text-[10px] md:text-[16px] bg-[#FAAF40]  px-4 sm:rounded-tl-[4px] sm:rounded-bl-[4px] sm:flex-1">
             <option value="category" default>
               Category
             </option>
@@ -153,7 +159,7 @@ const Navbar2 = () => {
             </div>
           )}
         </div>
-          <span className="ml-2">$00.0</span>
+          <span className="ml-2">{!totalPrice ? "00.0" : `$${totalPrice}`}</span>
         </div>
 
           {showNav && 
@@ -212,9 +218,12 @@ const Navbar2 = () => {
             </div>
           )}
         </div>
-          <span className="ml-2 text-[#333]">$00.0</span>
+          <span className="ml-2 text-[#333]">{!totalPrice ? "00.0" : `$${totalPrice}`}</span>
         </div>}
       </nav>
+
+      {categoryText && <CategoryProduct selectCategory={selectCategory} products={products} inputValue={inputValue} />}
+      
 
     </>
   );

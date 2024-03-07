@@ -35,7 +35,7 @@ const Favourites = ({ favouriteArray, setFavouriteArray }) => {
           <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">{favourite.name}</p>
         </div>
         <div className="flex justify-start sm:mr-24 md:mr-46 sm:flex sm:justify-start sm:pl-4">
-          <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">{`$${favourite.name}`}</h1>
+          <h1 className="text-[#a8a8a8] text-base sm:text-[10px] md:text-[15px]">{`$${favourite.price}`}</h1>
         </div>
         <div className="">
           <button onClick={() => hanldeRemoveFavourite(index)} className="text-[#bcbcbc] text-base sm:text-[10px] md:text-[15px]">Remove</button>

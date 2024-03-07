@@ -3,11 +3,11 @@ import Navbar2 from './Navbar2';
 import Navbar3 from './Navbar3';
 
 
-const Navbar = () => {
+const Navbar = ({ totalPrice, products }) => {
   return (
     <>
     <Navbar1 />
-    <Navbar2 />
+    <Navbar2 totalPrice={totalPrice} products={products} />
     <Navbar3 />
     </>
   );

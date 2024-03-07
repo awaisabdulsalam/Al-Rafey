@@ -15,8 +15,9 @@ import shirt2 from "../assets/shirt2.png";
 import Reviews from "./Reviews";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Cart = ({ addToCart }) => {
+const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
   const shirts = [
     { shirt: shirt1 },
     { shirt: shirt2 },
@@ -28,6 +29,7 @@ const Cart = ({ addToCart }) => {
   const [heart, setHeart] = useState(false);
   const [star, setStar] = useState(false);
   const [selectedShirtIndex, setSelectedShirtIndex] = useState(0);
+  const [details, setDetails] = useState(0)
   const [likes, setLikes] = useState(109);
   const [like, setLike] = useState(false);
 
@@ -47,17 +49,31 @@ const Cart = ({ addToCart }) => {
     setSelectedShirtIndex(index);
   };
 
-  const lessArray = [...addToCart]
-  const less = lessArray.splice(0, 4);
-  console.log(less);
+  const handleAddToCart = (index) => {
+    const added = [...addToCart];
+    const included = added.includes(products[index])
+    
+    if (!included) {
+      added.push(products[index]);
+    } 
+    setAddtoCart(added)
+  };
+
+
   
   return (
     <>
-      <section className="sm:flex sm:flex-col md:flex md:flex-row gap-10 my-10 sm:px-4 md:px-10">
+      {addedProduct.length === 0 ? 
+      <section className="flex justify-center my-5">
+        <h1 className="sm:text-[16px] md:text-3xl">Your Cart is Empty</h1>
+        </section>
+       : 
+       <>
+       <section className="sm:flex sm:flex-col md:flex md:flex-row gap-10 my-10 sm:px-4 md:px-10">
         <section className="md:w-1/2">
           <div className="flex justify-center">
             <img
-              src={addToCart[selectedShirtIndex]?.image}
+              src={addedProduct[selectedShirtIndex]?.image}
               alt=""
               className="h-[80vh] w-[80vh]"
             />
@@ -74,42 +90,28 @@ const Cart = ({ addToCart }) => {
                 }}
               />
             </div>
-            {addToCart.length > 4 ?
-            less.map((product, index) => {
+            {
+            addedProduct.map((product, index) => {
               return (
                 <div
                   key={index}
                   className={`flex justify-center items-center gap-2 my-5 `}
                 >
-                  <img
-                    src={product.image}
-                    alt=""
-                    className={`sm:h-[60px] sm:w-[60px] md:h-[18vh] rounded-lg md:w-[100px] flex justify-center items-center gap-2 cursor-pointer  ${
-                      selectedShirtIndex === index
-                        ? "border-[3px] border-[#262261] rounded-lg"
-                        : ""
-                    }`}
-                    onClick={() => handleShirt(index)}
-                  />
-                </div>
-              );
-            }) :
-            addToCart.map((product, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`flex justify-center items-center gap-2 my-5 `}
-                >
-                  <img
-                    src={product.image}
-                    alt=""
-                    className={`sm:h-[60px] sm:w-[60px] md:h-[18vh] rounded-lg md:w-[100px] flex justify-center items-center gap-2 cursor-pointer  ${
-                      selectedShirtIndex === index
-                        ? "border-[3px] border-[#262261] rounded-lg"
-                        : ""
-                    }`}
-                    onClick={() => handleShirt(index)}
-                  />
+                  {product.images.map((img, index) => (
+                    <img
+                    key={index}
+                      src={img}
+                      alt=""
+                      className={`sm:h-[60px] sm:w-[60px] md:h-[18vh] rounded-lg md:w-[100px] flex justify-center items-center gap-2 cursor-pointer  ${
+                        selectedShirtIndex === index
+                          ? "border-[3px] border-[#262261] rounded-lg"
+                          : ""
+                      }`}
+                      onClick={() => handleShirt(index)}
+                    />
+                  )) 
+                  }
+
                 </div>
               );
             })
@@ -118,21 +120,22 @@ const Cart = ({ addToCart }) => {
               <MdArrowForwardIos
                 className="text-2xl cursor-pointer"
                 onClick={() => {
-                  if (selectedShirtIndex < addToCart.length - 1) {
+                  if (selectedShirtIndex < addedProduct[details].images.length - 1) {
                     setSelectedShirtIndex((prev) => prev + 1);
                   }
                 }}
               />
             </div>
           </div>
+          
         </section>
         <section className="md:w-1/2">
           <p className="sm:text-sm md:text-lg text-gray-500">{`Home > Fun > Sideboard`}</p>
           <div className="flex align-middle justify-between py-5">
             <div className="w-full">
-              <h1 className="sm:text-[16px] md:text-3xl">Embrace Sideboard</h1>
+              <h1 className="sm:text-[16px] md:text-3xl">{addedProduct[details]?.name}</h1>
               <p className="sm:text-sm md:text-lg text-gray-400">
-                Teixeira Design Studio
+              {addedProduct[details]?.name}
               </p>
             </div>
             <div>
@@ -163,10 +166,10 @@ const Cart = ({ addToCart }) => {
           <div className="flex sm:px-0 md:px-5 gap-10 my-10">
             <div>
               <h1 className="sm:text-xl md:text-4xl font-semibold text-[#262261]">
-                {`$${addToCart[selectedShirtIndex]?.price}`}
+                {`$${addedProduct[details]?.price * quantity}`}
               </h1>
               <span className="sm:text-md md:text-2xl text-gray-400">
-                <strike>{`$${addToCart[selectedShirtIndex]?.price + 10}`}</strike>
+                <strike>{`$${addedProduct[details]?.price + 10}`}</strike>
               </span>
             </div>
             <div className="flex-col">
@@ -177,13 +180,13 @@ const Cart = ({ addToCart }) => {
                     className="sm:text-sm md:text-2xl text-[#faaf40]"
                     />
                   <span className="text-[#faaf40] sm:font-normal sm:text-[12px] md:text-lg">
-                    4.8
+                  {addedProduct[details]?.rating}
                   </span>
                 </div>
                 <div className="flex items-center gap-1 sm:px-2 md:px-4 sm:py-1 md:py-2 bg-[#c5c3ff64] cursor-pointer rounded-full">
                   <LiaCommentDots className="sm:text-sm md:text-xl text-[#1b1b1c]" />
                   <span className="text-[#585587] sm:font-normal sm:text-[10px] md:text-lg">
-                  {addToCart[selectedShirtIndex]?.reviews} Reviews
+                  {addedProduct[details]?.reviews} Reviews
                   </span>
                 </div>
               </div>
@@ -306,10 +309,15 @@ const Cart = ({ addToCart }) => {
               </button>
             </div>
             <div className="">
-              <button className="flex justify-center items-center bg-[#262261] text-white w-full  sm:text-[12px] md:text-[16px] sm:px-2 md:px-4 sm:py-1 md:py-3 rounded-md">
+              <Link to="/al-rafey/checkout">
+              <button
+                // onClick={() => handleAddToCart(addedProduct[selectedShirtIndex])}
+                className="single_product_btn flex justify-center items-center bg-[#262261] hover:bg-[#342e84] text-white w-full px-2 py-1 rounded-md"
+              >
                 <LuShoppingCart className="" />
                 <span className="mx-2">|</span> Add to Cart
               </button>
+              </Link>
             </div>
           </div>
 
@@ -357,7 +365,9 @@ const Cart = ({ addToCart }) => {
           <hr />
         </nav>
       </section>
-      <Reviews />
+      <Reviews rating={addToCart[details]?.rating} />
+       </>
+      }
     </>
   );
 };

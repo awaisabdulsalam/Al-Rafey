@@ -4,7 +4,7 @@ import RestCusion from "./RestCusion"
 import SportsProduct from "./SportsProduct"
 import WomenProduct from "./WomenProduct"
 import HomeAppliances from "./HomeAppliances"
-import MensProduct from "./MenProduct"
+import MenProduct from "./MenProduct"
 import GroupImages from "./GroupImages"
 import Companies from "./Companies"
 
@@ -15,7 +15,7 @@ const HomePage = ({ products }) => {
     <Hero  />
     <Companies />
     <SportsProduct />
-    <MensProduct products={products} />
+    <MenProduct products={products} />
     <WomenProduct products={products} />
     <MobileProduct products={products} />
     <GroupImages />

@@ -4,7 +4,7 @@ import { GoThumbsup } from "react-icons/go";
 import { FaThumbsUp } from "react-icons/fa6";
 import { useState } from "react";
 
-const Reviews = () => {
+const Reviews = ({ rating }) => {
   const reviewsData = [
     {
       profile: "A.T",
@@ -138,7 +138,7 @@ const Reviews = () => {
           <section className="sm:flex sm:flex-col md:flex md:flex-row  gap-10 sm:px-4 md:px-10 py-8">
             <div className="flex justify-between items-center  px-10 py-10 bg-[#f9fafb] mb-4 rounded-md">
               <div className="px-10 py-10">
-                <h1 className="text-6xl font-bold text-[#262261]">4.8</h1>
+                <h1 className="text-6xl font-bold text-[#262261]">{rating}</h1>
                 <div className="flex gap-1 my-4">
                   <FaStar className="text-yellow-500 text-sm" />
                   <FaStar className="text-yellow-500 text-sm" />
