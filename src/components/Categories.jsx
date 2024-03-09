@@ -3,73 +3,73 @@ import men from "../assets/men.jpg";
 import Pagination from "./Pagination";
 import { useState } from "react";
 
-const products = [
-  {
-    image: men,
-    name: "T-Shirt",
-    category: "All",
-    price: 100,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Groceries",
-    category: "Groceries & Pets",
-    price: 20,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Pharmacy",
-    category: "Online Pharmacy",
-    price: 80,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Books",
-    category: "Books",
-    price: 45,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Home & Office",
-    category: "Home & Office Improvement",
-    price: 99,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Toys And Games",
-    category: "Toys And Games",
-    price: 23,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Stationary",
-    category: "Uniform & Stationary",
-    price: 46,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Kids Fashion",
-    category: "Kids Fashion",
-    price: 89,
-    reviews: 234,
-  },
-  {
-    image: men,
-    name: "Baby Products",
-    category: "Baby Products",
-    price: 77,
-    reviews: 234,
-  },
-];
+// const products = [
+//   {
+//     image: men,
+//     name: "T-Shirt",
+//     category: "All",
+//     price: 100,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Groceries",
+//     category: "Groceries & Pets",
+//     price: 20,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Pharmacy",
+//     category: "Online Pharmacy",
+//     price: 80,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Books",
+//     category: "Books",
+//     price: 45,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Home & Office",
+//     category: "Home & Office Improvement",
+//     price: 99,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Toys And Games",
+//     category: "Toys And Games",
+//     price: 23,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Stationary",
+//     category: "Uniform & Stationary",
+//     price: 46,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Kids Fashion",
+//     category: "Kids Fashion",
+//     price: 89,
+//     reviews: 234,
+//   },
+//   {
+//     image: men,
+//     name: "Baby Products",
+//     category: "Baby Products",
+//     price: 77,
+//     reviews: 234,
+//   },
+// ];
 
-const Categories = () => {
+const Categories = ({ products }) => {
 
   const [allProducts, setAllProducts] = useState([...products]);
   
@@ -91,12 +91,7 @@ const Categories = () => {
   } 
 
   const handlePrice = () => {
-    // const matched = allProducts.filter((prod) => {
-    //   const numericPriceProduct = parseInt(prod.price);
-    //   // const numericPrice = parseInt(price);
-    //   console.log(typeof numericPriceProduct === typeof price);
-    //   return prod.price <= 100;
-    // })
+
     console.log(price);
     const matched = products.filter((prod) => prod.price >=  price);
     console.log(matched);

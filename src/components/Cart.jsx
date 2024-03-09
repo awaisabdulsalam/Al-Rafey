@@ -1,7 +1,6 @@
 import { TbHeart } from "react-icons/tb";
 import { TbHeartFilled } from "react-icons/tb";
 import { MdOutlineShare } from "react-icons/md";
-import { IoIosStarOutline } from "react-icons/io";
 import { IoIosStar } from "react-icons/io";
 import { LiaCommentDots } from "react-icons/lia";
 import { LuShoppingCart } from "react-icons/lu";
@@ -10,20 +9,12 @@ import { LiaShoppingBagSolid } from "react-icons/lia";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 
-import shirt1 from "../assets/shirt1.png";
-import shirt2 from "../assets/shirt2.png";
 import Reviews from "./Reviews";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
-  const shirts = [
-    { shirt: shirt1 },
-    { shirt: shirt2 },
-    { shirt: shirt1 },
-    { shirt: shirt2 },
-  ];
+const Cart = ({ addedProduct, products, setAddtoCart, setAddedProduct }) => {
 
   const [quantity, setQuantity] = useState(1);
   const [heart, setHeart] = useState(false);
@@ -50,20 +41,15 @@ const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
   };
 
   const handleAddToCart = (index) => {
-    const added = [...addToCart];
-    const included = added.includes(products[index])
-    
-    if (!included) {
-      added.push(products[index]);
-    } 
-    setAddtoCart(added)
+
+
   };
 
 
   
   return (
     <>
-      {addedProduct.length === 0 ? 
+      {addedProduct?.length === 0 ? 
       <section className="flex justify-center my-5">
         <h1 className="sm:text-[16px] md:text-3xl">Your Cart is Empty</h1>
         </section>
@@ -311,7 +297,7 @@ const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
             <div className="">
               <Link to="/al-rafey/checkout">
               <button
-                // onClick={() => handleAddToCart(addedProduct[selectedShirtIndex])}
+                onClick={() => handleAddToCart(selectedShirtIndex)}
                 className="single_product_btn flex justify-center items-center bg-[#262261] hover:bg-[#342e84] text-white w-full px-2 py-1 rounded-md"
               >
                 <LuShoppingCart className="" />
@@ -365,7 +351,7 @@ const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
           <hr />
         </nav>
       </section>
-      <Reviews rating={addToCart[details]?.rating} />
+      <Reviews rating={addedProduct[details]?.rating} />
        </>
       }
     </>
@@ -373,3 +359,4 @@ const Cart = ({ addToCart, addedProduct, products, setAddtoCart }) => {
 };
 
 export default Cart;
+

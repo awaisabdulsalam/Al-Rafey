@@ -12,7 +12,7 @@ import men from "../assets/men.jpg";
 import logoImage from "../assets/logo.png";
 import CategoryProduct from "./CategoryProduct.jsx";
 
-const Navbar2 = ({ totalPrice, products }) => {
+const Navbar2 = ({ totalPrice, products, addToCart }) => {
 
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -44,6 +44,7 @@ const Navbar2 = ({ totalPrice, products }) => {
     newQuantities[index] = newQuantity;
     setQuantity(newQuantities);
   }
+
 
   return (
     <>
@@ -194,3 +195,4 @@ const Navbar2 = ({ totalPrice, products }) => {
 };
 
 export default Navbar2;
+

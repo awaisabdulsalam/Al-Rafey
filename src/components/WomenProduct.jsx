@@ -1,6 +1,4 @@
 import Products from "./Products"
-import women from "../assets/women.jpg";
-
 
   const WomenProduct = ({ products }) => {
   return (

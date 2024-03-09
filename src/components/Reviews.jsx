@@ -65,14 +65,6 @@ const Reviews = ({ rating }) => {
       setShowAllReviews([...reviewsData]);
     }
     setShowAll(prev => !prev)
-    // setLessReviews((prevReview) => {
-    //   return prevReview.map((review, ind) => {
-    //     if (ind === index) {
-    //       return { ...review, like: !review.like };
-    //     }
-    //     return review;
-    //   });
-    // });
   };
 
   const handleReply = (index) => {
@@ -86,14 +78,6 @@ const Reviews = ({ rating }) => {
     });
   };
   const handleLessReply = (index) => {
-    // setLessReviews((prevReview) => {
-    //   return prevReview.map((review, ind) => {
-    //     if (ind === index) {
-    //       return { ...review, showReply: !review.showReply, reply: replyText[index] };
-    //     }
-    //     return review;
-    //   });
-    // });
 
     setReviews((prevReviews) => {
       const updatedReviews = [...prevReviews];
@@ -105,16 +89,7 @@ const Reviews = ({ rating }) => {
   };
 
   const handleReplySubmit = (index) => {
-    // lessReviews[index].reply = replyText;
-    // setShowReply(prev => !prev)
-    // setLessReviews((prevReview) => {
-    //   return prevReview.map((review, ind) => {
-    //     if (ind === index) {
-    //       return { ...review, showReply: !review.showReply };
-    //     }
-    //     return review;
-    //   });
-    // });
+
     console.log(replyText);
     setReviews((prevReview) => {
       const updatedReviews = [...prevReview];

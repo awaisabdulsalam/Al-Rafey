@@ -1,4 +1,3 @@
-import mobile from "../assets/mobile.jpg";
 import Products from "./Products";
 
 

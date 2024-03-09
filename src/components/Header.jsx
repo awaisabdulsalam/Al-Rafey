@@ -3,7 +3,7 @@ import Navbar2 from './Navbar2';
 import Navbar3 from './Navbar3';
 
 
-const Navbar = ({ totalPrice, products }) => {
+const Navbar = ({ totalPrice, products, addToCart }) => {
   return (
     <>
     <Navbar1 />

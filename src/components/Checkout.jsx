@@ -2,24 +2,39 @@ import { FaMinus, FaPlus } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Checkout = ({ addToCart }) => {
+const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAddedProduct }) => {
 
   const [cartItems, setCartItems] = useState([]);
 
-  console.log(addToCart);
-  console.log(cartItems);
-
   useEffect(() => {
-    if (addToCart && addToCart.length > 0) {
+    if (addToCart) {
       setCartItems(addToCart);
     }
   }, [addToCart]);
+  useEffect(() => {
+    setCartItems(addedProduct)
+  }, [])
+  console.log(addedProduct);
 
   const removeProduct = (index) => {
     const updatedCartItems = [...cartItems];
     updatedCartItems.splice(index, 1);
+    console.log(updatedCartItems);
+
     setCartItems(updatedCartItems);
+    setAddedProduct(updatedCartItems)
   }
+
+  const removeAddCartProduct = (index) => {
+    const updatedCartItems = [...cartItems];
+    updatedCartItems.splice(index, 1);
+    console.log(updatedCartItems);
+    setCartItems(updatedCartItems);
+    setAddtoCart(updatedCartItems)
+  }
+
+
+  setAddCartNum(prev => prev = cartItems.length)
 
   const updateQuantity = (index, newQuantity) => {
     const updatedCartItems = [...cartItems];
@@ -28,7 +43,7 @@ const Checkout = ({ addToCart }) => {
   }
 
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    return cartItems?.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
 
   return (
@@ -53,7 +68,9 @@ const Checkout = ({ addToCart }) => {
               <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Action</h1>
             </div>
 
-            {cartItems.length > 0 && cartItems?.map((product, index) => (
+            {
+            cartItems?.map((product, index) => (
+              <>
               <div key={index} className="rounded-lg flex flex-col sm:flex-row justify-between items-center  px-3 sm:px-0 py-3 sm:my-1 md:my-3">
                 <div className="flex flex-1 items-center">
                   <img
@@ -84,19 +101,24 @@ const Checkout = ({ addToCart }) => {
                   </button>
                 </div>
                 <div className="flex flex-1 justify-end">
-                  <button onClick={() => removeProduct(index)} className="text-[#bcbcbc] text-xs md:text-base">
+                  <button onClick={() => removeAddCartProduct(index)} className="text-[#bcbcbc] text-xs md:text-base">
                     Remove
                   </button>
                 </div>
               </div>
-            ))}
-            <div className="flex justify-end my-2">
-              <div>
+              <div className="flex justify-end my-2">
+            </div>
+              </>
+            )
+            ) 
+            }
+            <hr />
+             <div className="flex justify-end">
+              <div className="flex-col">
                 <p className="text-[#bcbcbc] text-sm">Total</p>
                 <h1 className="sm:text-[14px] md:text-3xl">{`$${getTotalPrice()}`}</h1>
               </div>
-            </div>
-            <hr />
+              </div>
           </div>
 
           <div className="w-full md:w-2/5 p-5 rounded-lg">

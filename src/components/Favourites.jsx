@@ -1,6 +1,6 @@
 import mobileImage from "../assets/mobile.png";
 
-const Favourites = ({ favouriteArray, setFavouriteArray }) => {
+const Favourites = ({ setFavourite, favouriteArray, setFavouriteArray }) => {
 
   const hanldeRemoveFavourite = (index) => {
     const updatedFavouriteArray = [...favouriteArray];
@@ -9,6 +9,7 @@ const Favourites = ({ favouriteArray, setFavouriteArray }) => {
 
     setFavouriteArray(updatedFavouriteArray);
   }
+  setFavourite(prev => prev = favouriteArray.length)
 
 
   return (

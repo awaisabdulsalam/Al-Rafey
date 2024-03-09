@@ -9,7 +9,6 @@ import heroImage3 from "../assets/heroImage3.png";
 
 import vector1 from "../assets/vector1.png";
 import vectorGray1 from "../assets/vectorGray1.png"
-import groupImage from "../assets/groupImage.png"
 
 import vectorYellow1 from "../assets/vectorYellow1.png"
 import { Link } from "react-router-dom";

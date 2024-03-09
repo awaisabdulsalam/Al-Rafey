@@ -8,46 +8,61 @@ import { userContext } from "../App.jsx";
 import { Link } from "react-router-dom";
 
 const Products = ({ products, heading, bgColor, color, id, btnColor }) => {
+  const [
+    addCartNum,
+    favourite,
+    setAddCartNum,
+    setFavourite,
+    setFavouriteArray,
+    addToCart,
+    setAddtoCart,
+    addedProduct,
+    setAddedProduct,
+    setRedHeart
+  ] = useContext(userContext);
 
-  const [addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart, addedProduct, setAddedProduct] =
-    useContext(userContext);
 
   const [favorite, setFavorite] = useState([]);
 
   const handleAddToCart = (index) => {
     const added = [...addToCart];
-    const included = added.includes(products[index])
-    
+    const included = added.includes(products[index]);
+
     if (!included) {
       added.push(products[index]);
-    } 
-    setAddtoCart(added)
-    setAddCartNum(() => added.length);
+    }
+    setAddtoCart(added);
+    // setAddedProduct(added)
+    setAddCartNum((prev) => (prev = addToCart.length));
   };
 
+  const handleAddFavourite = (index) => {
+    const updatedFavorite = [...favorite];
+    const isFavorite = updatedFavorite.includes(index);
 
-const handleAddFavourite = (index) => {
-  const updatedFavorite = [...favorite];
-  const isFavorite = updatedFavorite.includes(index);
+    if (!isFavorite) {
+      updatedFavorite.push(index);
+    } else {
+      const indexToRemove = updatedFavorite.indexOf(index);
+      updatedFavorite.splice(indexToRemove, 1);
+      setRedHeart(true)
+    }
+    setFavouriteArray(updatedFavorite.map((i) => products[i]));
+    setFavorite(updatedFavorite);
+    setFavourite((prev) => (prev = updatedFavorite.length));
+  };
 
-  if (!isFavorite) {
-    updatedFavorite.push(index);
-  } else {
-    const indexToRemove = updatedFavorite.indexOf(index);
-    updatedFavorite.splice(indexToRemove, 1);
-  }
-  
-  setFavouriteArray(updatedFavorite.map((i) => products[i]))
-  setFavorite(updatedFavorite);
-  setFavourite((prev) => prev = updatedFavorite.length);
-};
+  const handleAddProduct = (index) => {
 
+      const added = products[index];
+    const included = addedProduct.includes(products[index]);
 
-const handleAddProduct = (index) => {
-  const added = products[index];
-  setAddedProduct([added])
-}
-
+    if (!included) {
+      // added.push(products[index]);
+    } 
+    setAddedProduct([added])
+    setAddCartNum((prev) => (prev = addedProduct.length));
+  };
 
   return (
     <>
@@ -63,11 +78,11 @@ const handleAddProduct = (index) => {
             {heading}
           </h1>
           <Link to="/al-rafey/categories">
-          <button
-            className={`product_btn text-[${color}] hover:text-[#fff] hover:bg-[${btnColor}] text-xl py-2 px-4 rounded-lg border-[1px] border-[#d5e1e1]`}
-          >
-            Show More
-          </button>
+            <button
+              className={`product_btn text-[${color}] hover:text-[#fff] hover:bg-[${btnColor}] text-xl py-2 px-4 rounded-lg border-[1px] border-[#d5e1e1]`}
+            >
+              Show More
+            </button>
           </Link>
         </div>
 
@@ -83,24 +98,25 @@ const handleAddProduct = (index) => {
             >
               <div className={`text-[${color}] relative`}>
                 <div className="cursor-pointer">
-                  {!favorite.includes(index) ?
-                   ( <TbHeart
+                  {!favorite.includes(index) ? (
+                    <TbHeart
                       onClick={() => handleAddFavourite(index)}
                       className={`hover:text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl text-[#fff]`}
                     />
                   ) : (
-                    <IoMdHeart 
-                    onClick={() => handleAddFavourite(index)}
-                    className="text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl" />
+                    <IoMdHeart
+                      onClick={() => handleAddFavourite(index)}
+                      className="text-red-600 absolute top-0 right-0 m-2 rounded-full text-2xl"
+                    />
                   )}
                 </div>
                 <Link to="/al-rafey/cart">
-                <img
-                  src={product.image}
-                  alt="Product"
-                  className="sm:h-[150px] rounded-md md:h-[200px] w-full"
-                />
-          </Link>
+                  <img
+                    src={product.image}
+                    alt="Product"
+                    className="sm:h-[150px] rounded-md md:h-[200px] w-full"
+                  />
+                </Link>
               </div>
               <div className="py-4">
                 <h2 className="product_name text-[#333] text-xl mb-2">

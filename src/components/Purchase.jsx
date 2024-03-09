@@ -5,21 +5,27 @@ import { GoArrowLeft } from "react-icons/go";
 import purchaseLogo from "../assets/purchaseLogo.png";
 import mobileImage from "../assets/mobile.png";
 
-const Purchase = ({ addToCart, totalPrice }) => {
+const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, setAddtoCart }) => {
 
   const [cartItems, setCartItems] = useState([]);
 
+
   useEffect(() => {
-    if (addToCart && addToCart.length > 0) {
+    if (addToCart) {
       setCartItems(addToCart);
     }
   }, [addToCart]);
+  useEffect(() => {
+    setCartItems(addedProduct)
+  }, [])
 
   const removeProduct = (index) => {
     const updatedCartItems = [...cartItems];
     updatedCartItems.splice(index, 1);
     setCartItems(updatedCartItems);
+    return updatedCartItems;
   }
+  setAddCartNum(prev => prev = cartItems.length)
 
   const updateQuantity = (index, newQuantity) => {
     const updatedCartItems = [...cartItems];
@@ -28,8 +34,8 @@ const Purchase = ({ addToCart, totalPrice }) => {
   }
 
   const getTotalPrice = () => {
-    let total = addToCart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    totalPrice(total);
+    let total = cartItems?.reduce((total, item) => total + (item.price * item.quantity), 0);
+    handleTotalPrice(total)
     return total;
   }
 
@@ -37,7 +43,6 @@ const Purchase = ({ addToCart, totalPrice }) => {
     const allColor = document.querySelectorAll(".color_option");
     allColor.forEach((option) => {
       option.style.border = "none";
-      // option.style.padding = "0";
       option.classList.remove("p-3");
     });
     const selected = document.getElementById(color);
@@ -51,7 +56,7 @@ const Purchase = ({ addToCart, totalPrice }) => {
       <section className="px-32 py-10 bg-[#f6f9f8]">
         <div className="flex items-center gap-1 sm:text-[12px] md:text-[16px]">
           <GoArrowLeft className="text-xl cursor-pointer sm:text-[12px] md:text-[16px]" />
-          <span className="cursor-pointer">Back</span>
+          <span onClick={() => window.history.back()} className="cursor-pointer">Back</span>
         </div>
         <div className="">
           <div className="flex justify-center">
@@ -79,7 +84,7 @@ const Purchase = ({ addToCart, totalPrice }) => {
               <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Action</h1>
             </div>
 
-            {cartItems.length > 0 && cartItems?.map((product, index) => (
+            {cartItems?.length > 0 && cartItems?.map((product, index) => (
               <div key={index} className="rounded-[4px] flex flex-col sm:flex-row justify-between items-center  px-3 sm:px-0 py-3 sm:my-1 md:my-3">
                 <div className="flex flex-1 items-center">
                   <img

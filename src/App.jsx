@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import CallToAction from "./components/CallToAction";
@@ -7,9 +7,9 @@ import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import MobilePhones from "./components/MobilePhones";
 import UserProfile from "./components/UserProfile";
-import Cart from "./components/Cart.jsx"
-import Categories from "./components/Categories.jsx"
-import Purchase from "./components/Purchase.jsx"
+import Cart from "./components/Cart.jsx";
+import Categories from "./components/Categories.jsx";
+import Purchase from "./components/Purchase.jsx";
 import Favourites from "./components/Favourites.jsx";
 import Order from "./components/Order.jsx";
 import Checkout from "./components/Checkout.jsx";
@@ -27,7 +27,7 @@ const products = [
     price: 100,
     reviews: 84,
     rating: 4.6,
-    quantity: 1
+    quantity: 1,
   },
   {
     id: 1,
@@ -38,7 +38,7 @@ const products = [
     price: 20,
     reviews: 78,
     rating: 4.1,
-    quantity: 1
+    quantity: 1,
   },
   {
     id: 2,
@@ -49,7 +49,7 @@ const products = [
     price: 80,
     reviews: 4,
     rating: 4.2,
-    quantity: 1
+    quantity: 1,
   },
   {
     id: 3,
@@ -60,7 +60,7 @@ const products = [
     price: 45,
     reviews: 94,
     rating: 4.9,
-    quantity: 1
+    quantity: 1,
   },
   {
     id: 4,
@@ -71,10 +71,9 @@ const products = [
     price: 99,
     reviews: 34,
     rating: 4.7,
-    quantity: 1
-  }
+    quantity: 1,
+  },
 ];
-
 
 function App() {
   const [addCartNum, setAddCartNum] = useState(0);
@@ -83,36 +82,104 @@ function App() {
   const [favouriteArray, setFavouriteArray] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [addedProduct, setAddedProduct] = useState([]);
-  // console.log(addedProduct);
+  const [redHeart, setRedHeart] = useState(false);
+
+  console.log(addToCart);
+  console.log(addedProduct);
 
   const handleTotalPrice = (total) => {
-    setTotalPrice(total)
+    setTotalPrice(total);
     return total;
-  }
+  };
   useEffect(() => {
-    handleTotalPrice()
-  }, [addToCart])
+    handleTotalPrice();
+  }, [addToCart]);
+
 
   return (
     <>
-        <userContext.Provider value={[addCartNum, favourite, setAddCartNum, setFavourite, setFavouriteArray, addToCart, setAddtoCart, addedProduct, setAddedProduct]}>
-      <Router>
-        <Header totalPrice={totalPrice} handleTotalPrice={handleTotalPrice} products={products} />
-        <Routes>
-          <Route path="/al-rafey/" element={<HomePage products={products} />} />
-          <Route path="/al-rafey/profile/*" element={<UserProfile />} />
-          <Route path="/al-rafey/cart" element={<Cart addToCart={addToCart} addedProduct={addedProduct} products={products} setAddtoCart={setAddtoCart} />} />
-          <Route path="/al-rafey/categories" element={<Categories products={products} />} />
-          <Route path="/al-rafey/favourites" element={<Favourites favouriteArray={favouriteArray} setFavouriteArray={setFavouriteArray} />} />
-          <Route path="/al-rafey/checkout" element={<Checkout addToCart={addToCart} />} />
-          <Route path="/al-rafey/purchase" element={<Purchase addToCart={addToCart} totalPrice={handleTotalPrice} />} />
-          <Route path="/al-rafey/order-confirm" element={<Order products={products} />} />
-        </Routes>
-        <MobilePhones products={products} />
-        <CallToAction />
-        <Footer />
-      </Router>
-        </userContext.Provider>
+      <userContext.Provider
+        value={[
+          addCartNum,
+          favourite,
+          setAddCartNum,
+          setFavourite,
+          setFavouriteArray,
+          addToCart,
+          setAddtoCart,
+          addedProduct,
+          setAddedProduct,
+          setRedHeart
+        ]}
+      >
+        <Router>
+          <Header
+            totalPrice={totalPrice}
+            addToCart={addToCart}
+            handleTotalPrice={handleTotalPrice}
+            products={products}
+          />
+          <Routes>
+            <Route
+              path="/al-rafey/"
+              element={<HomePage products={products} />}
+            />
+            <Route path="/al-rafey/profile/*" element={<UserProfile />} />
+            <Route
+              path="/al-rafey/cart"
+              element={
+                <Cart
+                  addToCart={addToCart}
+                  addedProduct={addedProduct}
+                  products={products}
+                  setAddtoCart={setAddtoCart}
+                  setAddedProduct={setAddedProduct}
+                />
+              }
+            />
+              <Route
+                path="/al-rafey/checkout"
+                element={
+                  <Checkout
+                  addedProduct={addedProduct}
+                  addToCart={addToCart}
+                    setAddedProduct={setAddedProduct}
+                    setAddtoCart={setAddtoCart}
+                    setAddCartNum={setAddCartNum}
+                  />
+                }
+              />
+            <Route
+              path="/al-rafey/categories"
+              element={<Categories products={products} />}
+            />
+
+            <Route
+              path="/al-rafey/purchase"
+              element={
+                <Purchase addToCart={addToCart} addedProduct={addedProduct} setAddtoCart={setAddtoCart} handleTotalPrice={handleTotalPrice} setAddCartNum={setAddCartNum} />
+              }
+            />
+            <Route
+              path="/al-rafey/favourites"
+              element={
+                <Favourites
+                  setFavourite={setFavourite}
+                  favouriteArray={favouriteArray}
+                  setFavouriteArray={setFavouriteArray}
+                />
+              }
+            />
+            <Route
+              path="/al-rafey/order-confirm"
+              element={<Order products={products} />}
+            />
+          </Routes>
+          <MobilePhones products={products} />
+          <CallToAction />
+          <Footer />
+        </Router>
+      </userContext.Provider>
     </>
   );
 }

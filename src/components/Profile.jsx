@@ -1,4 +1,3 @@
-import bgImage from "../assets/bgImage.png";
 import profileImage from "../assets/profile.png";
 import UserNav from "./UserNav.jsx";
 
