@@ -12,7 +12,7 @@ import men from "../assets/men.jpg";
 import logoImage from "../assets/logo.png";
 import CategoryProduct from "./CategoryProduct.jsx";
 
-const Navbar2 = ({ totalPrice, products, addToCart }) => {
+const Navbar2 = ({ totalPrice, products, lessProducts, addToCart }) => {
 
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
@@ -120,32 +120,6 @@ const Navbar2 = ({ totalPrice, products, addToCart }) => {
             </span>
           </Link>
           </div>
-          {isOpen && (
-            <div className={`${isOpen ? "show_menu" : "hide_menu"}`}>
-              {products.map((product, index) => (
-                <div key={product.id} className="product-item">
-                  <div className="product-info">
-                    <img className="h-20 w-1" src={men} alt={product.name} />
-                    <div>
-                      <h4>{product.name}</h4>
-                    </div>
-                  </div>
-                  <div className="quantity-controls flex gap-2">
-                    <button>
-                      <FaMinus className="text-sm" onClick={() => updateQuantity(index, Math.max(0, quantity[index] - 1))} />
-                    </button>
-                      <p>{quantity[index]}</p>
-                    <button>
-                      <FaPlus  className="text-sm" onClick={() => updateQuantity(index, quantity[index] + 1)}  />
-                    </button>
-                  </div>
-                  <div>
-                    <p>$ {`${product.price * quantity[index]}`}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
           <span className="ml-2">{!totalPrice ? "00.0" : `$${totalPrice}`}</span>
         </div>
@@ -187,7 +161,7 @@ const Navbar2 = ({ totalPrice, products, addToCart }) => {
         </div>}
       </nav>
 
-      {categoryText && <CategoryProduct selectCategory={selectCategory} products={products} inputValue={inputValue} />}
+      {categoryText && <CategoryProduct selectCategory={selectCategory} products={products} lessProducts={lessProducts} inputValue={inputValue} />}
       
 
     </>

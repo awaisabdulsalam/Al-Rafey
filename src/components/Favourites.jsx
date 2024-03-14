@@ -32,7 +32,7 @@ const Favourites = ({ setFavourite, favouriteArray, setFavouriteArray }) => {
 
       <div key={index} className="rounded-lg flex justify-between items-center sm:px-0 md:px-4 sm:my-1 md:my-3 py-3">
         <div className="flex items-center">
-          <img src={mobileImage} alt="" className="sm:h-8 md:h-12 sm:w-8 md:w-12 object-cover" />
+          <img src={favourite.img} alt="" className="sm:h-8 md:h-12 sm:w-8 md:w-12 object-cover" />
           <p className="text-[#a8a8a8] sm:text-[10px] md:text-[15px] text-base ml-2">{favourite.name}</p>
         </div>
         <div className="flex justify-start sm:mr-24 md:mr-46 sm:flex sm:justify-start sm:pl-4">

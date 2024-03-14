@@ -6,10 +6,10 @@ import group3 from "../assets/group3.png";
 
 const GroupImages = () => {
   return (
-    <section className="sm:flex sm:flex-col sm:p-0 md:flex md:flex-row md:gap-10 md:my-10 md:px-10">
+    <section className="sm:flex sm:flex-col sm:px-2 md:flex md:flex-row sm:gap-4 md:gap-10 sm:my-10 md:my-10 md:px-10">
       <div
-        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex  md:justify-center px-10 sm:py-10"
-        style={{ backgroundImage: `url(${group1})` }}
+        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex md:justify-center px-10 sm:py-5 rounded-[4px]"
+        style={{ backgroundImage: `url(${group1})`, backgroundSize: "contain", backgroundRepeat: "no-repeat"  }}
       >
         <h1 className="sm:text-[16px] md:text-2xl">
           Hanging<br />
@@ -24,8 +24,8 @@ const GroupImages = () => {
         </div>
       </div>
       <div
-        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex  md:justify-center px-10 sm:py-10"
-        style={{ backgroundImage: `url(${group2})` }}
+        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex  md:justify-center px-10 sm:py-5 rounded-[4px]"
+        style={{ backgroundImage: `url(${group2})`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}
       >
         <h1 className="sm:text-[16px] md:text-2xl">
           Boomrang <br />
@@ -40,8 +40,8 @@ const GroupImages = () => {
         </div>
       </div>
       <div
-        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex  md:justify-center px-10 sm:py-10"
-        style={{ backgroundImage: `url(${group3})` }}
+        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex  md:justify-center px-10 sm:py-5 rounded-[4px]"
+        style={{ backgroundImage: `url(${group3})`, backgroundSize: "contain", backgroundRepeat: "no-repeat" }}
       >
         <h1 className="sm:text-[16px] md:text-2xl">
           Modern <br />

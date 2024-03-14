@@ -20,8 +20,8 @@
 
 
 .nav_link {
-  text-decoration: none;
-  position: relative;
+  /* text-decoration: none;
+  position: relative; */
 }
 
 .nav_link::after {

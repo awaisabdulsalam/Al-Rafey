@@ -1,9 +1,9 @@
 import Products from "./Products";
 
-const MobilePhones = ({ products }) => {
+const MobilePhones = ({ products, lessProducts }) => {
   return (
     <>
-    <Products products={products} heading="Mobile Phones" bgColor="#fff" id="tech" color="#333" btnColor="#262261" />
+    <Products products={products} lessProducts={lessProducts} heading="Mobile Phones" textColor="#fff" bgColor="#fff" id="tech" color="#333" btnColor="#262261" />
     </>
   )
 }

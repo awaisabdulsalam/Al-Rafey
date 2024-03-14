@@ -1,10 +1,10 @@
 import Products from "./Products";
 
 
-const MobileProduct = ({ products }) => {
+const MobileProduct = ({ products, lessProducts }) => {
   return (
     <>
-    <Products products={products} heading="Mobile Products" bgColor="#262261" color="#fff" btnColor="#262261"  />
+    <Products products={products} lessProducts={lessProducts} heading="Mobile Products" textColor="#262261" bgColor="#262261" color="#fff" btnColor="#fff"  />
     </>
   );
 };

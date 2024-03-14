@@ -12,9 +12,6 @@ const PaymentMethods = () => {
               Payment Methods
             </h1>
             <div>
-            <button className="flex items-center gap-1 sm:px-[4px] md:px-3 sm:py-[4px] md:py-2 sm:text-[10px] md:text-[14px] rounded-[4px] text-white bg-[#262261]">
-              <LuPlus /> New Address
-            </button>
             </div>
           </div>
           <hr />

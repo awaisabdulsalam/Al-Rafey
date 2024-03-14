@@ -3,10 +3,10 @@ import women from "../assets/women.jpg";
 
 
 
-const HomeAppliances = ({ products }) => {
+const HomeAppliances = ({ products, lessProducts }) => {
   return (
     <>
-    <Products products={products} heading="Home Appliances" color="#333" btnColor="#262261" />
+    <Products products={products} lessProducts={lessProducts} heading="Home Appliances" color="#333" textColor="#fff" btnColor="#262261" />
     </>
   )
 }

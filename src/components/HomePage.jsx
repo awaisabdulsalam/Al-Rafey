@@ -41,17 +41,17 @@ import GroupImages from "./GroupImages"
 import Companies from "./Companies"
 
 
-const HomePage = ({ products }) => {
+const HomePage = ({ products, lessProducts }) => {
   return (
     <>
     <Hero  />
     <Companies />
     <SportsProduct />
-    <MenProduct products={products} />
-    <WomenProduct products={products} />
-    <MobileProduct products={products} />
+    <MenProduct products={products} lessProducts={lessProducts} />
+    <WomenProduct products={products} lessProducts={lessProducts} />
+    <MobileProduct products={products}  lessProducts={lessProducts} />
     <GroupImages />
-    <HomeAppliances products={products} />
+    <HomeAppliances products={products} lessProducts={lessProducts} />
     <RestCusion />
     </>
   )

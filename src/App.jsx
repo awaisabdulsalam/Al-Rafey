@@ -84,8 +84,6 @@ function App() {
   const [addedProduct, setAddedProduct] = useState([]);
   const [redHeart, setRedHeart] = useState(false);
 
-  console.log(addToCart);
-  console.log(addedProduct);
 
   const handleTotalPrice = (total) => {
     setTotalPrice(total);
@@ -95,6 +93,7 @@ function App() {
     handleTotalPrice();
   }, [addToCart]);
 
+  const lessProducts = products.slice(0, 3);
 
   return (
     <>
@@ -118,11 +117,13 @@ function App() {
             addToCart={addToCart}
             handleTotalPrice={handleTotalPrice}
             products={products}
+            lessProducts={lessProducts}
           />
           <Routes>
             <Route
               path="/al-rafey/"
-              element={<HomePage products={products} />}
+              element={<HomePage  products={products}
+              lessProducts={lessProducts} />}
             />
             <Route path="/al-rafey/profile/*" element={<UserProfile />} />
             <Route
@@ -132,6 +133,7 @@ function App() {
                   addToCart={addToCart}
                   addedProduct={addedProduct}
                   products={products}
+                  lessProducts={lessProducts}
                   setAddtoCart={setAddtoCart}
                   setAddedProduct={setAddedProduct}
                 />
@@ -172,10 +174,10 @@ function App() {
             />
             <Route
               path="/al-rafey/order-confirm"
-              element={<Order products={products} />}
+              element={<Order products={lessProducts} />}
             />
           </Routes>
-          <MobilePhones products={products} />
+          <MobilePhones products={products} lessProducts={lessProducts} />
           <CallToAction />
           <Footer />
         </Router>

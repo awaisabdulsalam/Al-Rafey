@@ -160,6 +160,7 @@ const Cart = ({ addedProduct, products, setAddtoCart, setAddedProduct }) => {
             </div>
             <div className="flex-col">
               <div className="flex justify-start gap-2">
+                  <a href="#product_rating">
                 <div className="flex items-center gap-1 sm:px-2 md:px-4 sm:py-1 md:py-2 bg-[#ffe3ba3a] cursor-pointer rounded-full">
                     <IoIosStar 
                     onClick={() => setStar((prev) => !prev)}
@@ -169,12 +170,15 @@ const Cart = ({ addedProduct, products, setAddtoCart, setAddedProduct }) => {
                   {addedProduct[details]?.rating}
                   </span>
                 </div>
+                  </a>
+                  <a href="#product_reviews">
                 <div className="flex items-center gap-1 sm:px-2 md:px-4 sm:py-1 md:py-2 bg-[#c5c3ff64] cursor-pointer rounded-full">
                   <LiaCommentDots className="sm:text-sm md:text-xl text-[#1b1b1c]" />
                   <span className="text-[#585587] sm:font-normal sm:text-[10px] md:text-lg">
                   {addedProduct[details]?.reviews} Reviews
                   </span>
                 </div>
+                  </a>
               </div>
               <div className="mt-2">
                 <p className="text-gray-400 sm:text-[12px] md:text-[16px]">
@@ -335,21 +339,15 @@ const Cart = ({ addedProduct, products, setAddtoCart, setAddedProduct }) => {
         </section>
       </section>
       <section className="px-10">
-        <nav>
-          <ul className="flex gap-5 px-10 py-2">
-            <li>
-              <a href="" className="nav_link">
+          <ul className="flex sm:justify-center md:justify-start gap-5 px-10 py-2">
+            <li className="sm:text-[12px] md:text-[18px] cursor-pointer">
                 Description
-              </a>
             </li>
-            <li>
-              <a href="" className="nav_link">
+            <li className="sm:text-[12px] md:text-[18px] cursor-pointer">
                 Reviews
-              </a>
             </li>
           </ul>
           <hr />
-        </nav>
       </section>
       <Reviews rating={addedProduct[details]?.rating} />
        </>

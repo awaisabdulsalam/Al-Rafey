@@ -8,6 +8,11 @@ import mobileImage from "../assets/mobile.png";
 const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, setAddtoCart }) => {
 
   const [cartItems, setCartItems] = useState([]);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
 
   useEffect(() => {
@@ -49,6 +54,15 @@ const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, se
     selected.style.border = `3px solid #262261`;
     selected.classList.add("p-3");
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFirstName("")
+    setLastName("")
+    setAddress("")
+    setPhone("")
+    setEmail("")
+  }
 
 
   return (
@@ -154,36 +168,40 @@ const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, se
               Personal Info
             </h3>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="sm:flex sm:flex-col md:flex md:flex-row justify-between gap-5 mb-4 my-5">
                 <div className="w-full">
-                  <label
-                    htmlFor="phone"
-                    className="block sm:text-[12px] md:text-[16px] font-medium text-gray-700"
+                <label
+                    htmlFor="firstName"
+                    className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                   >
-                    Name
+                    First Name
                   </label>
                   <input
                     type="text"
-                    id="phone"
-                    name="phone"
-                    className="mt-1 sm:p-1 md:p-2 sm:text-[12px] md:text-[16px] w-full border border-gray-300 rounded-md"
-                    placeholder="Enter your name"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter your first name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                   />
                 </div>
                 <div className="w-full">
-                  <label
-                    htmlFor="email"
-                    className="block sm:text-[12px] md:text-[16px] font-medium text-gray-700"
+                <label
+                    htmlFor="lastName"
+                    className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
                   >
-                    Email
+                    Last Name
                   </label>
                   <input
                     type="text"
-                    id="email"
-                    name="email"
-                    className="mt-1 sm:p-1 md:p-2 sm:text-[12px] md:text-[16px] w-full border border-gray-300 rounded-md"
-                    placeholder="Enter your email"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter your last name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
                   />
                 </div>
               </div>
@@ -193,58 +211,64 @@ const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, se
                 </h3>
                 <div className="sm:flex sm:flex-col md:flex md:flex-row justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
-                    <label
-                      htmlFor="phone"
-                      className="block sm:text-[12px] md:text-[16px] font-medium text-gray-700"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="phone"
-                      name="phone"
-                      className="mt-1 sm:p-1 md:p-2 sm:text-[12px] md:text-[16px] w-full border border-gray-300 rounded-md"
-                      placeholder="Enter your name"
-                    />
+                  <label
+                    htmlFor="phone"
+                    className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
+                  />
                   </div>
 
                   <div className="w-full">
-                    <label
-                      htmlFor="email"
-                      className="block sm:text-[12px] md:text-[16px] font-medium text-gray-700"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="text"
-                      id="email"
-                      name="email"
-                      className="mt-1 sm:p-1 md:p-2 sm:text-[12px] md:text-[16px] w-full border border-gray-300 rounded-md"
-                      placeholder="Enter your email"
-                    />
+                  <label
+                    htmlFor="email"
+                    className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="sm:text-[12px] md:text-[16px] mt-1 p-2 w-full border border-gray-300 rounded-md"
+                  />
                   </div>
                 </div>
                 <div className="flex justify-between gap-5 mb-4 my-5">
                   <div className="w-full">
-                    <label
-                      htmlFor="phone"
-                      className="block sm:text-[12px] md:text-[16px] font-medium text-gray-700"
-                    >
-                      Detailed Address
-                    </label>
-                    <textarea
-                      className="w-full border-2 border-gray-300"
-                      name=""
-                      id=""
-                      cols="10"
-                      rows="10"
-                    ></textarea>
+                  <label
+                    htmlFor="address"
+                    className="sm:text-[12px] md:text-[16px] font-medium text-[#939393]"
+                  >
+                    Detailed Address
+                  </label>
+                  <textarea
+                    name="address"
+                    id="address"
+                    cols="10"
+                    rows="10"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md"
+                  ></textarea>
                   </div>
                 </div>
               </div>
 
               <div className="">
-                <button className="w-full sm:p-1 md:p-2 text-white hover:text-[#262261] bg-[#262261] hover:bg-[#fff] border-2 hover:border-[#262261] sm:text-[14px] md:text-lg rounded-lg">
+                <button type="submit" className="w-full sm:p-1 md:p-2 text-white hover:text-[#262261] bg-[#262261] hover:bg-[#fff] border-2 hover:border-[#262261] sm:text-[14px] md:text-lg rounded-lg">
                   Confirm Your Order
                 </button>
               </div>

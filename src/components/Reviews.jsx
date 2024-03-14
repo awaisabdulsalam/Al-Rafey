@@ -43,6 +43,9 @@ const Reviews = ({ rating }) => {
   const [replyText, setReplyText] = useState("");
   const [showReply, setShowReply] = useState(false);
 
+  const [reviewTitle, setReviewTitle] = useState("");
+  const [reviewContent, setReviewContent] = useState("");
+
   const copyReviewsData = [...reviewsData];
   const [lessReviews, setLessReviews] = useState(copyReviewsData.splice(0, 2));
   const [showAllReviews, setShowAllReviews] = useState([...reviewsData].splice(0, 2));
@@ -90,7 +93,6 @@ const Reviews = ({ rating }) => {
 
   const handleReplySubmit = (index) => {
 
-    console.log(replyText);
     setReviews((prevReview) => {
       const updatedReviews = [...prevReview];
       updatedReviews[index].reply = replyText;
@@ -101,11 +103,17 @@ const Reviews = ({ rating }) => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setReviewTitle("");
+    setReviewContent("");
+  }
+
   return (
     <>
       <section className="sm:px-2">
         <section className="">
-          <div className="mx-10 my-5">
+          <div className="mx-10 my-5" id="product_rating">
             <h1 className="sm:text-lg md:text-2xl text-[#344054] font-semibold">
               Customers Feedback
             </h1>
@@ -208,7 +216,7 @@ const Reviews = ({ rating }) => {
             </div>
           </section>
         </section>
-        <section className="px-0">
+        <section className="px-0" id="product_reviews">
           <div className="sm:mx-2 md:mx-10 sm:my-2 md:my-5">
             <h1 className="sm:text-xl md:text-2xl text-[#262261] font-semibold">
               Reviews
@@ -413,6 +421,7 @@ const Reviews = ({ rating }) => {
           )}
         </div>
 
+<form action="" onSubmit={handleSubmit}>
         <section className="gap-5 sm:px-4 md:px-20 py-10  mb-2">
           <div className="flex">
             <p className="sm:font-semibold md:font-bold sm:text-[16px] md:text-xl text-[#262261]">
@@ -435,6 +444,8 @@ const Reviews = ({ rating }) => {
           <input
             type="text"
             placeholder="Great Product"
+            value={reviewTitle}
+            onChange={(e) => setReviewTitle(e.target.value)}
             className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
           />
           <p className="my-4 font-md sm:text-[14px] md:text-[16px] sm:font-normal text-[#262261]">
@@ -443,12 +454,15 @@ const Reviews = ({ rating }) => {
           <textarea
             type="area"
             placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+            value={reviewContent}
+            onChange={(e) => setReviewContent(e.target.value)}
             className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
           />
-          <button className="sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white mt-5 sm:px-2 md:px-10 sm:py-2 md:py-3 rounded-[4px]">
+          <button type="submit" className="sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white mt-5 sm:px-2 md:px-10 sm:py-2 md:py-3 rounded-[4px]">
             Submit Review
           </button>
         </section>
+</form>
       </section>
     </>
   );
