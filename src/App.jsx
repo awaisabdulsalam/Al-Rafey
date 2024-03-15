@@ -84,6 +84,7 @@ function App() {
   const [addedProduct, setAddedProduct] = useState([]);
   const [redHeart, setRedHeart] = useState(false);
 
+console.log(addToCart);
 
   const handleTotalPrice = (total) => {
     setTotalPrice(total);
@@ -153,7 +154,7 @@ function App() {
               />
             <Route
               path="/al-rafey/categories"
-              element={<Categories products={products} />}
+              element={<Categories products={products} lessProducts={lessProducts} />}
             />
 
             <Route
@@ -174,7 +175,14 @@ function App() {
             />
             <Route
               path="/al-rafey/order-confirm"
-              element={<Order products={lessProducts} />}
+              element={<Order 
+                products={lessProducts} 
+                addToCart={addToCart}
+                addedProduct={addedProduct}
+                totalPrice={totalPrice} 
+                handleTotalPrice={handleTotalPrice}
+                
+                />}
             />
           </Routes>
           <MobilePhones products={products} lessProducts={lessProducts} />

@@ -20,9 +20,9 @@ const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, se
       setCartItems(addToCart);
     }
   }, [addToCart]);
-  useEffect(() => {
-    setCartItems(addedProduct)
-  }, [])
+  // useEffect(() => {
+  //   setCartItems(addedProduct)
+  // }, [])
 
   const removeProduct = (index) => {
     const updatedCartItems = [...cartItems];
@@ -120,13 +120,13 @@ const Purchase = ({ addToCart, addedProduct, handleTotalPrice, setAddCartNum, se
                 </div>
               </div>
             ))}
+            <hr />
             <div className="flex justify-end my-2">
               <div>
                 <p className="text-[#bcbcbc] text-sm">Total</p>
                 <h1 className="sm:text-[14px] md:text-3xl">{`$${getTotalPrice()}`}</h1>
               </div>
             </div>
-            <hr />
           </div>
         </div>
         <div className="flex justify-center my-10">

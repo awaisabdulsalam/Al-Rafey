@@ -2,74 +2,9 @@ import Products from "./Products";
 import men from "../assets/men.jpg";
 import Pagination from "./Pagination";
 import { useState } from "react";
+import CategoriesProducts from "./CategoriesProducts";
 
-// const products = [
-//   {
-//     image: men,
-//     name: "T-Shirt",
-//     category: "All",
-//     price: 100,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Groceries",
-//     category: "Groceries & Pets",
-//     price: 20,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Pharmacy",
-//     category: "Online Pharmacy",
-//     price: 80,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Books",
-//     category: "Books",
-//     price: 45,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Home & Office",
-//     category: "Home & Office Improvement",
-//     price: 99,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Toys And Games",
-//     category: "Toys And Games",
-//     price: 23,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Stationary",
-//     category: "Uniform & Stationary",
-//     price: 46,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Kids Fashion",
-//     category: "Kids Fashion",
-//     price: 89,
-//     reviews: 234,
-//   },
-//   {
-//     image: men,
-//     name: "Baby Products",
-//     category: "Baby Products",
-//     price: 77,
-//     reviews: 234,
-//   },
-// ];
-
-const Categories = ({ products }) => {
+const Categories = ({ products, lessProducts }) => {
 
   const [allProducts, setAllProducts] = useState([...products]);
   
@@ -77,8 +12,6 @@ const Categories = ({ products }) => {
   const [selected, setSelected] = useState(false);
   const [price, setPrice] = useState(1000);
 
-// const fil = allProducts.filter((prod) => prod.price > 700);
-// console.log(fil);
 
   const handleCategory = (e) => {
     const targetValue = e.target.value.toLowerCase();
@@ -92,12 +25,11 @@ const Categories = ({ products }) => {
 
   const handlePrice = () => {
 
-    console.log(price);
     const matched = products.filter((prod) => prod.price >=  price);
-    console.log(matched);
     setSelectedCatogory(matched);
     setSelected(true);
   }
+
 
   return (
     <>
@@ -152,25 +84,20 @@ const Categories = ({ products }) => {
             </div>
           </div>
         </section>
+
         <section className="sm:px-0 flex flex-[3]">
-         {!selected ? <Products
-            products={products}
-            heading="All Products"
-            bgColor="#fff"
-            color="#333"
-            btnColor="#262261"
-            id="men"
+         {!selected ? <CategoriesProducts
+            products={products} heading="Men's Products" textColor="#fff" bgColor="#fff" id="men" color="#333" btnColor="#262261"
           /> 
           :
-          <Products
+          <CategoriesProducts
             products={selectedCategory}
-            heading="All Products"
-            bgColor="#fff"
-            color="#333"
-            btnColor="#262261"
-            id="men"
+            heading="Men's Products" textColor="#fff" bgColor="#fff" id="men" color="#333" btnColor="#262261"
           /> 
           }
+          {/* <CategoriesProducts  
+          products={products} heading="Men's Products" textColor="#fff" bgColor="#fff" id="men" color="#333" btnColor="#262261"
+          /> */}
         </section>
       </section>
       <section>
@@ -179,5 +106,6 @@ const Categories = ({ products }) => {
     </>
   );
 };
+
 
 export default Categories;

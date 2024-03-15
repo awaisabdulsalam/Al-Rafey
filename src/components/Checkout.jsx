@@ -6,24 +6,17 @@ const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAdd
 
   const [cartItems, setCartItems] = useState([]);
 
+  console.log(addToCart);
+
   useEffect(() => {
     if (addToCart) {
       setCartItems(addToCart);
     }
   }, [addToCart]);
-  useEffect(() => {
-    setCartItems(addedProduct)
-  }, [])
-  console.log(addedProduct);
+  // useEffect(() => {
+  //   setCartItems(addedProduct)
+  // }, [addedProduct])
 
-  const removeProduct = (index) => {
-    const updatedCartItems = [...cartItems];
-    updatedCartItems.splice(index, 1);
-    console.log(updatedCartItems);
-
-    setCartItems(updatedCartItems);
-    setAddedProduct(updatedCartItems)
-  }
 
   const removeAddCartProduct = (index) => {
     const updatedCartItems = [...cartItems];
@@ -34,7 +27,7 @@ const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAdd
   }
 
 
-  setAddCartNum(prev => prev = cartItems.length)
+  setAddCartNum(cartItems.length);
 
   const updateQuantity = (index, newQuantity) => {
     const updatedCartItems = [...cartItems];
@@ -61,7 +54,7 @@ const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAdd
               "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
             }}
           >
-            <div className="rounded-lg flex flex-col sm:flex-row justify-between items-center md:px-10 px-3 sm:px-2 py-3 bg-[#f6f9f8]">
+            <div className="rounded-lg flex flex-col sm:flex-row justify-between items-center md:px-6 px-3 sm:px-2 py-3 bg-[#f6f9f8]">
               <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Product</h1>
               <h1 className="text-[#a8a8a8] text-[12px] md:mr-20 md:text-base">Amount</h1>
               <h1 className="text-[#a8a8a8] text-[12px] md:mr-32 md:text-base">Quantity</h1>
@@ -71,7 +64,7 @@ const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAdd
             {
             cartItems?.map((product, index) => (
               <>
-              <div key={index} className="rounded-lg flex flex-col sm:flex-row justify-between items-center  px-3 sm:px-0 py-3 sm:my-1 md:my-3">
+              <div key={index} className="rounded-lg flex flex-col sm:flex-row justify-between items-center  md:px-2 sm:px-0 py-3 sm:my-1 md:my-3">
                 <div className="flex flex-1 items-center">
                   <img
                     src={product?.image}

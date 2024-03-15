@@ -5,9 +5,40 @@ import { RiVisaLine } from "react-icons/ri";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";
 
-import orderImage from "../assets/orderImage.png";
+import { useEffect, useState } from "react";
 
-const Order = () => {
+const Order = ({ addToCart, addedProduct, handleTotalPrice }) => {
+
+const [currentValue, setCurrentValue] = useState(0);
+const [cartItems, setCartItems] = useState([]);
+
+const handleClick = () => {
+  const increment = Math.min(35, Math.max(0, 100 - currentValue));
+  setCurrentValue(Math.min(100, currentValue + increment));
+};
+const removeProduct = (index) => {
+  const updatedCartItems = [...cartItems];
+  updatedCartItems.splice(index, 1);
+  setCartItems(updatedCartItems);
+  return updatedCartItems;
+}
+const getTotalPrice = () => {
+  let total = cartItems?.reduce((total, item) => total + (item.price * item.quantity), 0);
+  handleTotalPrice(total)
+  return total;
+}
+
+
+useEffect(() => {
+  if (addToCart) {
+    setCartItems(addToCart);
+  }
+}, [addToCart]);
+useEffect(() => {
+  setCartItems(addedProduct)
+}, [])
+
+
   return (
     <>
       <section className="sm:px-2 md:px-32 py-10">
@@ -43,33 +74,42 @@ const Order = () => {
           </div>
         </div>
         <hr />
-        <div className="sm:flex sm:flex-col sm:p-1 md:p-4">
-          <div className="flex justify-between px-2 sm:w-full">
-            <h1 className="text-[#262261] sm:text-[10px] md:text-[16px]">Order Confirm</h1>
-            <h1 className="text-[#d0d5dd] sm:text-[10px] md:text-[16px]">Shipped</h1>
-            <h1 className="text-[#d0d5dd] sm:text-[10px] md:text-[16px]">Out of Delivery</h1>
-            <h1 className="text-[#d0d5dd] sm:text-[10px] md:text-[16px]">Delivered</h1>
-          </div>
-          <div className="flex items-center justify-center my-4">
-            <div className="w-[100%] sm:mx-5 md:mx-10 h-1 flex sm:justify-between items-center  bg-[#d0d5dd]">
-              <div className="sm:w-3 md:w-5 sm:h-3 md:h-5 bg-[#262261] rounded-full"></div>
-              <div className="sm:w-3 md:w-5 sm:h-3 md:h-5 bg-[#d0d5dd] rounded-full"></div>
-              <div className="sm:w-3 md:w-5 sm:h-3 md:h-5 bg-[#d0d5dd] rounded-full"></div>
-              <div className="sm:w-3 md:w-5 sm:h-3 md:h-5 bg-[#d0d5dd] rounded-full"></div>
+
+
+        <div 
+        className="sm:flex sm:flex-col sm:p-1 md:p-4"> 
+          <div className="flex justify-between  px-0 sm:w-full">
+            <h1 className={`${currentValue>=0 ? "text-[#262261]" : "text-[#d0d5dd]"} sm:text-[10px] md:text-[16px]`}>Order Confirm</h1>
+            <h1 className={`${currentValue>=35 ? "text-[#262261]" : "text-[#d0d5dd]"} sm:text-[10px] md:text-[16px]`}>Shipped</h1>
+            <h1 className={`${currentValue>=70 ? "text-[#262261]" : "text-[#d0d5dd]"} sm:text-[10px] md:text-[16px]`}>Out of Delivery</h1>
+            <h1 className={`${currentValue>=100 ? "text-[#262261]" : "text-[#d0d5dd]"} sm:text-[10px] md:text-[16px]`}>Delivered</h1>
+            </div>
+          <div className="flex justify-center my-4">
+            <div className="w-[100%] sm:mx-5 md:mx-0 h-1 flex sm:justify-between items-center">
+              <input
+        type="range"
+        min={0}
+        max={100}
+        value={currentValue}
+        onChange={(e) => setCurrentValue(parseInt(e.target.value))}
+        className="w-full mr-4 bg-transparent rounded-full h-2 pointer-events-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      />
             </div>
           </div>
-          <div className="flex items-center justify-center my-6">
-            <div className="w-[100%] sm:mx-5 md:mx-10 h-1 flex justify-between items-center">
-              <p className="text-[#778093] sm:text-[10px] md:text-[16px]">Wed, 11th Jan</p>
-              <p className="text-[#778093] sm:text-[10px] md:text-[16px]">Wed, 11th Jan</p>
-              <p className="text-[#778093] sm:text-[10px] md:text-[16px]">Wed, 11th Jan</p>
-              <p className="text-[#778093] sm:text-[10px] md:text-[16px]">Wed, 11th Jan</p>
-            </div>
+          <div className="flex items-center justify-between my-6">
+              <p className={`${currentValue>=0 ? "text-[#262261]" : "text-[#778093]"} sm:text-[10px] md:text-[16px]`}>Wed, 11th Jan</p>
+              <p className={`${currentValue>=35 ? "text-[#262261]" : "text-[#778093]"} sm:text-[10px] md:text-[16px]`}>Wed, 11th Jan</p>
+              <p className={`${currentValue>=70 ? "text-[#262261]" : "text-[#778093]"} sm:text-[10px] md:text-[16px]`}>Wed, 11th Jan</p>
+              <p className={`${currentValue>=100 ? "text-[#262261]" : "text-[#778093]"} sm:text-[10px] md:text-[16px]`}>Wed, 11th Jan</p>
+
           </div>
+        </div>
+        <div className="flex justify-center">
+          <button className="px-4 py-2 bg-[#262261] text-[#fff]" onClick={handleClick}>Next</button>
         </div>
 
         <div className="h-auto sm:my-2 md:my-5 sm:py-2 md:py-8 rounded-lg">
-          <div
+          {/* <div
             className="h-auto w-full sm:my-2 md:my-5  sm:px-4 md:px-8 sm:py-4 md:py-10 rounded-lg"
             style={{
               boxShadow:
@@ -97,6 +137,50 @@ const Order = () => {
                 <h1 className="sm:text-[16px] md:text-3xl">$2499.10</h1>
               </div>
             </div>
+          </div> */}
+
+<div
+            className="sm:w-full h-auto sm:mx-0 md:mx-5 sm:px-2 md:px-5 py-5 rounded-lg"
+            style={{
+              boxShadow:
+              "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            <div className="rounded-lg flex flex-col sm:flex-row justify-between items-center md:px-10 px-3 sm:px-2 py-3 bg-[#f6f9f8]">
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Product</h1>
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Amount</h1>
+              <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Action</h1>
+            </div>
+
+            {cartItems?.length > 0 && cartItems?.map((product, index) => (
+              <div key={index} className="rounded-[4px] flex flex-col sm:flex-row justify-between items-center  px-3 sm:px-0 py-3 sm:my-1 md:my-3">
+                <div className="flex flex-1 items-center">
+                  <img
+                    src={product?.image}
+                    alt=""
+                    className="h-8 w-8"
+                  />
+                  <p className="text-[#a8a8a8] sm:text-[10px] md:text-base ml-2">
+                    {product?.name}
+                  </p>
+                </div>
+                <div className="flex-1 flex justify-center sm:mr-8 sm:pl-4">
+                  <h1 className="text-[#a8a8a8] sm:text-[12px] md:text-base">{`$${product?.price}`}</h1>
+                </div>
+                <div className="flex flex-1 justify-end px-2">
+                  <button onClick={() => removeProduct(index)} className="text-[#bcbcbc] text-xs md:text-base">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+            <div className="flex justify-end my-2">
+              <div>
+                <p className="text-[#bcbcbc] text-sm">Total</p>
+                <h1 className="sm:text-[14px] md:text-3xl">{`$${getTotalPrice()}`}</h1>
+              </div>
+            </div>
+            <hr />
           </div>
         </div>
         <hr />
