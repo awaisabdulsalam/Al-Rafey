@@ -57,7 +57,7 @@ const Checkout = ({ addToCart, addedProduct, setAddCartNum, setAddtoCart, setAdd
             <div className="rounded-lg flex flex-col sm:flex-row justify-between items-center md:px-6 px-3 sm:px-2 py-3 bg-[#f6f9f8]">
               <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Product</h1>
               <h1 className="text-[#a8a8a8] text-[12px] md:mr-20 md:text-base">Amount</h1>
-              {/* <h1 className="text-[#a8a8a8] text-[12px] md:mr-32 md:text-base">Quantity</h1> */}
+              <h1 className="text-[#a8a8a8] text-[12px] md:mr-32 md:text-base">Quantity</h1>
               <h1 className="text-[#a8a8a8] text-[12px] md:text-base">Action</h1>
             </div>
 
