@@ -8,7 +8,7 @@ const GroupImages = () => {
   return (
     <section className="sm:flex sm:flex-col sm:px-2 md:flex md:flex-row sm:gap-4 md:gap-10 sm:my-10 md:my-10 md:px-10">
       <div
-        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex md:justify-center px-10 sm:py-5 rounded-[4px]"
+        className="sm:w-auto h-40 md:w-1/3 sm:flex-col md:flex md:justify-center lg:flex lg:justify-center px-10 sm:py-5 rounded-[4px]"
         style={{ backgroundImage: `url(${group1})`, backgroundSize: "contain", backgroundRepeat: "no-repeat"  }}
       >
         <h1 className="sm:text-[16px] md:text-2xl">

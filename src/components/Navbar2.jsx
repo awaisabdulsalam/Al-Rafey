@@ -2,7 +2,7 @@ import { BiHeart, BiBell } from "react-icons/bi";
 import { IoSearch } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross1 } from "react-icons/rx";
@@ -16,14 +16,21 @@ const Navbar2 = ({ totalPrice, products, lessProducts, addToCart }) => {
 
   const [addCartNum, favourite] = useContext(userContext);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectCategory, setSelectCategory] = useState("categories");
+  const [selectCategory, setSelectCategory] = useState("");
   const [categoryText, setCategoryText] = useState(false);
-  const [quantity, setQuantity] = useState(products.map(product => product.quantity));
   const [inputValue, setInputValue] = useState("") 
   const [showNav, setShowNav] = useState(false);
 
 
   const menuRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+      setSelectCategory("");
+      setInputValue("")
+      setCategoryText(false);
+      console.log("Location Changed!!");
+  }, [location])
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -37,13 +44,7 @@ const Navbar2 = ({ totalPrice, products, lessProducts, addToCart }) => {
     return () => {
       document.addEventListener("mouseup", handleClickOutside);
     }
-  }, [])
-
-  const updateQuantity = (index, newQuantity) => {
-    const newQuantities =  [...quantity];
-    newQuantities[index] = newQuantity;
-    setQuantity(newQuantities);
-  }
+  }, []);
 
 
   return (
@@ -54,12 +55,12 @@ const Navbar2 = ({ totalPrice, products, lessProducts, addToCart }) => {
             "0 8px 12px rgba(0, 10, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)",
         }}
       className="sticky top-0 z-10 relative bg-[#262261] text-white flex justify-between items-center px-4 py-4">
-        <div className="flex flex-1 items-center">
+        <div className="flex flex-1 justify-center">
           <Link to="/al-rafey">
           <img
             src={logoImage}
             alt="Logo"
-            className="md:h-[40px] sm:h-[20px] md:w-[202px] sm:w-[200px] mr-2 cursor-pointer"
+            className="max-w-full sm:h-auto md:h-6 lg:h-8 mr-2 cursor-pointer"
           />
           </Link>
         </div>

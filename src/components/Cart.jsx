@@ -61,7 +61,7 @@ const Cart = ({ addedProduct, products, setAddtoCart, setAddedProduct }) => {
             <img
               src={addedProduct[selectedShirtIndex]?.image}
               alt=""
-              className="h-[80vh] w-[80vh]"
+              className="rounded-[8px] sm:bg-cover sm:h-[50vh] sm:w-full md:h-[80vh] md:w-[80vh]"
             />
           </div>
 

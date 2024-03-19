@@ -45,7 +45,7 @@ const Addresses = () => {
   return (
     <>
       <div className="flex justify-center items-center py-20">
-        <div className="w-[40%] bg-white sm:p-4 md:p-8 rounded-lg shadow-lg mx-4">
+        <div className="md:w-[40%] bg-white sm:p-4 md:p-8 rounded-lg shadow-lg mx-4">
           <div className="">
             {!login ? (
               <div>

@@ -12,6 +12,7 @@ const Reviews = ({ rating }) => {
       days: "3 days",
       review: "Great Product",
       text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration insome form, by injected humour",
+      rating: 5,
       like: false,
       showReply: false,
       reply: "",
@@ -22,6 +23,7 @@ const Reviews = ({ rating }) => {
       days: "3 days",
       review: "Great Product",
       text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration insome form, by injected humour",
+      rating: 5,
       like: false,
       showReply: false,
       reply: "",
@@ -32,6 +34,7 @@ const Reviews = ({ rating }) => {
       days: "3 days",
       review: "Great Product",
       text: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration insome form, by injected humour",
+      rating: 5,
       like: false,
       showReply: false,
       reply: "",
@@ -46,9 +49,11 @@ const Reviews = ({ rating }) => {
   const [reviewTitle, setReviewTitle] = useState("");
   const [reviewContent, setReviewContent] = useState("");
 
-  const copyReviewsData = [...reviewsData];
-  const [lessReviews, setLessReviews] = useState(copyReviewsData.splice(0, 2));
-  const [showAllReviews, setShowAllReviews] = useState([...reviewsData].splice(0, 2));
+  const [showAllReviews, setShowAllReviews] = useState(reviewsData);
+
+
+  const [ratingStar, setRatingStar] = useState(0);
+  const ratingArray = [1, 2, 3, 4, 5];
 
   const handleLike = (index) => {
     setReviews((prevReview) => {
@@ -63,11 +68,11 @@ const Reviews = ({ rating }) => {
 
   const handleAllReviews = () => {
     if (reviewsData.length > 2) {
-      setShowAllReviews([...reviewsData].splice(0, 2));
+      setShowAllReviews([...reviewsData].splice(0, 2))
     } else {
       setShowAllReviews([...reviewsData]);
     }
-    setShowAll(prev => !prev)
+    setShowAll(prev => !prev);
   };
 
   const handleReply = (index) => {
@@ -80,19 +85,8 @@ const Reviews = ({ rating }) => {
       });
     });
   };
-  const handleLessReply = (index) => {
-
-    setReviews((prevReviews) => {
-      const updatedReviews = [...prevReviews];
-      updatedReviews[index].showReply = !updatedReviews[index].showReply;
-      updatedReviews[index].reply = replyText;
-
-      return updatedReviews;
-    });
-  };
 
   const handleReplySubmit = (index) => {
-
     setReviews((prevReview) => {
       const updatedReviews = [...prevReview];
       updatedReviews[index].reply = replyText;
@@ -105,47 +99,60 @@ const Reviews = ({ rating }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newReview = {
+      profile: "A.T", 
+      name: "John Doe",
+      days: "Today", 
+      review: reviewTitle, 
+      text: reviewContent, 
+      rating: ratingStar,
+      like: false,
+      showReply: false,
+      reply: ""
+    };
+    setReviews((prevReviews) => [...prevReviews, newReview]);
     setReviewTitle("");
     setReviewContent("");
-  }
+  };
+
+  const starIcons = ratingArray.map((value, index) => (
+    <button
+      key={index}
+      className={`mx-0 sm:text-[14px] md:text-[20px] text-yellow-500`}
+    >
+      &#9733;
+    </button>
+  ))
 
   return (
     <>
       <section className="sm:px-2">
         <section className="">
-          <div className="mx-10 my-5" id="product_rating">
-            <h1 className="sm:text-lg md:text-2xl text-[#344054] font-semibold">
+          <div className="sm:mx-8 md:mx-10 sm:my-2 md:my-5" id="product_rating">
+            <h1 className="sm:text-[14px] md:text-2xl text-[#344054] font-semibold">
               Customers Feedback
             </h1>
           </div>
-          <section className="sm:flex sm:flex-col md:flex md:flex-row  gap-10 sm:px-4 md:px-10 py-8">
-            <div className="flex justify-between items-center  px-10 py-10 bg-[#f9fafb] mb-4 rounded-md">
-              <div className="px-10 py-10">
-                <h1 className="text-6xl font-bold text-[#262261]">{rating}</h1>
-                <div className="flex gap-1 my-4">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+          <section className="sm:flex sm:flex-col md:flex md:flex-row  sm:gap-2 md:gap-10 sm:px-4 md:px-10 md:py-8">
+            <div className="flex justify-between items-center  px-10 md:py-10 bg-[#f9fafb] md:mb-4 rounded-md">
+              <div className="px-10 sm:py-6 md:py-10">
+                <h1 className="sm:text-3xl md:text-6xl font-bold text-[#262261]">{rating}</h1>
+                <div className="flex gap-1 md:my-4">
+                  {starIcons}
                 </div>
-                <p className="text-gray-600">Product Rating</p>
+                <p className="text-gray-600 sm:text-[12px] md:text-[16px]">Product Rating</p>
               </div>
             </div>
-            <div className="flex-col items-center self-center h-[100%] sm:w-[100%] md:w-auto gap-4 py-10  sm:px-4 md:px-10 bg-[#f9fafb] rounded-md">
+            <div className="flex-col items-center self-center h-[100%] sm:w-[100%] md:w-auto gap-4 sm:py-4 md:py-10  sm:px-4 md:px-10 bg-[#f9fafb] rounded-md">
               <div className="flex items-center gap-5">
                 <div className="w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ maxWidth: "70%" }}
-                    className="h-2 bg-yellow-400 rounded-full"
+                    className="sm:h-1 md:h-2 bg-yellow-400 rounded-full"
                   ></div>
                 </div>
                 <div className="flex gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+                  {starIcons}
                 </div>
                 <p>70%</p>
               </div>
@@ -153,15 +160,11 @@ const Reviews = ({ rating }) => {
                 <div className="w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ width: "15%" }}
-                    className="h-2 bg-yellow-400 rounded-full"
+                    className="sm:h-1 md:h-2 bg-yellow-400 rounded-full"
                   ></div>
                 </div>
                 <div className="flex gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+                {starIcons}
                 </div>
                 <p>15%</p>
               </div>
@@ -169,15 +172,11 @@ const Reviews = ({ rating }) => {
                 <div className="w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ width: "10%" }}
-                    className="h-2 bg-yellow-400 rounded-full"
+                    className="sm:h-1 md:h-2 bg-yellow-400 rounded-full"
                   ></div>
                 </div>
                 <div className="flex gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+                {starIcons}
                 </div>
                 <p>10%</p>
               </div>
@@ -185,46 +184,126 @@ const Reviews = ({ rating }) => {
                 <div className="w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ width: "3%" }}
-                    className="h-2 bg-yellow-400 rounded-full"
+                    className="sm:h-1 md:h-2 bg-yellow-400 rounded-full"
                   ></div>
                 </div>
                 <div className="flex gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+                {starIcons}
                 </div>
-                <p>3%</p>
+                <p>03%</p>
               </div>
               <div className="flex items-center gap-5">
-                <div className="w-64 bg-gray-200 rounded-full">
+                <div className="sm:w-full md:w-64 bg-gray-200 rounded-full">
                   <div
                     style={{ width: "2%" }}
-                    className="h-2 bg-yellow-400 rounded-full"
+                    className="sm:h-1 md:h-2 bg-yellow-400 rounded-full"
                   ></div>
                 </div>
                 <div className="flex gap-1">
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
-                  <FaStar className="text-yellow-500 text-sm" />
+                {starIcons}
                 </div>
-                <p>2%</p>
+                <p>02%</p>
               </div>
             </div>
           </section>
         </section>
         <section className="px-0" id="product_reviews">
           <div className="sm:mx-2 md:mx-10 sm:my-2 md:my-5">
-            <h1 className="sm:text-xl md:text-2xl text-[#262261] font-semibold">
+            <h1 className="sm:text-[14px] md:text-2xl text-[#262261] font-semibold">
               Reviews
             </h1>
           </div>
 
-          {!reviews.length > 2
-            ? showAllReviews.map((review, index) => (
+          {
+          // showAllReviews 
+          //   ? 
+          //   showAllReviews.map((review, index) => (
+          //       <div
+          //         key={index}
+          //         className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
+          //       >
+          //         <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
+          //           <span className="sm:text-[12px] md:text-lg">
+          //             {review.profile}
+          //           </span>
+          //         </div>
+          //         <div className="flex-grow px-5 py-5">
+          //           <div className="flex  gap-5 mb-2">
+          //             <p className="sm:font-medium sm:text-[14px] md:text-[16px] md:font-bold text-[#262261]">
+          //               {review.name}
+          //             </p>
+          //             <p className="sm:text-[12px] md:text-[16px] text-gray-500">
+          //               {review.days}
+          //             </p>
+          //           </div>
+          //           <div className="flex gap-1 sm:my-2 md:my-4">
+          //           {starIcons}
+          //           </div>
+          //           <p className="mb-2 sm:text-[14px] md:text-[16px] text-[#262261]">
+          //             {review.review}
+          //           </p>
+          //           <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
+          //             {review.text}
+          //           </p>
+          //           <div className="flex items-center">
+          //             {!review.like ? (
+          //               <GoThumbsup
+          //                 onClick={() => handleLike(index)}
+          //                 className="likeIcon text-gray-500  sm:text-[14px] md:text-xl mr-2 cursor-pointer"
+          //               />
+          //             ) : (
+          //               <FaThumbsUp
+          //                 className="likeIcon text-[#4e45c7] sm:text-[14px] md:text-xl mr-2 cursor-pointer"
+          //                 onClick={() => handleLike(index)}
+          //               />
+          //             )}
+          //             <p
+          //               onClick={() => handleLike(index)}
+          //               className="text-gray-500 sm:text-[12px] md:text-[14px] cursor-pointer"
+          //             >
+          //               Like
+          //             </p>
+          //             <div className="flex" onClick={() => handleReply(index)}>
+          //               <FaReply className="text-[#e06d50] sm:text-[14px] md:text-xl sm:ml-2 md:ml-4 cursor-pointer" />
+          //               <p className="text-[#e06d50] ml-2 sm:text-[12px] md:text-[14px] cursor-pointer">
+          //                 Reply
+          //               </p>
+          //             </div>
+          //           </div>
+          //           {!review.showReply && (
+          //             <div className="flex-col items-center mt-4">
+          //               <div className="pl-10 my-2">
+          //                 <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
+          //                   {review.reply}
+          //                 </p>
+          //               </div>
+          //             </div>
+          //           )}
+          //           {review.showReply && (
+          //             <div className="flex-col items-center mt-4">
+          //               <div className="pl-10 my-2">
+          //                 <textarea
+          //                   value={replyText}
+          //                   onChange={(e) => setReplyText(e.target.value)}
+          //                   placeholder="Write your reply..."
+          //                   className="w-full h-20 sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 md:mx-1 rounded-[4px] border border-gray-300"
+          //                 />
+          //               </div>
+          //               <div className="flex justify-end">
+          //                 <button
+          //                   onClick={() => handleReplySubmit(index)}
+          //                   className=" ml-4 sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white py-2 px-4 rounded-[4px]"
+          //                 >
+          //                   Submit
+          //                 </button>
+          //               </div>
+          //             </div>
+          //           )}
+          //         </div>
+          //       </div>
+          //     ))
+          //   :
+             reviews.map((review, index) => (
                 <div
                   key={index}
                   className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
@@ -244,11 +323,7 @@ const Reviews = ({ rating }) => {
                       </p>
                     </div>
                     <div className="flex gap-1 sm:my-2 md:my-4">
-                      <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                      <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                      <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                      <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                      <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
+                    {starIcons}
                     </div>
                     <p className="mb-2 sm:text-[14px] md:text-[16px] text-[#262261]">
                       {review.review}
@@ -313,98 +388,10 @@ const Reviews = ({ rating }) => {
                   </div>
                 </div>
               ))
-            : reviews.map((review, index) => (
-              <div
-              key={index}
-              className="flex items-start justify-start rounded-lg sm:px-2 md:px-20 sm:py-4 md:py-10 sm:mb-1 md:mb-4"
-            >
-              <div className="rounded-full my-5 bg-[#262261] text-white sm:px-3 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center mr-4">
-                <span className="sm:text-[12px] md:text-lg">
-                  {review.profile}
-                </span>
-              </div>
-              <div className="flex-grow px-5 py-5">
-                <div className="flex  gap-5 mb-2">
-                  <p className="sm:font-medium sm:text-[14px] md:text-[16px] md:font-bold text-[#262261]">
-                    {review.name}
-                  </p>
-                  <p className="sm:text-[12px] md:text-[16px] text-gray-500">
-                    {review.days}
-                  </p>
-                </div>
-                <div className="flex gap-1 sm:my-2 md:my-4">
-                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                  <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-                </div>
-                <p className="mb-2 sm:text-[14px] md:text-[16px] text-[#262261]">
-                  {review.review}
-                </p>
-                <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
-                  {review.text}
-                </p>
-                <div className="flex items-center">
-                  {!review.like ? (
-                    <GoThumbsup
-                      onClick={() => handleLike(index)}
-                      className="likeIcon text-gray-500  sm:text-[14px] md:text-xl mr-2 cursor-pointer"
-                    />
-                  ) : (
-                    <FaThumbsUp
-                      className="likeIcon text-[#4e45c7] sm:text-[14px] md:text-xl mr-2 cursor-pointer"
-                      onClick={() => handleLike(index)}
-                    />
-                  )}
-                  <p
-                    onClick={() => handleLike(index)}
-                    className="text-gray-500 sm:text-[12px] md:text-[14px] cursor-pointer"
-                  >
-                    Like
-                  </p>
-                  <div className="flex" onClick={() => handleReply(index)}>
-                    <FaReply className="text-[#e06d50] sm:text-[14px] md:text-xl sm:ml-2 md:ml-4 cursor-pointer" />
-                    <p className="text-[#e06d50] ml-2 sm:text-[12px] md:text-[14px] cursor-pointer">
-                      Reply
-                    </p>
-                  </div>
-                </div>
-                {!review.showReply && (
-                  <div className="flex-col items-center mt-4">
-                    <div className="pl-10 my-2">
-                      <p className="sm:text-[12px] md:text-[16px] text-[#667085] mb-2">
-                        {review.reply}
-                      </p>
-                    </div>
-                  </div>
-                )}
-                {review.showReply && (
-                  <div className="flex-col items-center mt-4">
-                    <div className="pl-10 my-2">
-                      <textarea
-                        value={replyText}
-                        onChange={(e) => setReplyText(e.target.value)}
-                        placeholder="Write your reply..."
-                        className="w-full h-20 sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 md:mx-1 rounded-[4px] border border-gray-300"
-                      />
-                    </div>
-                    <div className="flex justify-end">
-                      <button
-                        onClick={() => handleReplySubmit(index)}
-                        className=" ml-4 sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white py-2 px-4 rounded-[4px]"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-              ))}
+              }
         </section>
         <div className="flex justify-center">
-          {showAllReviews.length > 2 ? (
+          {showAll ? (
             <button
               className="underline text-[#e06d50]"
               onClick={() => handleAllReviews()}
@@ -421,48 +408,57 @@ const Reviews = ({ rating }) => {
           )}
         </div>
 
-<form action="" onSubmit={handleSubmit}>
-        <section className="gap-5 sm:px-4 md:px-20 py-10  mb-2">
-          <div className="flex">
-            <p className="sm:font-semibold md:font-bold sm:text-[16px] md:text-xl text-[#262261]">
-              Write a Review
+          <section className="gap-5 sm:px-4 md:px-20 py-10  mb-2">
+            <div className="flex">
+              <p className="sm:font-semibold md:font-bold sm:text-[16px] md:text-xl text-[#262261]">
+                Write a Review
+              </p>
+            </div>
+            <p className="font-md sm:text-[14px] md:text-[16px] text-[#262261]">
+              What is it to like Product?
             </p>
-          </div>
-          <p className="font-md sm:text-[14px] md:text-[16px] text-[#262261]">
-            What is it to like Product?
-          </p>
-          <div className="flex gap-1 my-4">
-            <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-            <FaStar className="text-yellow-500 sm:text-[12px] md:text-sm" />
-          </div>
-          <p className="my-4 font-md sm:text-[14px] md:text-[16px] sm:font-normal text-[#262261]">
-            Review Title
-          </p>
-          <input
-            type="text"
-            placeholder="Great Product"
-            value={reviewTitle}
-            onChange={(e) => setReviewTitle(e.target.value)}
-            className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
-          />
-          <p className="my-4 font-md sm:text-[14px] md:text-[16px] sm:font-normal text-[#262261]">
-            Review Content
-          </p>
-          <textarea
-            type="area"
-            placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
-            value={reviewContent}
-            onChange={(e) => setReviewContent(e.target.value)}
-            className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
-          />
-          <button type="submit" className="sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white mt-5 sm:px-2 md:px-10 sm:py-2 md:py-3 rounded-[4px]">
-            Submit Review
-          </button>
-        </section>
-</form>
+
+            <div className="flex items-center mb-4">
+              {ratingArray.map((value, index) => (
+                <button
+                  key={index}
+                  className={`mx-1 sm:text-[12px] md:text-[25px] cursor-pointer  ${
+                    value <= ratingStar ? "text-yellow-500" : "text-gray-300"
+                  }`}
+                  onClick={() => setRatingStar(value)}
+                >
+                  &#9733;
+                </button>
+              ))}
+            </div>
+            <p className="my-4 font-md sm:text-[14px] md:text-[16px] sm:font-normal text-[#262261]">
+              Review Title
+            </p>
+            <input
+              type="text"
+              placeholder="Great Product"
+              value={reviewTitle}
+              onChange={(e) => setReviewTitle(e.target.value)}
+              className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
+            />
+            <p className="my-4 font-md sm:text-[14px] md:text-[16px] sm:font-normal text-[#262261]">
+              Review Content
+            </p>
+            <textarea
+              type="area"
+              placeholder="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+              value={reviewContent}
+              onChange={(e) => setReviewContent(e.target.value)}
+              className="w-full sm:text-[12px] md:text-[16px] sm:px-1 md:px-3 sm:py-1 md:py-4 rounded-[4px] border border-gray-300"
+            />
+            <button
+            onClick={handleSubmit}
+              type="submit"
+              className="sm:text-[12px] md:text-[16px] sm:font-normal md:font-bold bg-[#262261] text-white mt-5 sm:px-2 md:px-10 sm:py-2 md:py-3 rounded-[4px]"
+            >
+              Submit Review
+            </button>
+          </section>
       </section>
     </>
   );
